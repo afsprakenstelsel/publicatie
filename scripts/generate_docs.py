@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
-"""Genereer MkDocs markdown-pagina's vanuit TTL-objectbestanden."""
+"""Genereer MkDocs markdown-pagina's en RDF-bestanden vanuit TTL-objectbestanden."""
 
+import shutil
 from pathlib import Path
 import rdflib
 from rdflib.namespace import RDF
@@ -120,10 +121,35 @@ def generate_page(dir_path: Path) -> None:
     print(f"Gegenereerd: {out}")
 
 
+def publish_rdf() -> None:
+    """Kopieer alle TTL-bestanden naar docs/objecten/ en genereer catalogue.ttl."""
+
+    # Losse TTL-bestanden — toegankelijk via /objecten/<map>/<bestand>.ttl
+    dest_root = DOCS_DIR / "objecten"
+    if dest_root.exists():
+        shutil.rmtree(dest_root)
+    shutil.copytree(OBJECTEN_DIR, dest_root)
+    print(f"RDF-bestanden gekopieerd naar {dest_root}/")
+
+    # Gecombineerde catalogus — alle objecten in één bestand
+    catalogue = rdflib.ConjunctiveGraph()
+    for ttl_file in sorted(OBJECTEN_DIR.rglob("*.ttl")):
+        catalogue.parse(str(ttl_file), format="turtle")
+
+    out_ttl = DOCS_DIR / "catalogue.ttl"
+    catalogue.serialize(destination=str(out_ttl), format="turtle")
+    print(f"Gecombineerde catalogus: {out_ttl}")
+
+    out_jsonld = DOCS_DIR / "catalogue.jsonld"
+    catalogue.serialize(destination=str(out_jsonld), format="json-ld", indent=2)
+    print(f"Gecombineerde catalogus: {out_jsonld}")
+
+
 def main():
     for subdir in sorted(OBJECTEN_DIR.iterdir()):
         if subdir.is_dir() and not subdir.name.startswith("."):
             generate_page(subdir)
+    publish_rdf()
 
 
 if __name__ == "__main__":
