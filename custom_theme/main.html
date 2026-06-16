@@ -171,6 +171,24 @@
     .doc-content .toelichting-body ul { margin: 6px 0 6px 18px; list-style: disc; }
     .doc-content .toelichting-body li { margin: 3px 0; }
 
+    /* ── relatiebadges ── */
+    .rel-badges {
+      display: flex; flex-wrap: wrap; gap: 4px; margin-top: 9px;
+    }
+    .rel-badge {
+      display: inline-flex; align-items: center; gap: 5px;
+      font-size: 0.69rem; padding: 3px 8px 3px 6px; border-radius: 5px;
+      text-decoration: none; border: 1px solid #e2e8f0;
+      background: #f8fafc; color: #374151;
+      transition: all 0.13s; white-space: nowrap;
+      max-width: 240px; overflow: hidden; text-overflow: ellipsis;
+    }
+    .rel-badge:hover { background: #eef2ff; border-color: #c7d2fe; color: #4338ca; }
+    .rel-section {
+      font-size: 0.58rem; font-weight: 700; color: #94a3b8;
+      text-transform: uppercase; letter-spacing: 0.07em; flex-shrink: 0;
+    }
+
     /* ── object name + note (voor niet-afspraken) ── */
     .obj-name {
       display: block;
