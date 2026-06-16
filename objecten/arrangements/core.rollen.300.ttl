@@ -5,6 +5,7 @@ obj:dvp-server-gebruikt-n-frontchannel-node-uit-ocl a medmij:Arrangement,
         medmij:Object ;
     medmij:arrangementText """
 In het MedMij-netwerk functioneert:
+
 - iedere rol uit de applicatie-laag op één of meer Frontchannel en/of Backchannel Nodes;
 - elke DVP Server voor al diens frontchannel-verkeer op één Frontchannel Node, met een hostname die voor die DVP Server voorkomt op de OAuth Client List;
 - MedMij Registratie op precies één node, de Stelselnode. Zonder de MedMij Stelselnode is er geen MedMij-netwerk.

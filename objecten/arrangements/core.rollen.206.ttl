@@ -5,6 +5,7 @@ obj:oauth-2-0-authorization-code-als-grant-type a medmij:Arrangement,
         medmij:Object ;
     medmij:arrangementText """
 Een aanpassing - Ten behoeve van het autoriseren van DVP Server voor toegang tot Resource Server, in het kader van de functies Verzamelen en Delen, zullen de betrokken User Agent, DVP Server, Authorization Server en Resource Server gebruik maken van OAuth 2.0, waarbij als grant type gebruik wordt gemaakt van Authorization Code en waarbij:
+
 - de rol van OAuth Resource Owner wordt verzorgd door de Persoon;
 - de rol van OAuth Client wordt verzorgd door de DVP Server;
 - de rol van OAuth Resource Server wordt verzorgd door de Resource Server;

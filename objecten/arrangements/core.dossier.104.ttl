@@ -5,6 +5,7 @@ obj:persoon-kan-medmij-inhoud-traceren-in-dossier a medmij:Arrangement,
         medmij:Object ;
     medmij:arrangementText """
 In het kader van de functie Raadplegen dossier zal Persoon te allen tijde moeten kunnen nagaan:
+
 - welke inhoud van het Dossier wel, en welke niet, via MedMij-verkeer van Dienstverlener aanbieder is betrokken van welke Aanbieder, en sindsdien niet is veranderd;
 - welke inhoud van het Dossier wel, en welke niet, via MedMij-verkeer bij Dienstverlener aanbieder is geplaatst ten behoeve van welke Aanbieder.
 """ ;

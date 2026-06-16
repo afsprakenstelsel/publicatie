@@ -5,11 +5,14 @@ obj:definitie-medmij-verkeer a medmij:Arrangement,
         medmij:Object ;
     medmij:arrangementText """
 Als MedMij-verkeer is gedefinieerd: al het gegevensverkeer in het kader van enige functie-implementatie, onmiddellijk tussen twee verschillende van de vier volgende soorten rollen, namelijk:
+
 - ten eerste DVP Server,
 - ten tweede User Agent,
 - ten derde Authorization Server of Resource Server en
 - ten vierde MedMij Registratie,
+
 met dien verstande dat:
+
 - in deze rollen telkens begrepen zijn de door hen eventueel verzorgde respectievelijke Autorisatie-rollen,
 - van deze rollen telkens uitgesloten zijn de door hen eventueel verzorgde Authenticatie-rollen, en
 - in deze rollen, met betrekking tot de functie-implementaties, telkens inbegrepen zijn de Nodes waarop zij functioneren.

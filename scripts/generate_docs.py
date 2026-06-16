@@ -3,6 +3,7 @@
 
 import shutil
 from pathlib import Path
+import markdown
 import rdflib
 from rdflib.namespace import RDF
 
@@ -82,14 +83,18 @@ def html_escape(text: str) -> str:
     )
 
 
+def render_md(text: str) -> str:
+    return markdown.markdown(text.strip()).replace("\n", "")
+
+
 # ── cel-renderers ─────────────────────────────────────────────────────────────
 
 def text_cell(arrangement_text: str, toelichting: str) -> str:
-    parts = [html_escape(arrangement_text)]
+    parts = [render_md(arrangement_text)]
     if toelichting:
         parts.append(
             f"<details><summary>{_INFO_SVG}Toelichting</summary>"
-            f"<div class='toelichting-body'>{html_escape(toelichting)}</div>"
+            f"<div class='toelichting-body'>{render_md(toelichting)}</div>"
             "</details>"
         )
     return "".join(parts)

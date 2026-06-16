@@ -11,8 +11,10 @@ obj:ocl-bevat-per-dvp-server-alleen-de-frontchannel-node a medmij:Arrangement,
     medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> ;
     medmij:toelichting """
 Conform het bepaalde onder core.rollen.300, mag een DVP Server meerdere Nodes gebruiken, maar mag de DVP Server maar één Node gebruiken voor al haar frontchannelverkeer, namelijk op het authorization interface. De inhoud van de OAuth Client List wordt alleen gebruikt op dat authorization interface, voor twee doelen:
+
 - het kennisnemen van de Gegevensdiensten waarop de DVP Server is erkend, zodat de Authorization Server een authorization request kan weigeren wanneer de DVP Server niet is erkend op de Gegevensdienst waarvoor hij autorisatie vraagt;
 - het kennisnemen van de naam van de Dienstverlener persoon die moet verschijnen in de Toestemmingsverklaring en de Bevestigingsverklaring.
+
 Daarom hoeft, voor een DVP Server, in de OAuth Client List alleen die ene Node te worden opgenomen die deze DVP Server voor haar frontchannelverkeer gebruikt.
 """ .
 
