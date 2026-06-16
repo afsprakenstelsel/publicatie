@@ -95,6 +95,25 @@ push naar main
 De gepubliceerde site is binnen circa één minuut beschikbaar op:  
 **https://afsprakenstelsel.github.io/publicatie/**
 
+### RDF-ontsluiting
+
+Naast de HTML-documentatiesite worden de objecten bij elke deploy ook als RDF gepubliceerd.
+
+**Losse TTL-bestanden** — elk object afzonderlijk opvraagbaar:
+```
+https://afsprakenstelsel.github.io/publicatie/objecten/<map>/<bestand>.ttl
+```
+Voorbeeld:
+```
+https://afsprakenstelsel.github.io/publicatie/objecten/arrangements/core.rollen.206.ttl
+```
+
+**Gecombineerde catalogus** — alle objecten in één download:
+```
+https://afsprakenstelsel.github.io/publicatie/catalogue.ttl
+https://afsprakenstelsel.github.io/publicatie/catalogue.jsonld
+```
+
 ### Objectmappen
 
 | Map | Objectklasse | Omschrijving |
