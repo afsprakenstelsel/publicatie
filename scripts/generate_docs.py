@@ -28,8 +28,21 @@ DIR_TITLES = {
 }
 
 
-def cell(text: str) -> str:
-    return text.strip().replace("\n", " ").replace("|", "\\|")
+def escape(text: str) -> str:
+    return text.strip().replace("|", "\\|")
+
+
+def text_cell(arrangement_text: str, toelichting: str) -> str:
+    """Bouw een tabelcel met arrangementText en optioneel een inklapbare toelichting."""
+    parts = [escape(arrangement_text).replace("\n", " ")]
+    if toelichting:
+        detail = escape(toelichting).replace("\n", " ")
+        parts.append(
+            f'<details><summary>Toelichting</summary>'
+            f'<div style="margin-left:1em">{detail}</div>'
+            f'</details>'
+        )
+    return " ".join(parts)
 
 
 def parse_object(ttl_file: Path) -> dict | None:
@@ -47,8 +60,8 @@ def parse_object(ttl_file: Path) -> dict | None:
     subj = subjects[0]
     return {
         "code": val(subj, MEDMIJ.code),
-        "mappingNote": val(subj, MEDMIJ.mappingNote),
         "arrangementText": val(subj, MEDMIJ.arrangementText),
+        "toelichting": val(subj, MEDMIJ.toelichting),
     }
 
 
@@ -67,13 +80,13 @@ def generate_page(dir_path: Path) -> None:
     lines = [
         f"# {title}",
         "",
-        "| Code | Toelichting | Tekst |",
+        "| # | Tekst | Code |",
         "| --- | --- | --- |",
     ]
-    for row in rows:
-        lines.append(
-            f"| {cell(row['code'])} | {cell(row['mappingNote'])} | {cell(row['arrangementText'])} |"
-        )
+    for i, row in enumerate(rows, start=1):
+        tekst = text_cell(row["arrangementText"], row["toelichting"])
+        code = escape(row["code"])
+        lines.append(f"| {i} | {tekst} | {code} |")
 
     out = DOCS_DIR / dir_path.name / "index.md"
     out.parent.mkdir(parents=True, exist_ok=True)
