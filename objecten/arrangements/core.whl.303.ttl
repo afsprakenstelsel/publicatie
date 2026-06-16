@@ -1,0 +1,16 @@
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj:    <https://register.medmij.nl/objects/> .
+
+obj:medmij-registratie-heeft-stelselnode-medmij-nl-als-hostname
+    a medmij:Object, medmij:Arrangement ;
+    medmij:elementName "MedMij Registratie heeft stelselnode.medmij.nl als hostname" ;
+    medmij:code "core.whl.303" ;
+    medmij:objectClass medmij:Arrangement ;
+    medmij:layer "Technologie" ;
+    medmij:mappingNote "Vaste hostname zodat Backchannel Nodes in foutsituaties Whitelist kunnen ophalen." ;
+    medmij:arrangementText "MedMij Registratie heeft stelselnode.medmij.nl als hostname." ;
+    medmij:toelichting "Door op deze manier de MedMij Stelselnode te autoriseren voor MedMij-verkeer wordt ervoor gezorgd dat ook in foutsituaties of bootstrap-situaties een Backchannel Node de MedMij Stelselnode kan aanspreken om een Whitelist op te halen." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .

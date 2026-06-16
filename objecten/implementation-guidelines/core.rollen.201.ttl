@@ -1,0 +1,13 @@
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj:    <https://register.medmij.nl/objects/> .
+
+obj:toelichting-rolbezetting-black-box-principe
+    a medmij:Object, medmij:ImplementationGuideline ;
+    medmij:elementName "Toelichting rolbezetting (black box-principe)" ;
+    medmij:code "core.rollen.201" ;
+    medmij:objectClass medmij:ImplementationGuideline ;
+    medmij:layer "Business" ;
+    medmij:mappingNote "Uitleg dat xIS-architectuur achter de Node een black box is voor het afsprakenstelsel." .

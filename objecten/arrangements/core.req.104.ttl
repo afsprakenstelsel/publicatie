@@ -1,0 +1,15 @@
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj:    <https://register.medmij.nl/objects/> .
+
+obj:medmij-beheer-past-uitwisselingsstatus-aan
+    a medmij:Object, medmij:Arrangement ;
+    medmij:elementName "MedMij Beheer past uitwisselingsstatus aan" ;
+    medmij:code "core.req.104" ;
+    medmij:objectClass medmij:Arrangement ;
+    medmij:layer "Business" ;
+    medmij:mappingNote "Enige partij die uitwisselingsstatus kan aanpassen; op basis van DAP-normen." ;
+    medmij:arrangementText "MedMij Beheer kan als enige partij de uitwisselingsstatus van een aanbieder of de bij de Aanbieder behorende gegevensdiensten aanpassen. MedMij Beheer baseert de keuze tot wijziging op de normen die in de DAP of specifieke bijlagen beschreven staan." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .

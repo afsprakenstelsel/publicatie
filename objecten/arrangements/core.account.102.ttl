@@ -1,0 +1,15 @@
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj:    <https://register.medmij.nl/objects/> .
+
+obj:account-wordt-actief-bij-hergebruik-persoon
+    a medmij:Object, medmij:Arrangement ;
+    medmij:elementName "Account wordt actief bij hergebruik Persoon" ;
+    medmij:code "core.account.102" ;
+    medmij:objectClass medmij:Arrangement ;
+    medmij:layer "Business" ;
+    medmij:mappingNote "DVP herstelt status 'actief' zodra Persoon account weer gebruikt." ;
+    medmij:arrangementText "De dienstverlener persoon geeft een inactief account de status 'actief' zodra de Persoon weer gebruikmaakt van het account." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .

@@ -1,0 +1,16 @@
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj:    <https://register.medmij.nl/objects/> .
+
+obj:qual-dataset
+    a medmij:Object, medmij:QualificationRule ;
+    medmij:elementName "Kwalificatieregel DataSet" ;
+    medmij:code "—" ;
+    medmij:objectClass medmij:QualificationRule ;
+    medmij:layer "—" ;
+    medmij:mappingNote "Versie van informatiemodel/FHIR-profiel; onderdeel van Service." ;
+    medmij:forClass medmij:DataSet ;
+    medmij:qualificationLevel "—" ;
+    medmij:versioned true^^xsd:boolean .

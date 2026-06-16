@@ -1,0 +1,13 @@
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj:    <https://register.medmij.nl/objects/> .
+
+obj:resource-endpoint-per-aanbiedergegevensdienst
+    a medmij:Object, medmij:DataResource ;
+    medmij:elementName "Resource endpoint (per AanbiederGegevensdienst)" ;
+    medmij:code "(core.verzamelen/delen.*)" ;
+    medmij:objectClass medmij:DataResource ;
+    medmij:layer "Technologie" ;
+    medmij:mappingNote "Het adres van de Resource Server voor het feitelijk ophalen of versturen van gezondheidsgegevens." .

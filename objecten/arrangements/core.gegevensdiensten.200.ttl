@@ -1,0 +1,16 @@
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj:    <https://register.medmij.nl/objects/> .
+
+obj:dvp-server-auth-server-en-resource-server-implementeren-gegevensdienst
+    a medmij:Object, medmij:Arrangement ;
+    medmij:elementName "DVP Server, Auth.Server en Resource Server implementeren Gegevensdienst" ;
+    medmij:code "core.gegevensdiensten.200" ;
+    medmij:objectClass medmij:Arrangement ;
+    medmij:layer "Applicatie" ;
+    medmij:mappingNote "Juiste functie-implementaties en informatiestandaarden conform Catalogus; conformiteit borgt interoperabiliteit." ;
+    medmij:arrangementText "Als een Dienstverleners persoon een zekere Gegevensdienst ontsluit ten behoeve van zijn Personen en daartoe laat leveren door een Dienstverlener aanbieder, zullen de DVP Server van die Dienstverlener persoon en de Authorization Server en Resource Server van die Dienstverlener aanbieder daarvoor de bij de Gegevensdienst horende functie implementeren en de bij de Gegevensdienst horende Systeemrollen gebruiken, zoals deze in de Catalogus zijn opgenomen, en zich daarbij conformeren aan de specificaties van die Systeemrollen zoals die zijn gepubliceerd op de plaats(en) waarnaar de Catalogus verwijst." ;
+    medmij:toelichting "Zo wordt geborgd dat de juiste functie-implementaties en informatiestandaarden worden gebruikt. Ook wordt het correcte gebruik geborgd, wat bijdraagt aan interoperabiliteit en vertrouwen." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .

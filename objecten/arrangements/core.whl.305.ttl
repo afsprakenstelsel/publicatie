@@ -1,0 +1,15 @@
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj:    <https://register.medmij.nl/objects/> .
+
+obj:whitelist-verkeer-beveiligd-met-versleuteling-server-auth
+    a medmij:Object, medmij:Arrangement ;
+    medmij:elementName "Whitelist-verkeer beveiligd met Versleuteling + Server Auth" ;
+    medmij:code "core.whl.305" ;
+    medmij:objectClass medmij:Arrangement ;
+    medmij:layer "Technologie" ;
+    medmij:mappingNote "Opvragen Whitelist gebruikt Versleuteling, Server Authentication en Server Authorization." ;
+    medmij:arrangementText "Ten behoeve van de technische beveiliging van het gegevensverkeer, dat zich voltrekt in het kader van de functie Opvragen Whitelist, maken betrokken rollen gebruik van Versleuteling, Server Authentication en Server Authorization." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .

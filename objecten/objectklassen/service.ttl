@@ -1,0 +1,17 @@
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj:    <https://register.medmij.nl/objects/> .
+
+obj:class-service
+    a medmij:Object, medmij:ObjectClass ;
+    medmij:elementName "Gegevensdienst" ;
+    medmij:code "—" ;
+    medmij:objectClass medmij:ObjectClass ;
+    medmij:layer "—" ;
+    medmij:mappingNote "Concreet aangeboden functie voor gegevensuitwisseling waarvoor een DVA zich kwalificeert." ;
+    medmij:classCode "Service" ;
+    medmij:dutchName "Gegevensdienst" ;
+    medmij:definition "Een concreet aangeboden functie voor gegevensuitwisseling tussen DVA en DVP, waarvoor een DVA zich kwalificeert." ;
+    medmij:examples "Verzamelen, Delen, Abonneren, Beheren Toestemmingen" .

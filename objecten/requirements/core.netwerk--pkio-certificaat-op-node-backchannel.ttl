@@ -1,0 +1,13 @@
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj:    <https://register.medmij.nl/objects/> .
+
+obj:pkio-certificaat-op-node-backchannel
+    a medmij:Object, medmij:Requirement ;
+    medmij:elementName "PKIO-certificaat op Node (backchannel)" ;
+    medmij:code "(core.netwerk.*)" ;
+    medmij:objectClass medmij:Requirement ;
+    medmij:layer "Technologie" ;
+    medmij:mappingNote "Wederzijdse TLS-authenticatie met overheids-PKI-certificaat." .

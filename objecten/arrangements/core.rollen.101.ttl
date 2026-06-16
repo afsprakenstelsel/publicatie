@@ -1,0 +1,15 @@
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj:    <https://register.medmij.nl/objects/> .
+
+obj:deelnemer-speelt-dvp-en-of-dva
+    a medmij:Object, medmij:Arrangement ;
+    medmij:elementName "Deelnemer speelt DVP en/of DVA" ;
+    medmij:code "core.rollen.101" ;
+    medmij:objectClass medmij:Arrangement ;
+    medmij:layer "Business" ;
+    medmij:mappingNote "Een Deelnemer neemt minimaal één serviceverlenersrol op zich; elke dienstverlener door één Deelnemer." ;
+    medmij:arrangementText "Een Deelnemer neemt de functionele rol van Dienstverlener persoon en/of Dienstverlener aanbieder op zich. Hierbij speelt één Deelnemer één of meerdere dienstverleners en wordt elke dienstverlener gespeeld door één Deelnemer." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .

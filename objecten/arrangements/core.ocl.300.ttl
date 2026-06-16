@@ -1,0 +1,21 @@
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj:    <https://register.medmij.nl/objects/> .
+
+obj:ocl-bevat-per-dvp-server-alleen-de-frontchannel-node
+    a medmij:Object, medmij:Arrangement ;
+    medmij:elementName "OCL bevat per DVP Server alleen de Frontchannel Node" ;
+    medmij:code "core.ocl.300" ;
+    medmij:objectClass medmij:Arrangement ;
+    medmij:layer "Technologie" ;
+    medmij:mappingNote "Alleen de Node voor frontchannelverkeer opgenomen; gebruikt voor autorization-interface validatie en DVP-naam in Toestemmingsverklaring." ;
+    medmij:arrangementText "De OAuth Client List bevat voor elke DVP Server alleen die Node waarmee de betreffende DVP Server het frontchannelverkeer afhandelt." ;
+    medmij:toelichting """
+Conform het bepaalde onder core.rollen.300, mag een DVP Server meerdere Nodes gebruiken, maar mag de DVP Server maar één Node gebruiken voor al haar frontchannelverkeer, namelijk op het authorization interface. De inhoud van de OAuth Client List wordt alleen gebruikt op dat authorization interface, voor twee doelen:
+- het kennisnemen van de Gegevensdiensten waarop de DVP Server is erkend, zodat de Authorization Server een authorization request kan weigeren wanneer de DVP Server niet is erkend op de Gegevensdienst waarvoor hij autorisatie vraagt;
+- het kennisnemen van de naam van de Dienstverlener persoon die moet verschijnen in de Toestemmingsverklaring en de Bevestigingsverklaring.
+Daarom hoeft, voor een DVP Server, in de OAuth Client List alleen die ene Node te worden opgenomen die deze DVP Server voor haar frontchannelverkeer gebruikt.
+""" ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .

@@ -1,0 +1,16 @@
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj:    <https://register.medmij.nl/objects/> .
+
+obj:medmij-beheer-neemt-dva-op-in-aanbiederslijst-na-toetsing
+    a medmij:Object, medmij:Arrangement ;
+    medmij:elementName "MedMij Beheer neemt DVA op in Aanbiederslijst na toetsing" ;
+    medmij:code "core.gegevensdiensten.102" ;
+    medmij:objectClass medmij:Arrangement ;
+    medmij:layer "Business" ;
+    medmij:mappingNote "Opname alleen als DVA voldoet aan DAP-eisen voor de betreffende Gegevensdienst." ;
+    medmij:arrangementText "MedMij Beheer zal alleen in de Aanbiederslijst opnemen dat een zekere Gegevensdienst door een zekere Aanbieder via een Dienstverlener aanbieder wordt aangeboden, indien zij (Stichting MedMij) heeft vastgesteld dat de Dienstverlener aanbieder voldoet aan de specifiek op die Gegevensdienst toepasselijke eisen en de normen die staan beschreven in de DAP en aanverwante documenten." ;
+    medmij:toelichting "De Dienstverlener aanbieder heeft minimaal één Aanbieder nodig om zich te kwalificeren in het MedMij Afsprakenstelsel voor een informatiestandaard." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .

@@ -1,0 +1,16 @@
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj:    <https://register.medmij.nl/objects/> .
+
+obj:dva-levert-alle-gegevensdiensten-uit-aanbiederslijst
+    a medmij:Object, medmij:Arrangement ;
+    medmij:elementName "DVA levert alle Gegevensdiensten uit Aanbiederslijst" ;
+    medmij:code "core.gegevensdiensten.103" ;
+    medmij:objectClass medmij:Arrangement ;
+    medmij:layer "Business" ;
+    medmij:mappingNote "DVA levert elke opgenomen Gegevensdienst zonder onderscheid naar DVP; inclusief vereiste diensten uit Catalogus." ;
+    medmij:arrangementText "Voor elke Gegevensdienst waarvan de Aanbiederslijst aangeeft dat een zekere Aanbieder deze aanbiedt, zal een Dienstverlener aanbieder ervoor zorgdragen dat die Gegevensdienst ook geleverd wordt. Daarbij wordt geen enkel onderscheid gemaakt tussen Dienstverleners persoon, tenzij het MedMij Afsprakenstelsel daartoe uitdrukkelijk verplicht. Dit geldt ook voor de mogelijke andere Gegevensdienst(en) die in de Catalogus staan genoemd als Vereist bij eerstgenoemde Gegevensdienst." ;
+    medmij:toelichting "Net als verantwoordelijkheid core.gegevensdiensten.102, moet ook vanuit deze verantwoordelijkheid rekening gehouden worden met de afhankelijkheid tussen de Dienstverlener aanbieder en de Aanbieder. Deze regel legt de verantwoordelijkheid bij de Dienstverlener aanbieder voor het zorgdragen dat de Aanbieder met wie hij een dienstverleningsovereenkomst heeft, ook de Gegevensdienst levert die hij toegezegd heeft." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .

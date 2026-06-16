@@ -1,0 +1,17 @@
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj:    <https://register.medmij.nl/objects/> .
+
+obj:comp-whitelist-whl--stelselnode-endpoints-zal-ocl-gnl-whl
+    a medmij:Object, medmij:ObjectComponent ;
+    medmij:elementName "Whitelist (WHL) bevat Stelselnode Endpoints (ZAL/OCL/GNL/WHL)" ;
+    medmij:code "—" ;
+    medmij:objectClass medmij:ObjectComponent ;
+    medmij:layer "—" ;
+    medmij:mappingNote "WHL bevat de endpoints van MedMij Registratie (Stelselnode)." ;
+    medmij:whole obj:whitelist-whl ;
+    medmij:wholeClass medmij:Dataproduct ;
+    medmij:component obj:stelselnode-endpoints-zal-ocl-gnl-whl ;
+    medmij:componentClass medmij:Dataresource .

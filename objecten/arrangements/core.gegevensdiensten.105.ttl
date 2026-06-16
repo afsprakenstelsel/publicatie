@@ -1,0 +1,15 @@
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj:    <https://register.medmij.nl/objects/> .
+
+obj:stichting-medmij-kan-registraties-verwijderen-bij-niet-functioneren
+    a medmij:Object, medmij:Arrangement ;
+    medmij:elementName "Stichting MedMij kan registraties verwijderen bij niet-functioneren" ;
+    medmij:code "core.gegevensdiensten.105" ;
+    medmij:objectClass medmij:Arrangement ;
+    medmij:layer "Business" ;
+    medmij:mappingNote "Recht op verwijdering als uitwisseling niet mogelijk is of ketennormen worden geschonden." ;
+    medmij:arrangementText "In aansluiting op verantwoordelijkheid core.gegevensdiensten.102 heeft Stichting MedMij het recht registraties van Aanbieder-gegevensdienst-combinaties te verwijderen als blijkt dat uitwisseling voor deze combinatie niet mogelijk is, of dat voor deze combinatie niet wordt voldaan aan de normen die staan beschreven in het Ketennormenbeleid." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .

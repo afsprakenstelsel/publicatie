@@ -1,0 +1,15 @@
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj:    <https://register.medmij.nl/objects/> .
+
+obj:dva-verifieert-bevestiging-persoon-v-r-delen
+    a medmij:Object, medmij:Arrangement ;
+    medmij:elementName "DVA verifieert Bevestiging Persoon vóór Delen" ;
+    medmij:code "core.autorisatie.101" ;
+    medmij:objectClass medmij:Arrangement ;
+    medmij:layer "Business" ;
+    medmij:mappingNote "Elke keer opnieuw: uitdrukkelijke Bevestiging Persoon vereist; geldig voor één doorloping van Delen." ;
+    medmij:arrangementText "Dienstverlener aanbieder vergewist zich ervan, elke keer opnieuw voordat hij Persoon gezondheidsinformatie ten behoeve van Aanbieder laat plaatsen, dat deze Persoon uitdrukkelijk heeft bevestigd om de in de Gegevensdienst betrokken gezondheidsinformatie aan Aanbieder ter beschikking te willen stellen. De vraag om Bevestiging heeft een vaste formulering, die is opgenomen in de functie Delen. Deze bevestiging geldt niet buiten één doorloping van de functie Delen." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .

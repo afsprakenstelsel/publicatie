@@ -1,0 +1,17 @@
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj:    <https://register.medmij.nl/objects/> .
+
+obj:comp-authorization-server--oauth-2-0-rfc-6749
+    a medmij:Object, medmij:ObjectComponent ;
+    medmij:elementName "Authorization Server implementeert OAuth 2.0 (RFC 6749)" ;
+    medmij:code "—" ;
+    medmij:objectClass medmij:ObjectComponent ;
+    medmij:layer "—" ;
+    medmij:mappingNote "Authorization Server implementeert OAuth Authorization Server-rol." ;
+    medmij:whole obj:authorization-server ;
+    medmij:wholeClass medmij:Component ;
+    medmij:component obj:oauth-2-0-rfc-6749 ;
+    medmij:componentClass medmij:Specification .

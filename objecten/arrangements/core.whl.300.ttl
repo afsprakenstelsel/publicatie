@@ -1,0 +1,15 @@
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj:    <https://register.medmij.nl/objects/> .
+
+obj:medmij-stelselnode-biedt-opvragen-whitelist-aan-nodes
+    a medmij:Object, medmij:Arrangement ;
+    medmij:elementName "MedMij Stelselnode biedt Opvragen Whitelist aan Nodes" ;
+    medmij:code "core.whl.300" ;
+    medmij:objectClass medmij:Arrangement ;
+    medmij:layer "Technologie" ;
+    medmij:mappingNote "Stelselnode biedt Nodes de mogelijkheid om Whitelist op te vragen." ;
+    medmij:arrangementText "De MedMij Stelselnode biedt aan Nodes de functie Opvragen Whitelist om de actuele versie van de Whitelist op te vragen. Betrokken rollen gebruiken hiervoor het betreffende stroomdiagram." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .

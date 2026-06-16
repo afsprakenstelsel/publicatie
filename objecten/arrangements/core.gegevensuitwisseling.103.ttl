@@ -1,0 +1,15 @@
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj:    <https://register.medmij.nl/objects/> .
+
+obj:automatisch-verzamelen-alleen-voor-actieve-accounts
+    a medmij:Object, medmij:Arrangement ;
+    medmij:elementName "Automatisch verzamelen alleen voor actieve accounts" ;
+    medmij:code "core.gegevensuitwisseling.103" ;
+    medmij:objectClass medmij:Arrangement ;
+    medmij:layer "Business" ;
+    medmij:mappingNote "DVP mag geen geautomatiseerde uitwisseling doen voor inactieve accounts." ;
+    medmij:arrangementText "De Dienstverlener persoon mag alleen geautomatiseerd gegevens verzamelen voor actieve accounts." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .

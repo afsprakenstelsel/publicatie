@@ -1,0 +1,16 @@
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj:    <https://register.medmij.nl/objects/> .
+
+obj:negatieve-whitelist-controle-stroom-afgebroken-geen-melding
+    a medmij:Object, medmij:Arrangement ;
+    medmij:elementName "Negatieve Whitelist-controle: stroom afgebroken, geen melding" ;
+    medmij:code "core.whl.309" ;
+    medmij:objectClass medmij:Arrangement ;
+    medmij:layer "Technologie" ;
+    medmij:mappingNote "Bij niet-slagen Whitelist-controle wordt voortgang gestopt; tegenpartij niet geïnformeerd." ;
+    medmij:arrangementText "Indien een Whitelist-controle, in het kader van verantwoordelijkheid core.whl.307 en core.whl.308, niet kan worden uitgevoerd, of een negatief resultaat oplevert, breekt dit de voortgang af van de uitvoering van de functie en stellen de betrokken Applicatie-rollen elkaar hiervan niet op de hoogte." ;
+    medmij:toelichting "Omdat het niet slagen van de Whitelist-controle duidt op een niet te vertrouwen tegenpartij, wordt deze daarvan niet op de hoogte gesteld." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .

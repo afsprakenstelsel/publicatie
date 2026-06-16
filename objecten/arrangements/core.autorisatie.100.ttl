@@ -1,0 +1,19 @@
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj:    <https://register.medmij.nl/objects/> .
+
+obj:dva-verifieert-toestemming-persoon-v-r-verzamelen
+    a medmij:Object, medmij:Arrangement ;
+    medmij:elementName "DVA verifieert Toestemming Persoon vóór Verzamelen" ;
+    medmij:code "core.autorisatie.100" ;
+    medmij:objectClass medmij:Arrangement ;
+    medmij:layer "Business" ;
+    medmij:mappingNote "Elke keer opnieuw: uitdrukkelijke Toestemming Persoon vereist; geldig voor sessie of 6 maanden (langdurig)." ;
+    medmij:arrangementText """
+Dienstverlener aanbieder vergewist zich ervan, elke keer opnieuw voordat hij Persoon gezondheidsinformatie van Aanbieder laat verzamelen door middel van de functie Verzamelen, dat deze Persoon uitdrukkelijk Toestemming heeft gegeven aan Aanbieder om de in de Gegevensdienst betrokken gezondheidsinformatie aan Dienstverlener persoon ter beschikking te laten stellen. De vraag om Toestemming heeft een vaste formulering, die is opgenomen in de functie Autoriseren. Deze Toestemming is:
+- geldig voor de huidige sessie, of
+- bij langdurige toestemming geldig voor onbepaalde tijd, mits minimaal één keer per 6 maanden gebruikgemaakt wordt van de toestemming en deze niet ingetrokken is.
+""" ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .

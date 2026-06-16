@@ -1,0 +1,16 @@
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj:    <https://register.medmij.nl/objects/> .
+
+obj:medmij-beheer-beheert-en-publiceert-aanbiederslijst
+    a medmij:Object, medmij:Arrangement ;
+    medmij:elementName "MedMij Beheer beheert en publiceert Aanbiederslijst" ;
+    medmij:code "core.alst.100" ;
+    medmij:objectClass medmij:Arrangement ;
+    medmij:layer "Business" ;
+    medmij:mappingNote "Aanbiederslijst bevat alle actuele Aanbieders met Gegevensdiensten en endpoints per Interfaceversie." ;
+    medmij:arrangementText "MedMij Beheer beheert en publiceert een Aanbiederslijst, namens de deelnemende Dienstverlener aanbieder. De gepubliceerde Aanbiederslijst bevat steeds en slechts alle actuele entries, en beschrijft van elke Aanbieder: welke Gegevensdiensten deze momenteel aanbiedt, en welke technische adressen daarvoor moeten worden aangesproken bij de Dienstverlener aanbieder, gegeven een zekere Interfaceversie." ;
+    medmij:toelichting "Deze afspraak wijst MedMij Beheer de verantwoordelijkheid toe om ten behoeve van alle Dienstverleners persoon een lijst te verspreiden van Aanbieders en de door hen aangeboden Gegevensdiensten. Zonder deze functie zou het stelsel niet functioneren." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .

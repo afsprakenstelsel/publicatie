@@ -1,0 +1,13 @@
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj:    <https://register.medmij.nl/objects/> .
+
+obj:whitelist-whl
+    a medmij:Object, medmij:DataProduct ;
+    medmij:elementName "Whitelist (WHL)" ;
+    medmij:code "(core.whl.*)" ;
+    medmij:objectClass medmij:DataProduct ;
+    medmij:layer "Technologie" ;
+    medmij:mappingNote "Bevat actieve Nodes in het MedMij-netwerk; opgehaald door DVP en DVA." .

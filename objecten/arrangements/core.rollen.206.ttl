@@ -1,0 +1,22 @@
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj:    <https://register.medmij.nl/objects/> .
+
+obj:oauth-2-0-authorization-code-als-grant-type
+    a medmij:Object, medmij:Arrangement ;
+    medmij:elementName "OAuth 2.0 Authorization Code als grant type" ;
+    medmij:code "core.rollen.206" ;
+    medmij:objectClass medmij:Arrangement ;
+    medmij:layer "Applicatie" ;
+    medmij:mappingNote "User Agent, DVP Server, Authorization Server en Resource Server gebruiken OAuth 2.0 Authorization Code." ;
+    medmij:arrangementText """
+Ten behoeve van het autoriseren van DVP Server voor toegang tot Resource Server, in het kader van de functies Verzamelen en Delen, zullen de betrokken User Agent, DVP Server, Authorization Server en Resource Server gebruik maken van OAuth 2.0, waarbij als grant type gebruik wordt gemaakt van Authorization Code en waarbij:
+- de rol van OAuth Resource Owner wordt verzorgd door de Persoon;
+- de rol van OAuth Client wordt verzorgd door de DVP Server;
+- de rol van OAuth Resource Server wordt verzorgd door de Resource Server;
+- de rol van OAuth Authorization Server wordt verzorgd door de Authorization Server.
+""" ;
+    medmij:toelichting "De keuze, in OAuth, voor de grant type Authorization Code past bij de typische software-architectuur die in MedMij in het Persoonsdomein wordt aangetroffen: toegang tot een PGO-dienst via componenten die niet onder controle van de OAuth Client vallen en als betrekkelijk onveilig moeten worden gezien." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .

@@ -1,0 +1,17 @@
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj:    <https://register.medmij.nl/objects/> .
+
+obj:class-dataresource
+    a medmij:Object, medmij:ObjectClass ;
+    medmij:elementName "Gegevensbron / endpoint" ;
+    medmij:code "—" ;
+    medmij:objectClass medmij:ObjectClass ;
+    medmij:layer "—" ;
+    medmij:mappingNote "Individuele, adresseerbare gegevensbron of API-endpoint opgenomen in een dataproduct." ;
+    medmij:classCode "DataResource" ;
+    medmij:dutchName "Gegevensbron / endpoint" ;
+    medmij:definition "Een individuele, adresseerbare gegevensbron of API-endpoint waarvan de locatie in een dataproduct is opgenomen." ;
+    medmij:examples "Authorization endpoint, Token endpoint, Resource endpoint (per AanbiederGegevensdienst)" .

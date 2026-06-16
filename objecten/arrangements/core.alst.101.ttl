@@ -1,0 +1,16 @@
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj:    <https://register.medmij.nl/objects/> .
+
+obj:medmij-beheer-publiceert-unieke-aanbiedersnamen
+    a medmij:Object, medmij:Arrangement ;
+    medmij:elementName "MedMij Beheer publiceert unieke Aanbiedersnamen" ;
+    medmij:code "core.alst.101" ;
+    medmij:objectClass medmij:Arrangement ;
+    medmij:layer "Business" ;
+    medmij:mappingNote "Aanbiedersnamen in formaat <aanbieder>@medmij; naamgevingsbeleid van toepassing." ;
+    medmij:arrangementText "MedMij Beheer beheert en publiceert, in de Aanbiederslijst, unieke en gebruikersvriendelijke namen van Aanbieders, van het formaat <aanbieder>@medmij. Daarop is naamgevingsbeleid van toepassing." ;
+    medmij:toelichting "Aanbieders kunnen in hun directe of indirecte contact met Personen deze naam meegeven als hun 'MedMij-naam'. MedMij Beheer zorgt voor uniciteit en heeft het laatste woord bij het vaststellen ervan." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .

@@ -1,0 +1,16 @@
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj:    <https://register.medmij.nl/objects/> .
+
+obj:backchannel-nodes-controleren-whitelist-voor-verkeer
+    a medmij:Object, medmij:Arrangement ;
+    medmij:elementName "Backchannel Nodes controleren Whitelist voor verkeer" ;
+    medmij:code "core.whl.306" ;
+    medmij:objectClass medmij:Arrangement ;
+    medmij:layer "Technologie" ;
+    medmij:mappingNote "Backchannel-verkeer alleen toegestaan als hostname andere Node op Whitelist staat." ;
+    medmij:arrangementText "Backchannel Nodes laten, elk hunnerzijds, backchannel-verkeer over het MedMij-netwerk dan en alleen dan doorgang vinden, nadat zij hebben vastgesteld dat de hostname van de andere Node, waarmee verbinding gemaakt zou worden, op de meest actuele Whitelist voorkomt." ;
+    medmij:toelichting "In geval van frontchannel-verkeer vindt er geen Server Authorization plaats." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .

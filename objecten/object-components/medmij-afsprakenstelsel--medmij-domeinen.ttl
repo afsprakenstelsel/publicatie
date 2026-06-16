@@ -1,0 +1,17 @@
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj:    <https://register.medmij.nl/objects/> .
+
+obj:comp-medmij-afsprakenstelsel--medmij-domeinen
+    a medmij:Object, medmij:ObjectComponent ;
+    medmij:elementName "MedMij Afsprakenstelsel bevat MedMij Domeinen" ;
+    medmij:code "—" ;
+    medmij:objectClass medmij:ObjectComponent ;
+    medmij:layer "—" ;
+    medmij:mappingNote "Domeinen zijn domeinspecifieke aanvullingen binnen het Stelsel." ;
+    medmij:whole obj:medmij-afsprakenstelsel ;
+    medmij:wholeClass medmij:Framework ;
+    medmij:component obj:medmij-domeinen ;
+    medmij:componentClass medmij:Framework .

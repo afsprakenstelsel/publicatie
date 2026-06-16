@@ -1,0 +1,16 @@
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj:    <https://register.medmij.nl/objects/> .
+
+obj:dvp-biedt-persoon-functie-raadplegen-dossier
+    a medmij:Object, medmij:Arrangement ;
+    medmij:elementName "DVP biedt Persoon functie Raadplegen dossier" ;
+    medmij:code "core.dossier.103" ;
+    medmij:objectClass medmij:Arrangement ;
+    medmij:layer "Business" ;
+    medmij:mappingNote "Persoon kan Dossier raadplegen; functie mag niet ontbreken (vereist voor Regie)." ;
+    medmij:arrangementText "Dienstverlener persoon biedt Persoon de functie Raadplegen dossier om het persoonlijk gezondheidsdossier te raadplegen." ;
+    medmij:toelichting "Omdat deze functie zich niet over meerdere domeinen uitstrekt, is zij niet nader gespecificeerd in een stroomdiagram. Het is aan de vrijheid van de Deelnemer om deze naar behoefte van haar klanten in te richten. Maar zij mag niet ontbreken, omdat dan de Persoon geen Regie over het dossier zou kunnen voeren." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .

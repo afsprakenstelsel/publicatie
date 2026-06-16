@@ -1,0 +1,16 @@
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj:    <https://register.medmij.nl/objects/> .
+
+obj:dvp-biedt-persoon-functie-verzamelen
+    a medmij:Object, medmij:Arrangement ;
+    medmij:elementName "DVP biedt Persoon functie Verzamelen" ;
+    medmij:code "core.dossier.100" ;
+    medmij:objectClass medmij:Arrangement ;
+    medmij:layer "Business" ;
+    medmij:mappingNote "DVP biedt functie om gezondheidsinfo bij DVA te verzamelen en in Dossier op te slaan." ;
+    medmij:arrangementText "Dienstverlener persoon biedt Persoon de functie Verzamelen om bij Dienstverlener aanbieder gezondheidsinformatie te verzamelen van Aanbieder, indien deze die informatie beschikbaar stelt, die op deze Persoon betrekking heeft en kan deze in een persoonlijk gezondheidsdossier (Dossier) van Persoon laten bewaren. Bij deze functie betrokken rollen gebruiken hiertoe het betreffende stroomdiagram." ;
+    medmij:toelichting "Deze verantwoordelijkheid introduceert ook de notie van een persoonlijk gezondheidsdossier. Het opslaan in een persoonlijk gezondheidsdossier is optionele functionaliteit in het afsprakenstelsel. Wanneer deze functionaliteit wordt aangeboden moet ook het beheer worden aangeboden. Omdat de functie verzamelen zich over verschillende functionele rollen uitstrekt, is om interoperabiliteitsredenen de specificatie van het stroomdiagram aangehaald." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .

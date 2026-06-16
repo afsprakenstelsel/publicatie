@@ -1,0 +1,16 @@
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj:    <https://register.medmij.nl/objects/> .
+
+obj:medmij-beheer-beheert-en-publiceert-oauth-client-list
+    a medmij:Object, medmij:Arrangement ;
+    medmij:elementName "MedMij Beheer beheert en publiceert OAuth Client List" ;
+    medmij:code "core.ocl.100" ;
+    medmij:objectClass medmij:Arrangement ;
+    medmij:layer "Business" ;
+    medmij:mappingNote "OCL bevat gebruiksvriendelijke namen en erkende diensten per DVP-client (OAuth Client)." ;
+    medmij:arrangementText "MedMij Beheer beheert en publiceert een actuele OAuth Client List, namens de deelnemende Dienstverleners persoon. De gepubliceerde OAuth Client List bevat steeds en slechts alle actuele entries, en beschrijft van elke OAuth Client: wat de gebruikersvriendelijke namen zijn die voor de Dienstverleners persoon worden gebruikt in de Toestemmingsverklaring en de Bevestigingsverklaring." ;
+    medmij:toelichting "De OAuth Client List bevat dus geen namen voor Dienstverleners aanbieder. Dat is niet nodig, omdat deze niet voorkomen in de Toestemmingsverklaring." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .

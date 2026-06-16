@@ -1,0 +1,17 @@
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj:    <https://register.medmij.nl/objects/> .
+
+obj:class-component
+    a medmij:Object, medmij:ObjectClass ;
+    medmij:elementName "Architectuurcomponent" ;
+    medmij:code "—" ;
+    medmij:objectClass medmij:ObjectClass ;
+    medmij:layer "—" ;
+    medmij:mappingNote "Technische rol in de architectuur; verantwoordelijkheden ingevuld door een of meer systemen." ;
+    medmij:classCode "Component" ;
+    medmij:dutchName "Architectuurcomponent" ;
+    medmij:definition "Een technische rol in de architectuur; een setje verantwoordelijkheden dat door een of meer systemen wordt ingevuld." ;
+    medmij:examples "DVP Server, Authorization Server, Resource Server, User Agent, MedMij Registratie" .

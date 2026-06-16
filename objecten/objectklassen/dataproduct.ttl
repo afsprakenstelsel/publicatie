@@ -1,0 +1,17 @@
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj:    <https://register.medmij.nl/objects/> .
+
+obj:class-dataproduct
+    a medmij:Object, medmij:ObjectClass ;
+    medmij:elementName "Dataproduct" ;
+    medmij:code "—" ;
+    medmij:objectClass medmij:ObjectClass ;
+    medmij:layer "—" ;
+    medmij:mappingNote "Gepubliceerd, samengesteld gegevensproduct beheerd en verspreid door MedMij Beheer." ;
+    medmij:classCode "DataProduct" ;
+    medmij:dutchName "Dataproduct" ;
+    medmij:definition "Een gepubliceerd, samengesteld gegevensproduct dat door MedMij Beheer wordt beheerd en verspreid." ;
+    medmij:examples "Aanbiederslijst (ZAL), OAuth Client List (OCL), Gegevensdienstnamenlijst (GNL), Whitelist (WHL), Aanbiedersregister" .

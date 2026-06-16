@@ -1,0 +1,15 @@
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj:    <https://register.medmij.nl/objects/> .
+
+obj:aanbiedersregister-99-9-beschikbaar-max-480-min-onbeschikbaar
+    a medmij:Object, medmij:Arrangement ;
+    medmij:elementName "Aanbiedersregister ≥99,9% beschikbaar; max. 480 min. onbeschikbaar" ;
+    medmij:code "core.reg.300" ;
+    medmij:objectClass medmij:Arrangement ;
+    medmij:layer "Technologie" ;
+    medmij:mappingNote "Hoge beschikbaarheidseis voor publiek raadpleegbaar register." ;
+    medmij:arrangementText "Het Aanbiedersregister is voor minstens 99,9% van de tijd beschikbaar. Onbeschikbaarheid duurt maximaal acht uren (480 minuten)." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .

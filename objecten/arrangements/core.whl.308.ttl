@@ -1,0 +1,16 @@
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj:    <https://register.medmij.nl/objects/> .
+
+obj:whitelist-controle-logisch-gescheiden-van-verwerking
+    a medmij:Object, medmij:Arrangement ;
+    medmij:elementName "Whitelist-controle logisch gescheiden van verwerking" ;
+    medmij:code "core.whl.308" ;
+    medmij:objectClass medmij:Arrangement ;
+    medmij:layer "Technologie" ;
+    medmij:mappingNote "Controle na TLS-handshake is toegestaan maar moet logisch gescheiden zijn; aantoonbaar via code-inspectie." ;
+    medmij:arrangementText "Voor zover de Dienstverlener aanbieder ervoor kiest de controle tegen de Whitelist na afloop van de TLS-handshake uit te voeren, is deze controle logisch gescheiden van de bedoelde eerstvolgende stap. De vereiste volgordelijkheid kan worden aangetoond door middel van code-inspecties, penetratietesten en inspecties van logs." ;
+    medmij:toelichting "In geval van uitgaand verkeer kan de voorziene TLS-client de controle tegen de Whitelist al uitvoeren voordat hij de TLS-handshake initieert. In geval van inkomend verkeer echter, kan de TLS-server de zich aandienende TLS-client pas identificeren gedurende of na de TLS-handshake, aan de hand van het certificaat dat hij moet ontvangen. Door toe te staan dat niet alleen de Common Name maar ook een Subject Alternative Name de voor MedMij geautoriseerde hostname mag bevatten, biedt het MedMij Afsprakenstelsel aan deelnemers de mogelijkheid tot hergebruik van certificaten voor meerdere MedMij-nodes. Omdat er meerdere manieren zijn om dit na afloop van de TLS-handshake te implementeren, vereist het MedMij Afsprakenstelsel hiervoor geen vaste architectuurvariant (zoals met een reverse proxy), maar stelt het de vereiste van volgordelijkheid, naast een logische scheiding. Deze moeten kunnen worden aangetoond door middel van code-inspectie, penetratietesten en inspecties van logs." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .

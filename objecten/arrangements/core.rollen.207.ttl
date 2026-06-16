@@ -1,0 +1,25 @@
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj:    <https://register.medmij.nl/objects/> .
+
+obj:definitie-medmij-verkeer
+    a medmij:Object, medmij:Arrangement ;
+    medmij:elementName "Definitie MedMij-verkeer" ;
+    medmij:code "core.rollen.207" ;
+    medmij:objectClass medmij:Arrangement ;
+    medmij:layer "Applicatie" ;
+    medmij:mappingNote "MedMij-verkeer = verkeer tussen DVP Server, User Agent, Authorization/Resource Server en MedMij Registratie." ;
+    medmij:arrangementText """
+Als MedMij-verkeer is gedefinieerd: al het gegevensverkeer in het kader van enige functie-implementatie, onmiddellijk tussen twee verschillende van de vier volgende soorten rollen, namelijk:
+- ten eerste DVP Server,
+- ten tweede User Agent,
+- ten derde Authorization Server of Resource Server en
+- ten vierde MedMij Registratie,
+met dien verstande dat:
+- in deze rollen telkens begrepen zijn de door hen eventueel verzorgde respectievelijke Autorisatie-rollen,
+- van deze rollen telkens uitgesloten zijn de door hen eventueel verzorgde Authenticatie-rollen, en
+- in deze rollen, met betrekking tot de functie-implementaties, telkens inbegrepen zijn de Nodes waarop zij functioneren.
+""" ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .

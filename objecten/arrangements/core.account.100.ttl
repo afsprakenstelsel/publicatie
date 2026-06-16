@@ -1,0 +1,15 @@
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj:    <https://register.medmij.nl/objects/> .
+
+obj:persoon-moet-actief-account-hebben-bij-dvp
+    a medmij:Object, medmij:Arrangement ;
+    medmij:elementName "Persoon moet actief account hebben bij DVP" ;
+    medmij:code "core.account.100" ;
+    medmij:objectClass medmij:Arrangement ;
+    medmij:layer "Business" ;
+    medmij:mappingNote "Vereist voor inrichten Dossier en gebruik MedMij-functies." ;
+    medmij:arrangementText "Voor het inrichten van een MedMij dossier en voor het gebruikmaken van de verschillende MedMij functies moet de Persoon een actief account hebben bij de Dienstverlener persoon." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .

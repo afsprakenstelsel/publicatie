@@ -1,0 +1,13 @@
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj:    <https://register.medmij.nl/objects/> .
+
+obj:uitzonderingstabel-authenticeren-authn-1-2
+    a medmij:Object, medmij:ImplementationGuideline ;
+    medmij:elementName "Uitzonderingstabel Authenticeren (authn 1-2)" ;
+    medmij:code "(core.authn.*)" ;
+    medmij:objectClass medmij:ImplementationGuideline ;
+    medmij:layer "Applicatie" ;
+    medmij:mappingNote "Beschrijft twee afwijkende situaties bij authenticatie en de bijbehorende acties." .

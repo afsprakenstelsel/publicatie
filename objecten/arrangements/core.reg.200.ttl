@@ -1,0 +1,15 @@
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj:    <https://register.medmij.nl/objects/> .
+
+obj:medmij-registratie-en-dvp-server-implementeren-opvragen-register
+    a medmij:Object, medmij:Arrangement ;
+    medmij:elementName "MedMij Registratie en DVP Server implementeren Opvragen Register" ;
+    medmij:code "core.reg.200" ;
+    medmij:objectClass medmij:Arrangement ;
+    medmij:layer "Applicatie" ;
+    medmij:mappingNote "Implementatie via Aanbiedersregisterinterface op Interfaces lijsten en register." ;
+    medmij:arrangementText "MedMij Registratie en DVP Server implementeren de functie Opvragen Aanbiedersregister, door middel van het bepaalde inzake het Aanbiedersregisterinterface op Interfaces lijsten en register." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .

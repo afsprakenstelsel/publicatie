@@ -1,0 +1,15 @@
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj:    <https://register.medmij.nl/objects/> .
+
+obj:dvp-biedt-dvp-server-aan-persoon
+    a medmij:Object, medmij:Arrangement ;
+    medmij:elementName "DVP biedt DVP Server aan Persoon" ;
+    medmij:code "core.rollen.200" ;
+    medmij:objectClass medmij:Arrangement ;
+    medmij:layer "Applicatie" ;
+    medmij:mappingNote "DVP biedt geautomatiseerde applicatierol DVP Server; 1 DVP — 1..n DVP Servers." ;
+    medmij:arrangementText "Dienstverlener persoon biedt aan Persoon, in het kader van de toepasselijke Dienstverleningsovereenkomst, een geautomatiseerde rol ter gebruik, hier genoemd: DVP Server. Eén Dienstverlener persoon biedt één of meerdere DVP Servers en elke DVP Server wordt door één Dienstverlener persoon geboden." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
