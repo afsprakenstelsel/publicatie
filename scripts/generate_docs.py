@@ -28,21 +28,32 @@ DIR_TITLES = {
 }
 
 
-def escape(text: str) -> str:
-    return text.strip().replace("|", "\\|")
+LAYER_COLORS = {
+    "Business": "#fffae6",
+    "Applicatie": "#e6fcff",
+    "Business/Applicatie": "#fffae6",
+    "Technologie": "#e3fcef",
+}
+
+
+def html_escape(text: str) -> str:
+    return (
+        text.strip()
+        .replace("&", "&amp;")
+        .replace("<", "&lt;")
+        .replace(">", "&gt;")
+    )
 
 
 def text_cell(arrangement_text: str, toelichting: str) -> str:
-    """Bouw een tabelcel met arrangementText en optioneel een inklapbare toelichting."""
-    parts = [escape(arrangement_text).replace("\n", " ")]
+    parts = [html_escape(arrangement_text)]
     if toelichting:
-        detail = escape(toelichting).replace("\n", " ")
         parts.append(
-            f'<details><summary>Toelichting</summary>'
-            f'<div style="margin-left:1em">{detail}</div>'
-            f'</details>'
+            "<details><summary>Toelichting</summary>"
+            f"<div style='margin-left:1em'>{html_escape(toelichting)}</div>"
+            "</details>"
         )
-    return " ".join(parts)
+    return "".join(parts)
 
 
 def parse_object(ttl_file: Path) -> dict | None:
@@ -60,6 +71,7 @@ def parse_object(ttl_file: Path) -> dict | None:
     subj = subjects[0]
     return {
         "code": val(subj, MEDMIJ.code),
+        "layer": val(subj, MEDMIJ.layer),
         "arrangementText": val(subj, MEDMIJ.arrangementText),
         "toelichting": val(subj, MEDMIJ.toelichting),
     }
@@ -77,20 +89,34 @@ def generate_page(dir_path: Path) -> None:
     if not rows:
         return
 
-    lines = [
-        f"# {title}",
-        "",
-        "| # | Tekst | Code |",
-        "| --- | --- | --- |",
-    ]
+    table_rows = []
     for i, row in enumerate(rows, start=1):
+        bg = LAYER_COLORS.get(row["layer"], "")
+        style = f' style="background-color:{bg}"' if bg else ""
+        code_id = html_escape(row["code"])
         tekst = text_cell(row["arrangementText"], row["toelichting"])
-        code = escape(row["code"])
-        lines.append(f"| {i} | {tekst} | {code} |")
+        table_rows.append(
+            f'<tr{style}>'
+            f'<td style="white-space:nowrap;width:40px">{i}.</td>'
+            f'<td>{tekst}</td>'
+            f'<td style="white-space:nowrap;width:160px" id="{code_id}">{code_id}</td>'
+            f'</tr>'
+        )
+
+    html_table = (
+        "<table>\n"
+        "<colgroup><col style='width:40px'><col><col style='width:160px'></colgroup>\n"
+        "<thead><tr><th>#</th><th>Tekst</th><th>Code</th></tr></thead>\n"
+        "<tbody>\n"
+        + "\n".join(table_rows)
+        + "\n</tbody>\n</table>"
+    )
+
+    lines = [f"# {title}", "", html_table, ""]
 
     out = DOCS_DIR / dir_path.name / "index.md"
     out.parent.mkdir(parents=True, exist_ok=True)
-    out.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    out.write_text("\n".join(lines), encoding="utf-8")
     print(f"Gegenereerd: {out}")
 
 
