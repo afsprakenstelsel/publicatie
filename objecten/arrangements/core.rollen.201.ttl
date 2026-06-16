@@ -1,15 +1,12 @@
-@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
 @prefix medmij: <https://register.medmij.nl/ontology/> .
-@prefix obj:    <https://register.medmij.nl/objects/> .
+@prefix obj: <https://register.medmij.nl/objects/> .
 
-obj:dva-biedt-authorization-server
-    a medmij:Object, medmij:Arrangement ;
-    medmij:elementName "DVA biedt Authorization Server" ;
+obj:dva-biedt-authorization-server a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "Dienstverlener aanbieder biedt een geautomatiseerde rol Authorization Server, voor het namens Aanbieders uitwisselen van gezondheidsinformatie met DVP Server. Deze rol wordt altijd gecombineerd met een Resource Server." ;
     medmij:code "core.rollen.201" ;
-    medmij:objectClass medmij:Arrangement ;
+    medmij:elementName "DVA biedt Authorization Server" ;
     medmij:layer "Applicatie" ;
     medmij:mappingNote "DVA biedt Authorization Server voor uitwisseling namens Aanbieders; altijd gecombineerd met Resource Server." ;
-    medmij:arrangementText "Dienstverlener aanbieder biedt een geautomatiseerde rol Authorization Server, voor het namens Aanbieders uitwisselen van gezondheidsinformatie met DVP Server. Deze rol wordt altijd gecombineerd met een Resource Server." ;
     medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
+

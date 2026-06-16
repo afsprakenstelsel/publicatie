@@ -1,17 +1,14 @@
-@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
 @prefix medmij: <https://register.medmij.nl/ontology/> .
-@prefix obj:    <https://register.medmij.nl/objects/> .
+@prefix obj: <https://register.medmij.nl/objects/> .
 
-obj:comp-autoriseren-zonder-langdurige-toestemming--oauth-2-0-rfc-6749
-    a medmij:Object, medmij:ObjectComponent ;
-    medmij:elementName "Autoriseren zonder langdurige toestemming implementeert OAuth 2.0 (RFC 6749)" ;
+obj:comp-autoriseren-zonder-langdurige-toestemming--oauth-2-0-rfc-6749 a medmij:Object,
+        medmij:ObjectComponent ;
     medmij:code "—" ;
-    medmij:objectClass medmij:ObjectComponent ;
+    medmij:component obj:oauth-2-0-rfc-6749 ;
+    medmij:componentClass medmij:Specification ;
+    medmij:elementName "Autoriseren zonder langdurige toestemming implementeert OAuth 2.0 (RFC 6749)" ;
     medmij:layer "—" ;
     medmij:mappingNote "Autorisatiemodule is gebaseerd op OAuth 2.0 Authorization Code grant." ;
     medmij:whole obj:autoriseren-zonder-langdurige-toestemming ;
-    medmij:wholeClass medmij:Module ;
-    medmij:component obj:oauth-2-0-rfc-6749 ;
-    medmij:componentClass medmij:Specification .
+    medmij:wholeClass medmij:Module .
+

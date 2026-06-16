@@ -1,17 +1,14 @@
-@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
 @prefix medmij: <https://register.medmij.nl/ontology/> .
-@prefix obj:    <https://register.medmij.nl/objects/> .
+@prefix obj: <https://register.medmij.nl/objects/> .
 
-obj:comp-authenticeren--openid-connect-oidc
-    a medmij:Object, medmij:ObjectComponent ;
-    medmij:elementName "Authenticeren bevat OpenID Connect (OIDC)" ;
+obj:comp-authenticeren--openid-connect-oidc a medmij:Object,
+        medmij:ObjectComponent ;
     medmij:code "—" ;
-    medmij:objectClass medmij:ObjectComponent ;
+    medmij:component obj:openid-connect-oidc ;
+    medmij:componentClass medmij:Specification ;
+    medmij:elementName "Authenticeren bevat OpenID Connect (OIDC)" ;
     medmij:layer "—" ;
     medmij:mappingNote "Authenticatiemodule gebruikt OIDC voor BSN-ophaling via DigiD." ;
     medmij:whole obj:authenticeren ;
-    medmij:wholeClass medmij:Module ;
-    medmij:component obj:openid-connect-oidc ;
-    medmij:componentClass medmij:Specification .
+    medmij:wholeClass medmij:Module .
+

@@ -1,15 +1,12 @@
-@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
 @prefix medmij: <https://register.medmij.nl/ontology/> .
-@prefix obj:    <https://register.medmij.nl/objects/> .
+@prefix obj: <https://register.medmij.nl/objects/> .
 
-obj:dvp-notificeert-persoon-bij-succesvolle-automatische-uitwisseling
-    a medmij:Object, medmij:Arrangement ;
-    medmij:elementName "DVP notificeert Persoon bij succesvolle automatische uitwisseling" ;
+obj:dvp-notificeert-persoon-bij-succesvolle-automatische-uitwisseling a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "De Dienstverlener persoon is verplicht de Persoon van succesvolle automatische uitwisseling te notificeren op een door de Persoon gewenste manier. Dit kan bijvoorbeeld in de app/browser, per e-mail of per SMS." ;
     medmij:code "core.gegevensuitwisseling.104" ;
-    medmij:objectClass medmij:Arrangement ;
+    medmij:elementName "DVP notificeert Persoon bij succesvolle automatische uitwisseling" ;
     medmij:layer "Business" ;
     medmij:mappingNote "Notificatie op door Persoon gewenste wijze (app, e-mail, SMS)." ;
-    medmij:arrangementText "De Dienstverlener persoon is verplicht de Persoon van succesvolle automatische uitwisseling te notificeren op een door de Persoon gewenste manier. Dit kan bijvoorbeeld in de app/browser, per e-mail of per SMS." ;
     medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
+

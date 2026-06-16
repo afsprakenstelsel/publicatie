@@ -1,13 +1,10 @@
-@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
 @prefix medmij: <https://register.medmij.nl/ontology/> .
-@prefix obj:    <https://register.medmij.nl/objects/> .
+@prefix obj: <https://register.medmij.nl/objects/> .
 
-obj:user-agent
-    a medmij:Object, medmij:Component ;
-    medmij:elementName "User Agent" ;
+obj:user-agent a medmij:Component,
+        medmij:Object ;
     medmij:code "core.rollen.203" ;
-    medmij:objectClass medmij:Component ;
+    medmij:elementName "User Agent" ;
     medmij:layer "Applicatie" ;
     medmij:mappingNote "Front-end van DVP; communiceert met Authorization Server via browser-redirect." .
+

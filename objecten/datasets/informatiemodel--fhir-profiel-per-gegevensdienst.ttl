@@ -1,13 +1,10 @@
-@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
 @prefix medmij: <https://register.medmij.nl/ontology/> .
-@prefix obj:    <https://register.medmij.nl/objects/> .
+@prefix obj: <https://register.medmij.nl/objects/> .
 
-obj:fhir-profiel-per-gegevensdienst
-    a medmij:Object, medmij:DataSet ;
-    medmij:elementName "FHIR-profiel per gegevensdienst" ;
+obj:fhir-profiel-per-gegevensdienst a medmij:DataSet,
+        medmij:Object ;
     medmij:code "(informatiemodel.*)" ;
-    medmij:objectClass medmij:DataSet ;
+    medmij:elementName "FHIR-profiel per gegevensdienst" ;
     medmij:layer "Applicatie" ;
     medmij:mappingNote "Concrete FHIR-profilering van de gegevensset; opgenomen als ObjectVersion met standardFamily=FHIR R4." .
+

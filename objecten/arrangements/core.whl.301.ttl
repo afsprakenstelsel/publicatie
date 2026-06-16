@@ -1,15 +1,12 @@
-@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
 @prefix medmij: <https://register.medmij.nl/ontology/> .
-@prefix obj:    <https://register.medmij.nl/objects/> .
+@prefix obj: <https://register.medmij.nl/objects/> .
 
-obj:stelselnode-aandeel-voor-99-9-beschikbaar
-    a medmij:Object, medmij:Arrangement ;
-    medmij:elementName "Stelselnode-aandeel voor ≥99,9% beschikbaar" ;
+obj:stelselnode-aandeel-voor-99-9-beschikbaar a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "Het aandeel van de MedMij Stelselnode in de functie Opvragen Whitelist is voor minstens 99,9% van de tijd beschikbaar. MedMij Registratie laat, na het niet beschikbaar raken van het aandeel van MedMij Stelselnode in de usecase, maximaal acht uren (480 minuten) verstrijken voordat het weer beschikbaar is." ;
     medmij:code "core.whl.301" ;
-    medmij:objectClass medmij:Arrangement ;
+    medmij:elementName "Stelselnode-aandeel voor ≥99,9% beschikbaar" ;
     medmij:layer "Technologie" ;
     medmij:mappingNote "Na onbeschikbaarheid maximaal 480 minuten herstel; MedMij Registratie verantwoordelijk." ;
-    medmij:arrangementText "Het aandeel van de MedMij Stelselnode in de functie Opvragen Whitelist is voor minstens 99,9% van de tijd beschikbaar. MedMij Registratie laat, na het niet beschikbaar raken van het aandeel van MedMij Stelselnode in de usecase, maximaal acht uren (480 minuten) verstrijken voordat het weer beschikbaar is." ;
     medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
+

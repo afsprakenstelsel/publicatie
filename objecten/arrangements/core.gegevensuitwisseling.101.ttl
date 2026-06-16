@@ -1,15 +1,12 @@
-@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
 @prefix medmij: <https://register.medmij.nl/ontology/> .
-@prefix obj:    <https://register.medmij.nl/objects/> .
+@prefix obj: <https://register.medmij.nl/objects/> .
 
-obj:automatisch-verzamelen-vereist-uitdrukkelijke-opdracht-persoon
-    a medmij:Object, medmij:Arrangement ;
-    medmij:elementName "Automatisch verzamelen vereist uitdrukkelijke opdracht Persoon" ;
+obj:automatisch-verzamelen-vereist-uitdrukkelijke-opdracht-persoon a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "De Dienstverlener persoon mag alleen gebruik maken van automatisch verzamelen bij een uitdrukkelijke opdracht van de Persoon." ;
     medmij:code "core.gegevensuitwisseling.101" ;
-    medmij:objectClass medmij:Arrangement ;
+    medmij:elementName "Automatisch verzamelen vereist uitdrukkelijke opdracht Persoon" ;
     medmij:layer "Business" ;
     medmij:mappingNote "DVP mag automatisch verzamelen alleen bij expliciete opdracht van Persoon." ;
-    medmij:arrangementText "De Dienstverlener persoon mag alleen gebruik maken van automatisch verzamelen bij een uitdrukkelijke opdracht van de Persoon." ;
     medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
+

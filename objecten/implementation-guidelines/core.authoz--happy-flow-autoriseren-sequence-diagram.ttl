@@ -1,13 +1,10 @@
-@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
 @prefix medmij: <https://register.medmij.nl/ontology/> .
-@prefix obj:    <https://register.medmij.nl/objects/> .
+@prefix obj: <https://register.medmij.nl/objects/> .
 
-obj:happy-flow-autoriseren-sequence-diagram
-    a medmij:Object, medmij:ImplementationGuideline ;
-    medmij:elementName "Happy flow Autoriseren (sequence-diagram)" ;
+obj:happy-flow-autoriseren-sequence-diagram a medmij:ImplementationGuideline,
+        medmij:Object ;
     medmij:code "(core.authoz.*)" ;
-    medmij:objectClass medmij:ImplementationGuideline ;
+    medmij:elementName "Happy flow Autoriseren (sequence-diagram)" ;
     medmij:layer "Applicatie" ;
     medmij:mappingNote "Beschrijft de stappen 1-11 van de autorisatieflow zonder uitzonderingen." .
+

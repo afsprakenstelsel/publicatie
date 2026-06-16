@@ -1,16 +1,14 @@
-@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
 @prefix medmij: <https://register.medmij.nl/ontology/> .
-@prefix obj:    <https://register.medmij.nl/objects/> .
+@prefix obj: <https://register.medmij.nl/objects/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-obj:qual-framework
-    a medmij:Object, medmij:QualificationRule ;
-    medmij:elementName "Kwalificatieregel Framework" ;
+obj:qual-framework a medmij:Object,
+        medmij:QualificationRule ;
     medmij:code "—" ;
-    medmij:objectClass medmij:QualificationRule ;
+    medmij:elementName "Kwalificatieregel Framework" ;
+    medmij:forClass medmij:Framework ;
     medmij:layer "—" ;
     medmij:mappingNote "Structuurobject; geen kwalificatie." ;
-    medmij:forClass medmij:Framework ;
     medmij:qualificationLevel "—" ;
-    medmij:versioned "false"^^xsd:boolean .
+    medmij:versioned false .
+

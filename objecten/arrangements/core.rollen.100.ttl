@@ -1,15 +1,12 @@
-@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
 @prefix medmij: <https://register.medmij.nl/ontology/> .
-@prefix obj:    <https://register.medmij.nl/objects/> .
+@prefix obj: <https://register.medmij.nl/objects/> .
 
-obj:eigenaar-medmij-speelt-rol-medmij-beheer
-    a medmij:Object, medmij:Arrangement ;
-    medmij:elementName "Eigenaar MedMij speelt rol MedMij Beheer" ;
+obj:eigenaar-medmij-speelt-rol-medmij-beheer a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "Eigenaar MedMij neemt de functionele rol van MedMij Beheer op zich. Er is één Eigenaar MedMij die één MedMij Beheer speelt." ;
     medmij:code "core.rollen.100" ;
-    medmij:objectClass medmij:Arrangement ;
+    medmij:elementName "Eigenaar MedMij speelt rol MedMij Beheer" ;
     medmij:layer "Business" ;
     medmij:mappingNote "Er is precies één Eigenaar MedMij die MedMij Beheer speelt." ;
-    medmij:arrangementText "Eigenaar MedMij neemt de functionele rol van MedMij Beheer op zich. Er is één Eigenaar MedMij die één MedMij Beheer speelt." ;
     medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
+

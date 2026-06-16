@@ -1,15 +1,12 @@
-@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
 @prefix medmij: <https://register.medmij.nl/ontology/> .
-@prefix obj:    <https://register.medmij.nl/objects/> .
+@prefix obj: <https://register.medmij.nl/objects/> .
 
-obj:medmij-beheer-biedt-functie-opvragen-gnl-aan-deelnemers
-    a medmij:Object, medmij:Arrangement ;
-    medmij:elementName "MedMij Beheer biedt functie Opvragen GNL aan Deelnemers" ;
+obj:medmij-beheer-biedt-functie-opvragen-gnl-aan-deelnemers a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "MedMij Beheer biedt aan Deelnemers de functie Opvragen Gegevensdienstnamenlijst om de actuele versie van die Gegevensdienstnamenlijst op te vragen. Betrokken rollen gebruiken hiertoe het betreffende stroomdiagram." ;
     medmij:code "core.gnl.101" ;
-    medmij:objectClass medmij:Arrangement ;
+    medmij:elementName "MedMij Beheer biedt functie Opvragen GNL aan Deelnemers" ;
     medmij:layer "Business" ;
     medmij:mappingNote "Deelnemers kunnen via stroomdiagram actuele versie GNL opvragen." ;
-    medmij:arrangementText "MedMij Beheer biedt aan Deelnemers de functie Opvragen Gegevensdienstnamenlijst om de actuele versie van die Gegevensdienstnamenlijst op te vragen. Betrokken rollen gebruiken hiertoe het betreffende stroomdiagram." ;
     medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
+

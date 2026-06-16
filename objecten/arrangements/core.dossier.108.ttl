@@ -1,15 +1,12 @@
-@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
 @prefix medmij: <https://register.medmij.nl/ontology/> .
-@prefix obj:    <https://register.medmij.nl/objects/> .
+@prefix obj: <https://register.medmij.nl/objects/> .
 
-obj:dva-be-indigt-langdurige-toestemming-bij-overlijden
-    a medmij:Object, medmij:Arrangement ;
-    medmij:elementName "DVA beëindigt langdurige toestemming bij overlijden" ;
+obj:dva-be-indigt-langdurige-toestemming-bij-overlijden a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "De Aanbieder, en daarmee de Dienstverlener aanbieder, moet de aanwezige langdurige toestemmingen beëindigen bij overlijden van de Persoon." ;
     medmij:code "core.dossier.108" ;
-    medmij:objectClass medmij:Arrangement ;
+    medmij:elementName "DVA beëindigt langdurige toestemming bij overlijden" ;
     medmij:layer "Business" ;
     medmij:mappingNote "Aanbieder/DVA moet actieve langdurige toestemmingen beëindigen bij overlijden Persoon." ;
-    medmij:arrangementText "De Aanbieder, en daarmee de Dienstverlener aanbieder, moet de aanwezige langdurige toestemmingen beëindigen bij overlijden van de Persoon." ;
     medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
+

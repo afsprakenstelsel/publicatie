@@ -1,15 +1,12 @@
-@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
 @prefix medmij: <https://register.medmij.nl/ontology/> .
-@prefix obj:    <https://register.medmij.nl/objects/> .
+@prefix obj: <https://register.medmij.nl/objects/> .
 
-obj:maximaal-n-keer-per-24-uur-automatisch-verzamelen
-    a medmij:Object, medmij:Arrangement ;
-    medmij:elementName "Maximaal één keer per 24 uur automatisch verzamelen" ;
+obj:maximaal-n-keer-per-24-uur-automatisch-verzamelen a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "De Dienstverlener persoon mag slechts één keer per 24 uur geautomatiseerd gegevens verzamelen bij een Dienstverlener aanbieder." ;
     medmij:code "core.gegevensuitwisseling.102" ;
-    medmij:objectClass medmij:Arrangement ;
+    medmij:elementName "Maximaal één keer per 24 uur automatisch verzamelen" ;
     medmij:layer "Business" ;
     medmij:mappingNote "DVP verzamelt geautomatiseerd maximaal één keer per dag per DVA." ;
-    medmij:arrangementText "De Dienstverlener persoon mag slechts één keer per 24 uur geautomatiseerd gegevens verzamelen bij een Dienstverlener aanbieder." ;
     medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
+

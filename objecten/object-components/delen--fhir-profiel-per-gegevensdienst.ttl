@@ -1,17 +1,14 @@
-@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
 @prefix medmij: <https://register.medmij.nl/ontology/> .
-@prefix obj:    <https://register.medmij.nl/objects/> .
+@prefix obj: <https://register.medmij.nl/objects/> .
 
-obj:comp-delen--fhir-profiel-per-gegevensdienst
-    a medmij:Object, medmij:ObjectComponent ;
-    medmij:elementName "Delen bevat FHIR-profiel per gegevensdienst" ;
+obj:comp-delen--fhir-profiel-per-gegevensdienst a medmij:Object,
+        medmij:ObjectComponent ;
     medmij:code "—" ;
-    medmij:objectClass medmij:ObjectComponent ;
+    medmij:component obj:fhir-profiel-per-gegevensdienst ;
+    medmij:componentClass medmij:Dataset ;
+    medmij:elementName "Delen bevat FHIR-profiel per gegevensdienst" ;
     medmij:layer "—" ;
     medmij:mappingNote "Elke gegevensdienst binnen Delen heeft een specifiek FHIR-profiel als DataSet." ;
     medmij:whole obj:delen ;
-    medmij:wholeClass medmij:Service ;
-    medmij:component obj:fhir-profiel-per-gegevensdienst ;
-    medmij:componentClass medmij:Dataset .
+    medmij:wholeClass medmij:Service .
+

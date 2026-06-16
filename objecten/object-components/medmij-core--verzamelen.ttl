@@ -1,17 +1,14 @@
-@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
 @prefix medmij: <https://register.medmij.nl/ontology/> .
-@prefix obj:    <https://register.medmij.nl/objects/> .
+@prefix obj: <https://register.medmij.nl/objects/> .
 
-obj:comp-medmij-core--verzamelen
-    a medmij:Object, medmij:ObjectComponent ;
-    medmij:elementName "MedMij Core bevat Verzamelen" ;
+obj:comp-medmij-core--verzamelen a medmij:Object,
+        medmij:ObjectComponent ;
     medmij:code "—" ;
-    medmij:objectClass medmij:ObjectComponent ;
+    medmij:component obj:verzamelen ;
+    medmij:componentClass medmij:Service ;
+    medmij:elementName "MedMij Core bevat Verzamelen" ;
     medmij:layer "—" ;
     medmij:mappingNote "Verzamelen is de primaire Core-gegevensdienst voor ophalen van gezondheidsdata." ;
     medmij:whole obj:medmij-core ;
-    medmij:wholeClass medmij:Framework ;
-    medmij:component obj:verzamelen ;
-    medmij:componentClass medmij:Service .
+    medmij:wholeClass medmij:Framework .
+

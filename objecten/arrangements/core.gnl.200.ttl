@@ -1,15 +1,12 @@
-@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
 @prefix medmij: <https://register.medmij.nl/ontology/> .
-@prefix obj:    <https://register.medmij.nl/objects/> .
+@prefix obj: <https://register.medmij.nl/objects/> .
 
-obj:medmij-registratie-dvp-server-en-auth-server-implementeren-opvragen-gnl
-    a medmij:Object, medmij:Arrangement ;
-    medmij:elementName "MedMij Registratie, DVP Server en Auth.Server implementeren Opvragen GNL" ;
+obj:medmij-registratie-dvp-server-en-auth-server-implementeren-opvragen-gnl a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "MedMij Registratie, DVP Server en Authorization Server implementeren de functie Opvragen Gegevensdienstnamenlijst, door middel van het bepaalde inzake het Gegevensdienstnamenlijstinterface op Interfaces lijsten. Zij gebruiken hiervoor het betreffende stroomdiagram." ;
     medmij:code "core.gnl.200" ;
-    medmij:objectClass medmij:Arrangement ;
+    medmij:elementName "MedMij Registratie, DVP Server en Auth.Server implementeren Opvragen GNL" ;
     medmij:layer "Applicatie" ;
     medmij:mappingNote "Implementatie via GNL-interface op Interfaces lijsten; stroomdiagram verplicht." ;
-    medmij:arrangementText "MedMij Registratie, DVP Server en Authorization Server implementeren de functie Opvragen Gegevensdienstnamenlijst, door middel van het bepaalde inzake het Gegevensdienstnamenlijstinterface op Interfaces lijsten. Zij gebruiken hiervoor het betreffende stroomdiagram." ;
     medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
+

@@ -1,17 +1,14 @@
-@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
 @prefix medmij: <https://register.medmij.nl/ontology/> .
-@prefix obj:    <https://register.medmij.nl/objects/> .
+@prefix obj: <https://register.medmij.nl/objects/> .
 
-obj:class-requirement
-    a medmij:Object, medmij:ObjectClass ;
-    medmij:elementName "Eis" ;
-    medmij:code "—" ;
-    medmij:objectClass medmij:ObjectClass ;
-    medmij:layer "—" ;
-    medmij:mappingNote "Technische of functionele norm waaraan systemen of deelnemers moeten voldoen." ;
+obj:class-requirement a medmij:Object,
+        medmij:ObjectClass ;
     medmij:classCode "Requirement" ;
-    medmij:dutchName "Eis" ;
+    medmij:code "—" ;
     medmij:definition "Een technische of functionele norm waaraan een systeem, component of deelnemer moet voldoen, ongeacht implementatiekeuze." ;
-    medmij:examples "TLS 1.2+ verplicht, DigiD level-of-assurance, PKIO-certificaat op Node" .
+    medmij:dutchName "Eis" ;
+    medmij:elementName "Eis" ;
+    medmij:examples "TLS 1.2+ verplicht, DigiD level-of-assurance, PKIO-certificaat op Node" ;
+    medmij:layer "—" ;
+    medmij:mappingNote "Technische of functionele norm waaraan systemen of deelnemers moeten voldoen." .
+

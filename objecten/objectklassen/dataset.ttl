@@ -1,17 +1,14 @@
-@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
 @prefix medmij: <https://register.medmij.nl/ontology/> .
-@prefix obj:    <https://register.medmij.nl/objects/> .
+@prefix obj: <https://register.medmij.nl/objects/> .
 
-obj:class-dataset
-    a medmij:Object, medmij:ObjectClass ;
-    medmij:elementName "Gegevensset" ;
-    medmij:code "—" ;
-    medmij:objectClass medmij:ObjectClass ;
-    medmij:layer "—" ;
-    medmij:mappingNote "Set van gegevenselementen die als eenheid worden uitgewisseld op basis van een informatiestandaard." ;
+obj:class-dataset a medmij:Object,
+        medmij:ObjectClass ;
     medmij:classCode "DataSet" ;
-    medmij:dutchName "Gegevensset" ;
+    medmij:code "—" ;
     medmij:definition "Een set van gegevenselementen die als eenheid worden uitgewisseld, doorgaans op basis van een informatiestandaard." ;
-    medmij:examples "FHIR-profiel per gegevensdienst, gezondheidsgegevens conform MedMij-informatiemodel" .
+    medmij:dutchName "Gegevensset" ;
+    medmij:elementName "Gegevensset" ;
+    medmij:examples "FHIR-profiel per gegevensdienst, gezondheidsgegevens conform MedMij-informatiemodel" ;
+    medmij:layer "—" ;
+    medmij:mappingNote "Set van gegevenselementen die als eenheid worden uitgewisseld op basis van een informatiestandaard." .
+

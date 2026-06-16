@@ -1,17 +1,14 @@
-@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
 @prefix medmij: <https://register.medmij.nl/ontology/> .
-@prefix obj:    <https://register.medmij.nl/objects/> .
+@prefix obj: <https://register.medmij.nl/objects/> .
 
-obj:comp-resource-server--fhir-r4-hl7
-    a medmij:Object, medmij:ObjectComponent ;
-    medmij:elementName "Resource Server implementeert FHIR R4 (HL7)" ;
+obj:comp-resource-server--fhir-r4-hl7 a medmij:Object,
+        medmij:ObjectComponent ;
     medmij:code "—" ;
-    medmij:objectClass medmij:ObjectComponent ;
+    medmij:component obj:fhir-r4-hl7 ;
+    medmij:componentClass medmij:Specification ;
+    medmij:elementName "Resource Server implementeert FHIR R4 (HL7)" ;
     medmij:layer "—" ;
     medmij:mappingNote "Resource Server levert gezondheidsdata conform FHIR R4-profielen." ;
     medmij:whole obj:resource-server ;
-    medmij:wholeClass medmij:Component ;
-    medmij:component obj:fhir-r4-hl7 ;
-    medmij:componentClass medmij:Specification .
+    medmij:wholeClass medmij:Component .
+

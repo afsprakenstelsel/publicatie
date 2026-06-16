@@ -1,15 +1,12 @@
-@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
 @prefix medmij: <https://register.medmij.nl/ontology/> .
-@prefix obj:    <https://register.medmij.nl/objects/> .
+@prefix obj: <https://register.medmij.nl/objects/> .
 
-obj:automatisch-verzamelen-alleen-voor-performance-of-analyse
-    a medmij:Object, medmij:Arrangement ;
-    medmij:elementName "Automatisch verzamelen alleen voor performance of analyse" ;
+obj:automatisch-verzamelen-alleen-voor-performance-of-analyse a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "De Dienstverlener persoon mag alleen de functie Automatisch verzamelen aanbieden indien het doel is de performance voor de Persoon te verbeteren. Daarnaast kan gebruikgemaakt worden van automatisch verzamelen ten dienste van analytische oplossingen, zoals AI modules en andere technische toepassingen, waarbij de afhankelijkheid van de gebruiker een bottleneck is voor de te leveren dienst." ;
     medmij:code "core.gegevensuitwisseling.100" ;
-    medmij:objectClass medmij:Arrangement ;
+    medmij:elementName "Automatisch verzamelen alleen voor performance of analyse" ;
     medmij:layer "Business" ;
     medmij:mappingNote "DVP mag alleen automatisch verzamelen als doel performance voor Persoon is of analytische oplossing." ;
-    medmij:arrangementText "De Dienstverlener persoon mag alleen de functie Automatisch verzamelen aanbieden indien het doel is de performance voor de Persoon te verbeteren. Daarnaast kan gebruikgemaakt worden van automatisch verzamelen ten dienste van analytische oplossingen, zoals AI modules en andere technische toepassingen, waarbij de afhankelijkheid van de gebruiker een bottleneck is voor de te leveren dienst." ;
     medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
+

@@ -1,13 +1,10 @@
-@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
 @prefix medmij: <https://register.medmij.nl/ontology/> .
-@prefix obj:    <https://register.medmij.nl/objects/> .
+@prefix obj: <https://register.medmij.nl/objects/> .
 
-obj:beheren-toestemmingen
-    a medmij:Object, medmij:Module ;
-    medmij:elementName "Beheren Toestemmingen" ;
+obj:beheren-toestemmingen a medmij:Module,
+        medmij:Object ;
     medmij:code "(core.toestemming.*)" ;
-    medmij:objectClass medmij:Module ;
+    medmij:elementName "Beheren Toestemmingen" ;
     medmij:layer "Business/Applicatie" ;
     medmij:mappingNote "Persoon beheert (in)trekt langdurige toestemmingen via DVP bij DVA." .
+

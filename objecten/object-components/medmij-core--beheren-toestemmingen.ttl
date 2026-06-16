@@ -1,17 +1,14 @@
-@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
 @prefix medmij: <https://register.medmij.nl/ontology/> .
-@prefix obj:    <https://register.medmij.nl/objects/> .
+@prefix obj: <https://register.medmij.nl/objects/> .
 
-obj:comp-medmij-core--beheren-toestemmingen
-    a medmij:Object, medmij:ObjectComponent ;
-    medmij:elementName "MedMij Core bevat Beheren Toestemmingen" ;
+obj:comp-medmij-core--beheren-toestemmingen a medmij:Object,
+        medmij:ObjectComponent ;
     medmij:code "—" ;
-    medmij:objectClass medmij:ObjectComponent ;
+    medmij:component obj:beheren-toestemmingen ;
+    medmij:componentClass medmij:Service ;
+    medmij:elementName "MedMij Core bevat Beheren Toestemmingen" ;
     medmij:layer "—" ;
     medmij:mappingNote "Beheren Toestemmingen is een Core-service voor beheer van langdurige toestemmingen." ;
     medmij:whole obj:medmij-core ;
-    medmij:wholeClass medmij:Framework ;
-    medmij:component obj:beheren-toestemmingen ;
-    medmij:componentClass medmij:Service .
+    medmij:wholeClass medmij:Framework .
+

@@ -1,15 +1,12 @@
-@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
 @prefix medmij: <https://register.medmij.nl/ontology/> .
-@prefix obj:    <https://register.medmij.nl/objects/> .
+@prefix obj: <https://register.medmij.nl/objects/> .
 
-obj:batch-automatisch-verzamelen-23-00-06-00-gespreid
-    a medmij:Object, medmij:Arrangement ;
-    medmij:elementName "Batch automatisch verzamelen: 23:00–06:00, gespreid" ;
+obj:batch-automatisch-verzamelen-23-00-06-00-gespreid a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "Batch-gewijs geautomatiseerd verzamelen voor meerdere Personen mag alleen in het tijdslot van 23.00 uur tot 6.00 uur en niet allemaal op hetzelfde tijdstip." ;
     medmij:code "core.gegevensuitwisseling.201" ;
-    medmij:objectClass medmij:Arrangement ;
+    medmij:elementName "Batch automatisch verzamelen: 23:00–06:00, gespreid" ;
     medmij:layer "Applicatie" ;
     medmij:mappingNote "Batch-gewijs verzamelen voor meerdere Personen alleen in nachtvenster, niet simultaan." ;
-    medmij:arrangementText "Batch-gewijs geautomatiseerd verzamelen voor meerdere Personen mag alleen in het tijdslot van 23.00 uur tot 6.00 uur en niet allemaal op hetzelfde tijdstip." ;
     medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
+

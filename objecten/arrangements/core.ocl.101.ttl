@@ -1,15 +1,12 @@
-@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
 @prefix medmij: <https://register.medmij.nl/ontology/> .
-@prefix obj:    <https://register.medmij.nl/objects/> .
+@prefix obj: <https://register.medmij.nl/objects/> .
 
-obj:oauth-client-list-voldoet-aan-informatiemodellen
-    a medmij:Object, medmij:Arrangement ;
-    medmij:elementName "OAuth Client List voldoet aan Informatiemodellen" ;
+obj:oauth-client-list-voldoet-aan-informatiemodellen a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "De OAuth Client List voldoet aan wat over haar is bepaald in de Informatiemodellen." ;
     medmij:code "core.ocl.101" ;
-    medmij:objectClass medmij:Arrangement ;
+    medmij:elementName "OAuth Client List voldoet aan Informatiemodellen" ;
     medmij:layer "Business" ;
     medmij:mappingNote "Format en inhoud OCL conform vastgesteld informatiemodel." ;
-    medmij:arrangementText "De OAuth Client List voldoet aan wat over haar is bepaald in de Informatiemodellen." ;
     medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
+

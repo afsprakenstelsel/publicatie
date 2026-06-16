@@ -1,15 +1,12 @@
-@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
 @prefix medmij: <https://register.medmij.nl/ontology/> .
-@prefix obj:    <https://register.medmij.nl/objects/> .
+@prefix obj: <https://register.medmij.nl/objects/> .
 
-obj:dvp-notificeert-persoon-bij-48-uur-stagnerende-uitwisseling
-    a medmij:Object, medmij:Arrangement ;
-    medmij:elementName "DVP notificeert Persoon bij 48 uur stagnerende uitwisseling" ;
+obj:dvp-notificeert-persoon-bij-48-uur-stagnerende-uitwisseling a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "Indien uitwisseling van gegevens binnen een langdurige toestemming 48 uur of langer niet mogelijk is, is de DVP verplicht de Persoon te notificeren op een door de Persoon gewenste manier. Dit kan bijvoorbeeld in de app/browser, per e-mail of per SMS." ;
     medmij:code "core.gegevensuitwisseling.105" ;
-    medmij:objectClass medmij:Arrangement ;
+    medmij:elementName "DVP notificeert Persoon bij 48 uur stagnerende uitwisseling" ;
     medmij:layer "Business" ;
     medmij:mappingNote "Verplichte notificatie als langdurige toestemming 48 uur niet kan worden gebruikt." ;
-    medmij:arrangementText "Indien uitwisseling van gegevens binnen een langdurige toestemming 48 uur of langer niet mogelijk is, is de DVP verplicht de Persoon te notificeren op een door de Persoon gewenste manier. Dit kan bijvoorbeeld in de app/browser, per e-mail of per SMS." ;
     medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
+

@@ -1,17 +1,14 @@
-@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
 @prefix medmij: <https://register.medmij.nl/ontology/> .
-@prefix obj:    <https://register.medmij.nl/objects/> .
+@prefix obj: <https://register.medmij.nl/objects/> .
 
-obj:comp-delen--authenticeren
-    a medmij:Object, medmij:ObjectComponent ;
-    medmij:elementName "Delen bevat Authenticeren" ;
+obj:comp-delen--authenticeren a medmij:Object,
+        medmij:ObjectComponent ;
     medmij:code "—" ;
-    medmij:objectClass medmij:ObjectComponent ;
+    medmij:component obj:authenticeren ;
+    medmij:componentClass medmij:Module ;
+    medmij:elementName "Delen bevat Authenticeren" ;
     medmij:layer "—" ;
     medmij:mappingNote "DigiD-authenticatiestap als onderdeel van Delen." ;
     medmij:whole obj:delen ;
-    medmij:wholeClass medmij:Service ;
-    medmij:component obj:authenticeren ;
-    medmij:componentClass medmij:Module .
+    medmij:wholeClass medmij:Service .
+
