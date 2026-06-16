@@ -46,21 +46,35 @@ def html_escape(text: str) -> str:
     )
 
 
+_INFO_SVG = (
+    '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" '
+    'stroke-width="1.5" stroke="currentColor" width="13" height="13" style="flex-shrink:0">'
+    '<path stroke-linecap="round" stroke-linejoin="round" '
+    'd="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 '
+    '1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z"/>'
+    "</svg>"
+)
+
+
 def text_cell(arrangement_text: str, toelichting: str) -> str:
+    """Cel voor objecten MÉT afspraaktekst (Arrangements)."""
     parts = [html_escape(arrangement_text)]
     if toelichting:
         parts.append(
-            "<details><summary>"
-            '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" '
-            'stroke-width="1.5" stroke="currentColor" width="13" height="13" style="flex-shrink:0">'
-            '<path stroke-linecap="round" stroke-linejoin="round" '
-            'd="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 '
-            '1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z"/>'
-            "</svg>"
-            "Toelichting</summary>"
+            f"<details><summary>{_INFO_SVG}Toelichting</summary>"
             f"<div class='toelichting-body'>{html_escape(toelichting)}</div>"
             "</details>"
         )
+    return "".join(parts)
+
+
+def object_cell(element_name: str, mapping_note: str) -> str:
+    """Cel voor objecten ZONDER afspraaktekst (modules, specs, diensten, enz.)."""
+    parts = []
+    if element_name:
+        parts.append(f"<span class='obj-name'>{html_escape(element_name)}</span>")
+    if mapping_note:
+        parts.append(f"<span class='obj-note'>{html_escape(mapping_note)}</span>")
     return "".join(parts)
 
 
@@ -78,10 +92,12 @@ def parse_object(ttl_file: Path) -> dict | None:
 
     subj = subjects[0]
     return {
-        "code": val(subj, MEDMIJ.code),
-        "layer": val(subj, MEDMIJ.layer),
+        "code":            val(subj, MEDMIJ.code),
+        "layer":           val(subj, MEDMIJ.layer),
+        "elementName":     val(subj, MEDMIJ.elementName),
+        "mappingNote":     val(subj, MEDMIJ.mappingNote),
         "arrangementText": val(subj, MEDMIJ.arrangementText),
-        "toelichting": val(subj, MEDMIJ.toelichting),
+        "toelichting":     val(subj, MEDMIJ.toelichting),
     }
 
 
@@ -101,7 +117,10 @@ def generate_page(dir_path: Path) -> None:
     for i, row in enumerate(rows, start=1):
         css = LAYER_CLASSES.get(row["layer"], "layer-none")
         code_id = html_escape(row["code"])
-        tekst = text_cell(row["arrangementText"], row["toelichting"])
+        if row["arrangementText"]:
+            tekst = text_cell(row["arrangementText"], row["toelichting"])
+        else:
+            tekst = object_cell(row["elementName"], row["mappingNote"])
         table_rows.append(
             f'<tr class="{css}">'
             f'<td class="col-num">{i}.</td>'
@@ -114,7 +133,7 @@ def generate_page(dir_path: Path) -> None:
 
     html_table = (
         "<table>\n"
-        "<thead><tr><th>#</th><th>Tekst</th><th>Code</th></tr></thead>\n"
+        "<thead><tr><th>#</th><th>Tekst</th><th style='text-align:right'>Code</th></tr></thead>\n"
         "<tbody>\n"
         + "\n".join(table_rows)
         + "\n</tbody>\n</table>"
