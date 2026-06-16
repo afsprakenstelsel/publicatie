@@ -1,7 +1,7 @@
 @prefix medmij: <https://register.medmij.nl/ontology/> .
 @prefix obj: <https://register.medmij.nl/objects/> .
 
-obj:deelnemersovereenkomst a medmij:Arrangement,
+obj:deelnemersovereenkomst a medmij:DataSet,
         medmij:Object ;
     medmij:code "—" ;
     medmij:elementName "Deelnemersovereenkomst" ;
