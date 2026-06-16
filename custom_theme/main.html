@@ -145,21 +145,28 @@
     .doc-content td.col-code { text-align: right; width: 180px; white-space: nowrap; }
 
     /* ── details/toelichting ── */
-    .doc-content details { margin-top: 7px; }
+    .doc-content details { margin-top: 9px; }
     .doc-content details summary {
-      cursor: pointer; color: #b0bac4; font-size: 0.74rem;
-      display: inline-flex; align-items: center; gap: 4px;
-      list-style: none; user-select: none; transition: color 0.14s;
+      cursor: pointer; list-style: none; user-select: none;
+      display: inline-flex; align-items: center; gap: 5px;
+      font-size: 0.71rem; font-weight: 500; color: #4338ca;
+      background: #eef2ff; border: 1px solid #c7d2fe;
+      padding: 3px 9px 3px 6px; border-radius: 99px;
+      transition: all 0.14s;
     }
     .doc-content details summary::-webkit-details-marker { display: none; }
-    .doc-content details summary:hover { color: #5c6a7a; }
-    .doc-content details[open] summary { color: #4338ca; }
+    .doc-content details summary:hover { background: #e0e7ff; border-color: #a5b4fc; }
+    .doc-content details[open] summary {
+      background: #4338ca; border-color: #4338ca; color: #fff;
+    }
+    .doc-content details[open] summary svg { stroke: #fff; }
     .doc-content .toelichting-body {
-      margin-top: 8px; padding: 10px 14px;
-      background: #f8fafc;
-      border: 1px solid #e5e9ef;
-      border-radius: 8px; color: #5c6a7a;
-      font-size: 0.77rem; line-height: 1.65;
+      margin-top: 10px; padding: 12px 16px;
+      background: #f5f7ff;
+      border: 1px solid #c7d2fe;
+      border-left: 3px solid #6366f1;
+      border-radius: 8px; color: #374151;
+      font-size: 0.78rem; line-height: 1.65;
     }
     .doc-content .toelichting-body ul { margin: 6px 0 6px 18px; list-style: disc; }
     .doc-content .toelichting-body li { margin: 3px 0; }
