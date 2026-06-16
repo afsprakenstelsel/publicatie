@@ -22,6 +22,8 @@ jobs:
 
       - run: pip install -r requirements.txt
 
+      - run: python scripts/add_relations.py
+
       - run: python scripts/generate_docs.py
 
       - run: mkdocs gh-deploy --force
