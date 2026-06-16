@@ -1,3 +1,17 @@
 .venv/
 site/
 .DS_Store
+docs/arrangements/
+docs/components/
+docs/data-products/
+docs/data-resources/
+docs/datasets/
+docs/frameworks/
+docs/implementation-guidelines/
+docs/kwalificaties/
+docs/modules/
+docs/object-components/
+docs/objectklassen/
+docs/requirements/
+docs/services/
+docs/specifications/

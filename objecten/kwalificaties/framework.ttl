@@ -13,4 +13,4 @@ obj:qual-framework
     medmij:mappingNote "Structuurobject; geen kwalificatie." ;
     medmij:forClass medmij:Framework ;
     medmij:qualificationLevel "—" ;
-    medmij:versioned false^^xsd:boolean .
+    medmij:versioned "false"^^xsd:boolean .

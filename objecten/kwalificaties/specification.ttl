@@ -13,4 +13,4 @@ obj:qual-specification
     medmij:mappingNote "Systeem moet conformiteit aantonen; vastgelegd in SystemQualificationLog." ;
     medmij:forClass medmij:Specification ;
     medmij:qualificationLevel "system" ;
-    medmij:versioned true^^xsd:boolean .
+    medmij:versioned "true"^^xsd:boolean .

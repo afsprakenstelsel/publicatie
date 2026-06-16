@@ -13,4 +13,4 @@ obj:qual-requirement
     medmij:mappingNote "Systeem- of deelnemer-kwalificatie afhankelijk van aard van eis." ;
     medmij:forClass medmij:Requirement ;
     medmij:qualificationLevel "system / participant" ;
-    medmij:versioned true^^xsd:boolean .
+    medmij:versioned "true"^^xsd:boolean .

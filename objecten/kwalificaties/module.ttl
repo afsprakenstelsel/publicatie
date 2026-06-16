@@ -13,4 +13,4 @@ obj:qual-module
     medmij:mappingNote "Onderdeel van Service of Framework; geen zelfstandige kwalificatie." ;
     medmij:forClass medmij:Module ;
     medmij:qualificationLevel "—" ;
-    medmij:versioned true^^xsd:boolean .
+    medmij:versioned "true"^^xsd:boolean .

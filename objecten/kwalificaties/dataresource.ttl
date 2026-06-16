@@ -13,4 +13,4 @@ obj:qual-dataresource
     medmij:mappingNote "Dynamisch; opgenomen als NodeCapability of NodeMetadata." ;
     medmij:forClass medmij:DataResource ;
     medmij:qualificationLevel "—" ;
-    medmij:versioned false^^xsd:boolean .
+    medmij:versioned "false"^^xsd:boolean .

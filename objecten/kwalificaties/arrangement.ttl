@@ -13,4 +13,4 @@ obj:qual-arrangement
     medmij:mappingNote "Versie volgt afsprakenstelselversie; geen afzonderlijke kwalificatie." ;
     medmij:forClass medmij:Arrangement ;
     medmij:qualificationLevel "—" ;
-    medmij:versioned true^^xsd:boolean .
+    medmij:versioned "true"^^xsd:boolean .

@@ -13,4 +13,4 @@ obj:qual-implementationguideline
     medmij:mappingNote "Informatief; geen kwalificatie." ;
     medmij:forClass medmij:ImplementationGuideline ;
     medmij:qualificationLevel "—" ;
-    medmij:versioned true^^xsd:boolean .
+    medmij:versioned "true"^^xsd:boolean .

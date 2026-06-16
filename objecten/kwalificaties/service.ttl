@@ -13,4 +13,4 @@ obj:qual-service
     medmij:mappingNote "DVA kwalificeert per service per versie; DVP ook." ;
     medmij:forClass medmij:Service ;
     medmij:qualificationLevel "participant" ;
-    medmij:versioned true^^xsd:boolean .
+    medmij:versioned "true"^^xsd:boolean .

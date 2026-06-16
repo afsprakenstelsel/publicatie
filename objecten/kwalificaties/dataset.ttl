@@ -13,4 +13,4 @@ obj:qual-dataset
     medmij:mappingNote "Versie van informatiemodel/FHIR-profiel; onderdeel van Service." ;
     medmij:forClass medmij:DataSet ;
     medmij:qualificationLevel "—" ;
-    medmij:versioned true^^xsd:boolean .
+    medmij:versioned "true"^^xsd:boolean .

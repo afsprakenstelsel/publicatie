@@ -13,4 +13,4 @@ obj:qual-component
     medmij:mappingNote "Een Node implementeert een Component; system-kwalificatie." ;
     medmij:forClass medmij:Component ;
     medmij:qualificationLevel "system" ;
-    medmij:versioned true^^xsd:boolean .
+    medmij:versioned "true"^^xsd:boolean .

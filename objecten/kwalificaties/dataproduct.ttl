@@ -13,4 +13,4 @@ obj:qual-dataproduct
     medmij:mappingNote "Versie van de lijst (bijv. ZAL 4.13); beheerd door MedMij Beheer." ;
     medmij:forClass medmij:DataProduct ;
     medmij:qualificationLevel "—" ;
-    medmij:versioned true^^xsd:boolean .
+    medmij:versioned "true"^^xsd:boolean .
