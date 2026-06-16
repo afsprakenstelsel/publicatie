@@ -6,7 +6,7 @@
 
 obj:persoon-moet-actief-account-hebben-bij-dvp
     a medmij:Object, medmij:Arrangement ;
-    medmij:elementName "Persoon moet actief account hebben bij DVP" ;
+    medmij:elementName "Persoon moet een actief account hebben bij DVP" ;
     medmij:code "core.account.100" ;
     medmij:objectClass medmij:Arrangement ;
     medmij:layer "Business" ;
