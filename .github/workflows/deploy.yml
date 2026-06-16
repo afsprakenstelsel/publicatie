@@ -1,4 +1,4 @@
-name: Deploy naar GitHub Pages
+name: Deploy MkDocs naar GitHub Pages
 
 on:
   push:
@@ -22,6 +22,6 @@ jobs:
 
       - run: pip install -r requirements.txt
 
-      - run: python scripts/build_site.py
+      - run: python scripts/generate_docs.py
 
-      - run: ghp-import -n -p -f site/
+      - run: mkdocs gh-deploy --force
