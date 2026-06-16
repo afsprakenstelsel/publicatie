@@ -234,6 +234,39 @@
       box-shadow: 0 1px 3px rgba(15,23,42,0.06);
     }
 
+    /* ── layer filter buttons ── */
+    .layer-filter-btn {
+      cursor: pointer; font-family: inherit;
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 5px 12px; border-radius: 6px;
+      font-size: 0.75rem; font-weight: 500;
+      transition: all 0.15s; white-space: nowrap;
+    }
+    .layer-filter-btn[data-layer="layer-biz"] {
+      background: #fffbeb; border: 1px solid #fcd34d; color: #92400e;
+    }
+    .layer-filter-btn[data-layer="layer-biz"]:hover,
+    .layer-filter-btn[data-layer="layer-biz"].active {
+      background: #d97706; border-color: #b45309; color: #ffffff;
+    }
+    .layer-filter-btn[data-layer="layer-app"] {
+      background: #f0f9ff; border: 1px solid #7dd3fc; color: #075985;
+    }
+    .layer-filter-btn[data-layer="layer-app"]:hover,
+    .layer-filter-btn[data-layer="layer-app"].active {
+      background: #0284c7; border-color: #0369a1; color: #ffffff;
+    }
+    .layer-filter-btn[data-layer="layer-tech"] {
+      background: #f0fdf4; border: 1px solid #6ee7b7; color: #065f46;
+    }
+    .layer-filter-btn[data-layer="layer-tech"]:hover,
+    .layer-filter-btn[data-layer="layer-tech"].active {
+      background: #059669; border-color: #047857; color: #ffffff;
+    }
+    .layer-filter-btn.dimmed { opacity: 0.35; }
+    .layer-filter-btn .filter-dot { width: 8px; height: 8px; border-radius: 2px; flex-shrink: 0; }
+    .layer-filter-btn.active .filter-dot { background: rgba(255,255,255,0.7) !important; }
+
     /* ── page title bar ── */
     .page-title-bar { padding: 28px 32px 24px; border-bottom: 1px solid #e5e9ef; }
     .page-title-bar h1 {
@@ -463,20 +496,23 @@
       <h1>{{ page.title }}</h1>
     </div>
     <div style="padding:24px 32px 64px" class="fade-up fade-up-1">
-      <div style="display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-bottom:20px;padding:12px 16px;background:#ffffff;border:1px solid #e5e9ef;border-radius:10px;box-shadow:0 1px 3px rgba(15,23,42,0.05)">
-        <span style="font-size:0.68rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:#94a3b8;margin-right:6px">Laag</span>
-        <span style="display:flex;align-items:center;gap:7px;padding:5px 12px;border-radius:6px;background:#fffbeb;border:1px solid #fcd34d">
-          <span style="width:9px;height:9px;border-radius:2px;background:#d97706;flex-shrink:0"></span>
-          <span style="font-size:0.75rem;font-weight:500;color:#92400e">Business</span>
-        </span>
-        <span style="display:flex;align-items:center;gap:7px;padding:5px 12px;border-radius:6px;background:#f0f9ff;border:1px solid #7dd3fc">
-          <span style="width:9px;height:9px;border-radius:2px;background:#0284c7;flex-shrink:0"></span>
-          <span style="font-size:0.75rem;font-weight:500;color:#075985">Applicatie</span>
-        </span>
-        <span style="display:flex;align-items:center;gap:7px;padding:5px 12px;border-radius:6px;background:#f0fdf4;border:1px solid #6ee7b7">
-          <span style="width:9px;height:9px;border-radius:2px;background:#059669;flex-shrink:0"></span>
-          <span style="font-size:0.75rem;font-weight:500;color:#065f46">Technologie</span>
-        </span>
+      <div id="layer-legend" style="display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-bottom:20px;padding:10px 14px;background:#ffffff;border:1px solid #e5e9ef;border-radius:10px;box-shadow:0 1px 3px rgba(15,23,42,0.05)">
+        <span style="font-size:0.68rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:#b0bac4;margin-right:2px">Filter</span>
+        <button class="layer-filter-btn" data-layer="layer-biz">
+          <span class="filter-dot" style="background:#d97706"></span>Business
+        </button>
+        <button class="layer-filter-btn" data-layer="layer-app">
+          <span class="filter-dot" style="background:#0284c7"></span>Applicatie
+        </button>
+        <button class="layer-filter-btn" data-layer="layer-tech">
+          <span class="filter-dot" style="background:#059669"></span>Technologie
+        </button>
+        <span id="filter-status" style="display:none;margin-left:4px;font-size:0.75rem;color:#64748b"></span>
+        <button id="clear-filter" onclick="clearFilters()" style="display:none;margin-left:2px;padding:4px 10px;border-radius:6px;border:1px solid #e5e9ef;background:#f8fafc;color:#94a3b8;font-size:0.72rem;cursor:pointer;font-family:inherit;transition:all 0.14s"
+          onmouseover="this.style.color='#ef4444';this.style.borderColor='#fca5a5'"
+          onmouseout="this.style.color='#94a3b8';this.style.borderColor='#e5e9ef'">
+          ✕ Wis filter
+        </button>
       </div>
       <div class="doc-content">{{ page.content }}</div>
     </div>
@@ -558,6 +594,51 @@ function handleArrows(e) {
   else return;
   items.forEach((el,i) => el.classList.toggle('focused', i === focusIdx));
   items[focusIdx]?.scrollIntoView({ block: 'nearest' });
+}
+
+// ── layer filter ───────────────────────────────────────────────────────────
+const filterBtns   = document.querySelectorAll('.layer-filter-btn');
+const allRows      = document.querySelectorAll('.doc-content tbody tr');
+const filterStatus = document.getElementById('filter-status');
+const clearFilterBtn = document.getElementById('clear-filter');
+const activeFilters  = new Set();
+
+filterBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const layer = btn.dataset.layer;
+    if (activeFilters.has(layer)) { activeFilters.delete(layer); }
+    else { activeFilters.add(layer); }
+    applyFilters();
+  });
+});
+
+function clearFilters() {
+  activeFilters.clear();
+  applyFilters();
+}
+
+function applyFilters() {
+  let visible = 0;
+  allRows.forEach(row => {
+    const show = activeFilters.size === 0 || [...activeFilters].some(f => row.classList.contains(f));
+    row.style.display = show ? '' : 'none';
+    if (show) visible++;
+  });
+
+  filterBtns.forEach(btn => {
+    const isActive = activeFilters.has(btn.dataset.layer);
+    btn.classList.toggle('active', isActive);
+    btn.classList.toggle('dimmed', activeFilters.size > 0 && !isActive);
+  });
+
+  if (activeFilters.size > 0) {
+    filterStatus.textContent = `${visible} van ${allRows.length} rijen`;
+    filterStatus.style.display = '';
+    clearFilterBtn.style.display = '';
+  } else {
+    filterStatus.style.display = 'none';
+    clearFilterBtn.style.display = 'none';
+  }
 }
 
 // ── mobile sidebar ─────────────────────────────────────────────────────────
