@@ -29,11 +29,11 @@ DIR_TITLES = {
 }
 
 
-LAYER_COLORS = {
-    "Business": "#fffae6",
-    "Applicatie": "#e6fcff",
-    "Business/Applicatie": "#fffae6",
-    "Technologie": "#e3fcef",
+LAYER_CLASSES = {
+    "Business": "layer-biz",
+    "Applicatie": "layer-app",
+    "Business/Applicatie": "layer-biz",
+    "Technologie": "layer-tech",
 }
 
 
@@ -51,7 +51,7 @@ def text_cell(arrangement_text: str, toelichting: str) -> str:
     if toelichting:
         parts.append(
             "<details><summary>Toelichting</summary>"
-            f"<div style='margin-left:1em'>{html_escape(toelichting)}</div>"
+            f"<div class='toelichting-body'>{html_escape(toelichting)}</div>"
             "</details>"
         )
     return "".join(parts)
@@ -92,21 +92,21 @@ def generate_page(dir_path: Path) -> None:
 
     table_rows = []
     for i, row in enumerate(rows, start=1):
-        bg = LAYER_COLORS.get(row["layer"], "")
-        style = f' style="background-color:{bg}"' if bg else ""
+        css = LAYER_CLASSES.get(row["layer"], "layer-none")
         code_id = html_escape(row["code"])
         tekst = text_cell(row["arrangementText"], row["toelichting"])
         table_rows.append(
-            f'<tr{style}>'
-            f'<td style="white-space:nowrap;width:40px">{i}.</td>'
-            f'<td>{tekst}</td>'
-            f'<td style="white-space:nowrap;width:160px" id="{code_id}">{code_id}</td>'
+            f'<tr class="{css}">'
+            f'<td class="col-num">{i}.</td>'
+            f'<td class="col-text">{tekst}</td>'
+            f'<td class="col-code" id="{code_id}">'
+            f'<span class="code-badge" data-code="{code_id}">{code_id}</span>'
+            f'</td>'
             f'</tr>'
         )
 
     html_table = (
-        "<table style='width:100%'>\n"
-        "<colgroup><col style='width:40px'><col><col style='width:160px'></colgroup>\n"
+        "<table>\n"
         "<thead><tr><th>#</th><th>Tekst</th><th>Code</th></tr></thead>\n"
         "<tbody>\n"
         + "\n".join(table_rows)
