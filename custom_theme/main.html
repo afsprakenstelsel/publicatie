@@ -8,7 +8,7 @@
 
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
   <style>
     :root { color-scheme: light; }
@@ -186,7 +186,7 @@
     .doc-content colgroup { display: none; }
 
     /* ── headings ── */
-    h1, h2, h3, h4 { font-family: 'Syne', sans-serif; }
+    h1, h2, h3, h4 { font-family: 'Plus Jakarta Sans', sans-serif; }
     .doc-content h1 { display: none; }
 
     /* ── search overlay ── */
@@ -385,7 +385,7 @@
         </svg>
       </div>
       <div>
-        <div style="font-family:'Syne',sans-serif;font-size:0.92rem;font-weight:700;color:#1e2a3a;line-height:1.1">{{ config.site_name }}</div>
+        <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:0.92rem;font-weight:700;color:#1e2a3a;line-height:1.1">{{ config.site_name }}</div>
         <div style="font-size:0.62rem;color:#94a3b8;letter-spacing:0.05em;margin-top:1px">Afsprakenstelsel</div>
       </div>
     </a>
@@ -455,7 +455,7 @@
         <span style="width:5px;height:5px;border-radius:50%;background:#6366f1;flex-shrink:0"></span>
         <span style="font-size:0.7rem;color:#4338ca;font-weight:500;letter-spacing:0.04em">Technische documentatie</span>
       </div>
-      <h1 style="font-family:'Syne',sans-serif;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:800;line-height:1.1;margin:0 0 14px" class="grad-text">{{ config.site_name }}<br>Afsprakenstelsel</h1>
+      <h1 style="font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:800;line-height:1.1;margin:0 0 14px" class="grad-text">{{ config.site_name }}<br>Afsprakenstelsel</h1>
       <p style="font-size:0.93rem;color:#5c6a7a;max-width:480px;line-height:1.7;margin:0 0 26px">
         Technische en functionele documentatie van het Nederlandse stelsel voor gezondheidsgegevensuitwisseling.
       </p>
@@ -485,14 +485,14 @@
               {% if child.url %}
               <a href="{{ child.url | url }}" class="section-card">
                 <div style="color:#94a3b8;margin-bottom:10px">{{ navicon(child.url) }}</div>
-                <div style="font-family:'Syne',sans-serif;font-size:0.86rem;font-weight:600;color:#1e2a3a;margin-bottom:3px">{{ child.title }}</div>
+                <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:0.86rem;font-weight:600;color:#1e2a3a;margin-bottom:3px">{{ child.title }}</div>
               </a>
               {% endif %}
             {% endfor %}
           {% elif item.url and not item.is_homepage %}
             <a href="{{ item.url | url }}" class="section-card">
               <div style="color:#94a3b8;margin-bottom:10px">{{ navicon(item.url) }}</div>
-              <div style="font-family:'Syne',sans-serif;font-size:0.86rem;font-weight:600;color:#1e2a3a;margin-bottom:3px">{{ item.title }}</div>
+              <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:0.86rem;font-weight:600;color:#1e2a3a;margin-bottom:3px">{{ item.title }}</div>
             </a>
           {% endif %}
         {% endfor %}
