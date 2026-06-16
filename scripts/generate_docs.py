@@ -104,7 +104,7 @@ def generate_page(dir_path: Path) -> None:
         )
 
     html_table = (
-        "<table>\n"
+        "<table style='width:100%'>\n"
         "<colgroup><col style='width:40px'><col><col style='width:160px'></colgroup>\n"
         "<thead><tr><th>#</th><th>Tekst</th><th>Code</th></tr></thead>\n"
         "<tbody>\n"
