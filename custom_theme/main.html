@@ -429,12 +429,12 @@
   {# rdf footer links #}
   <div style="padding:10px 10px 14px;border-top:1px solid #f0f4f8">
     <div style="display:flex;gap:6px">
-      <a href="{{ base_url }}catalogue.ttl" style="flex:1;display:flex;align-items:center;justify-content:center;gap:4px;padding:6px;border-radius:6px;font-size:0.68rem;color:#94a3b8;background:#f8fafc;border:1px solid #e5e9ef;text-decoration:none;transition:color 0.14s"
+      <a href="{{ base_url }}/catalogue.ttl" style="flex:1;display:flex;align-items:center;justify-content:center;gap:4px;padding:6px;border-radius:6px;font-size:0.68rem;color:#94a3b8;background:#f8fafc;border:1px solid #e5e9ef;text-decoration:none;transition:color 0.14s"
          onmouseover="this.style.color='#5c6a7a'" onmouseout="this.style.color='#94a3b8'">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="11" height="11"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/></svg>
         RDF/TTL
       </a>
-      <a href="{{ base_url }}catalogue.jsonld" style="flex:1;display:flex;align-items:center;justify-content:center;gap:4px;padding:6px;border-radius:6px;font-size:0.68rem;color:#94a3b8;background:#f8fafc;border:1px solid #e5e9ef;text-decoration:none;transition:color 0.14s"
+      <a href="{{ base_url }}/catalogue.jsonld" style="flex:1;display:flex;align-items:center;justify-content:center;gap:4px;padding:6px;border-radius:6px;font-size:0.68rem;color:#94a3b8;background:#f8fafc;border:1px solid #e5e9ef;text-decoration:none;transition:color 0.14s"
          onmouseover="this.style.color='#5c6a7a'" onmouseout="this.style.color='#94a3b8'">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="11" height="11"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/></svg>
         JSON-LD
@@ -478,7 +478,7 @@
         Technische en functionele documentatie van het Nederlandse stelsel voor gezondheidsgegevensuitwisseling.
       </p>
       <div style="display:flex;gap:10px;flex-wrap:wrap">
-        <a href="{{ base_url }}arrangements/" style="display:inline-flex;align-items:center;gap:7px;padding:9px 18px;border-radius:9px;background:#4338ca;border:1px solid #3730a3;color:#ffffff;font-size:0.82rem;font-weight:500;text-decoration:none;transition:all 0.15s"
+        <a href="{{ 'arrangements/' | url }}" style="display:inline-flex;align-items:center;gap:7px;padding:9px 18px;border-radius:9px;background:#4338ca;border:1px solid #3730a3;color:#ffffff;font-size:0.82rem;font-weight:500;text-decoration:none;transition:all 0.15s"
            onmouseover="this.style.background='#3730a3'" onmouseout="this.style.background='#4338ca'">
           Afspraken verkennen
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="13" height="13"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
@@ -577,7 +577,7 @@ document.addEventListener('keydown', e => {
 searchInp.addEventListener('input', () => renderHits(searchInp.value.trim()));
 
 function loadSearchIndex() {
-  fetch('{{ base_url }}search/search_index.json')
+  fetch('{{ base_url }}/search/search_index.json')
     .then(r => r.json())
     .then(data => { searchDocs = data.docs || []; renderHits(searchInp.value.trim()); })
     .catch(() => {});
@@ -603,7 +603,7 @@ function renderHits(q) {
   hits.forEach(doc => {
     const a = document.createElement('a');
     a.className = 'search-hit';
-    a.href = '{{ base_url }}' + doc.location;
+    a.href = '{{ base_url }}/' + doc.location;
     const snippet = (doc.text || '').substring(0, 120);
     a.innerHTML = `<div style="flex:1;overflow:hidden">
       <div class="search-hit-text">${highlight(doc.title, q)}</div>
