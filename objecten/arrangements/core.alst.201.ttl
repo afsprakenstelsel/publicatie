@@ -3,10 +3,10 @@
 
 obj:dvp-server-haalt-aanbiederslijst-minstens-elke-15-min-op a medmij:Arrangement,
         medmij:Object ;
-    medmij:arrangementText "DVP Server betrekt minstens elke vijftien minuten (900 seconden) de meest recente Aanbiederslijst van MedMij Registratie." ;
+    medmij:arrangementText "DVP Server betrekt minstens elke vijf minuten (300 seconden) de meest recente Aanbiederslijst van MedMij Registratie. Deze frequentie is verhoogd ten opzichte van de vorige versie om snellere propagatie van wijzigingen in de Aanbiederslijst te garanderen. DVP Servers mogen gebruik maken van HTTP conditional requests (ETag / If-None-Match) om bandbreedte te besparen." ;
     medmij:code "core.alst.201" ;
-    medmij:elementName "DVP Server haalt Aanbiederslijst minstens elke 15 min op" ;
+    medmij:elementName "DVP Server haalt Aanbiederslijst minstens elke 5 min op" ;
     medmij:layer "Applicatie" ;
-    medmij:mappingNote "Maximaal 900 seconden oud; meest recente versie van MedMij Registratie." ;
+    medmij:mappingNote "Maximaal 300 seconden oud (eerder 900); conditional requests toegestaan voor bandbreedte-optimalisatie." ;
     medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
 
