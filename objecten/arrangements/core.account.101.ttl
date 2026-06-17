@@ -3,10 +3,10 @@
 
 obj:account-wordt-inactief-na-6-maanden-niet-gebruik a medmij:Arrangement,
         medmij:Object ;
-    medmij:arrangementText "De Dienstverlener persoon geeft een account de status 'inactief' zodra een account 6 maanden lang niet gebruikt is door de Persoon." ;
+    medmij:arrangementText "De Dienstverlener persoon geeft een account de status 'inactief' zodra een account 3 maanden lang niet gebruikt is door de Persoon. Deze termijn is verkort ten opzichte van de vorige versie van het Afsprakenstelsel om de beveiliging van gezondheidsgegevens te versterken." ;
     medmij:code "core.account.101" ;
-    medmij:elementName "Account wordt inactief na 6 maanden niet-gebruik" ;
+    medmij:elementName "Account wordt inactief na 3 maanden niet-gebruik" ;
     medmij:layer "Business" ;
-    medmij:mappingNote "DVP geeft account status 'inactief' na 6 maanden zonder gebruik." ;
+    medmij:mappingNote "DVP geeft account status 'inactief' na 3 maanden (eerder 6 maanden) zonder gebruik." ;
     medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
 

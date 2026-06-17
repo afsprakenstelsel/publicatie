@@ -3,10 +3,10 @@
 
 obj:account-wordt-actief-bij-hergebruik-persoon a medmij:Arrangement,
         medmij:Object ;
-    medmij:arrangementText "De dienstverlener persoon geeft een inactief account de status 'actief' zodra de Persoon weer gebruikmaakt van het account." ;
+    medmij:arrangementText "De Dienstverlener persoon geeft een inactief account de status 'actief' zodra de Persoon opnieuw inlogt via meerfactorauthenticatie (MFA). De Persoon ontvangt hierbij een melding dat het account reactiveert en dient de geldende privacyverklaring opnieuw te bevestigen indien deze gewijzigd is." ;
     medmij:code "core.account.102" ;
-    medmij:elementName "Account wordt actief bij hergebruik Persoon" ;
+    medmij:elementName "Account wordt actief bij hergebruik Persoon via MFA" ;
     medmij:layer "Business" ;
-    medmij:mappingNote "DVP herstelt status 'actief' zodra Persoon account weer gebruikt." ;
+    medmij:mappingNote "DVP herstelt status 'actief' na MFA-inlog; melding en evt. herbevestiging privacyverklaring vereist." ;
     medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
 

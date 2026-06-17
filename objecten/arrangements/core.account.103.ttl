@@ -3,10 +3,10 @@
 
 obj:dvp-notificeert-persoon-bij-inactief-account a medmij:Arrangement,
         medmij:Object ;
-    medmij:arrangementText "De Dienstverlener persoon moet de Persoon notificeren per e-mail of (als de DVP dit aanbiedt) per SMS van het feit dat het account de status 'inactief' heeft gekregen en indien van toepassing geen gebruikmaakt van aanwezige langdurige toestemmingen, totdat de Persoon opnieuw inlogt." ;
+    medmij:arrangementText "De Dienstverlener persoon moet de Persoon notificeren per e-mail, SMS of pushbericht (via de DVP-app, indien beschikbaar) van het feit dat het account de status 'inactief' heeft gekregen. De notificatie vermeldt expliciet dat lopende langdurige toestemmingen zijn gepauzeerd en bevat een directe link naar de heractivatieprocedure, totdat de Persoon opnieuw inlogt." ;
     medmij:code "core.account.103" ;
     medmij:elementName "DVP notificeert Persoon bij inactief account" ;
     medmij:layer "Business" ;
-    medmij:mappingNote "DVP stuurt e-mail of SMS bij statuswijziging naar inactief; langdurige toestemmingen onderbroken." ;
+    medmij:mappingNote "DVP stuurt e-mail, SMS of push bij statuswijziging naar inactief; melding bevat heractivatielink." ;
     medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
 
