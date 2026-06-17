@@ -812,9 +812,6 @@ document.querySelectorAll('.code-badge[data-code]').forEach(b => {
   const dropdown  = document.getElementById('version-dropdown');
   const typeIcon  = document.getElementById('version-type-icon');
 
-  // Bepaal huidige pad-prefix zodat links kloppen
-  const currentPath = window.location.pathname;
-
   // Huidige versie-label tonen
   btnLabel.textContent = meta.current_label || meta.current;
 
@@ -832,21 +829,27 @@ document.querySelectorAll('.code-badge[data-code]').forEach(b => {
   }
 
   // Bouw dropdown-inhoud
-  function buildVersionUrl(targetPath) {
-    // meta.current_path is het absolute URL-pad van deze versie, bijv. '/' of '/v1.1/'
-    const myPath = (meta.current_path || '/').replace(/([^/])$/, '$1/'); // zorg voor trailing slash
+  function buildVersionUrl(targetVersionPath) {
+    // {{ base_url }} is een relatief pad (bijv. '..') dat MkDocs per pagina instelt.
+    // Door het te resolven tegen de huidige URL krijgen we het absolute pad van de
+    // buildroot van DEZE versie — bijv. '/publicatie/' of '/publicatie/v1.1/'.
+    // Dit werkt zowel op GitHub Pages (met subpad) als lokaal (zonder subpad).
+    const buildRoot = new URL('{{ base_url }}/', window.location.href).pathname;
 
-    // Strip het versie-prefix van het huidige pathname → paginadeel, bijv. 'arrangements/'
-    let page = currentPath;
-    if (myPath !== '/' && page.startsWith(myPath)) {
-      page = page.slice(myPath.length);
-    } else {
-      page = page.replace(/^\//, '');
+    // Paginadeel relatief aan de buildroot, bijv. 'arrangements/'
+    let page = window.location.pathname;
+    if (page.startsWith(buildRoot)) {
+      page = page.slice(buildRoot.length);
     }
 
-    // Plak het doelpad-prefix voor het paginadeel
-    const base = (targetPath || '/').replace(/\/$/, ''); // '' voor root of '/v1.1'
-    return base + '/' + page;
+    // Siteroot = buildroot minus het versie-specifieke suffix
+    // bijv. '/publicatie/v1.1/' - 'v1.1/' = '/publicatie/'
+    const mySuffix = (meta.current_path || '/').replace(/^\//, ''); // '' of 'v1.1/'
+    const siteRoot = mySuffix ? buildRoot.slice(0, -mySuffix.length) : buildRoot;
+
+    // Plak siteroot + doelversie-suffix + paginadeel samen
+    const targetSuffix = (targetVersionPath || '/').replace(/^\//, ''); // '' of 'v1.1/'
+    return siteRoot + targetSuffix + page;
   }
 
   const branches = meta.versions.filter(v => v.type === 'branch');
