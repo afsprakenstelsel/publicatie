@@ -1,7 +1,10 @@
 #!/usr/bin/env python3
 """Genereer MkDocs markdown-pagina's en RDF-bestanden vanuit TTL-objectbestanden."""
 
+import argparse
+import json
 import shutil
+import subprocess
 from pathlib import Path
 import markdown
 import rdflib
@@ -11,6 +14,7 @@ MEDMIJ = rdflib.Namespace("https://register.medmij.nl/ontology/")
 
 OBJECTEN_DIR = Path("objecten")
 DOCS_DIR     = Path("docs")
+RELEASES_FILE = Path("releases.json")
 
 DIR_TITLES = {
     "arrangements":             "Afspraken",
@@ -36,7 +40,6 @@ LAYER_CLASSES = {
     "Technologie":       "layer-tech",
 }
 
-# Mapping van RDF-type → sectie-directory
 TYPE_TO_SECTION: dict[str, str] = {
     str(MEDMIJ.Arrangement):             "arrangements",
     str(MEDMIJ.Module):                  "modules",
@@ -54,7 +57,6 @@ TYPE_TO_SECTION: dict[str, str] = {
     str(MEDMIJ.ObjectComponent):         "object-components",
 }
 
-# Relatie-predicaten waarvoor we badges tonen (uitgaande richting)
 RELATION_PREDS = [
     MEDMIJ.governedBy,
     MEDMIJ.hasSpecification,
@@ -110,7 +112,6 @@ def object_cell(element_name: str, mapping_note: str) -> str:
 
 
 def rel_badges_html(uri: str, outgoing: dict[str, list]) -> str:
-    """Geef HTML voor relatiebadges van een object, of lege string als er geen zijn."""
     targets = outgoing.get(uri, [])
     if not targets:
         return ""
@@ -126,6 +127,14 @@ def rel_badges_html(uri: str, outgoing: dict[str, list]) -> str:
             f'</a>'
         )
     return f'<div class="rel-badges">{"".join(badges)}</div>'
+
+
+def change_badge_html(change_type: str) -> str:
+    if change_type == "new":
+        return '<span class="change-badge change-new">NIEUW</span>'
+    if change_type == "modified":
+        return '<span class="change-badge change-modified">GEWIJZIGD</span>'
+    return ""
 
 
 # ── data laden ────────────────────────────────────────────────────────────────
@@ -155,16 +164,10 @@ def parse_object(ttl_file: Path) -> dict | None:
 
 
 def build_context() -> tuple[dict[str, dict], dict[str, list]]:
-    """
-    Laad alle TTL-bestanden en geef twee lookups terug:
-      obj_info  – uri → {slug, elementName, section}
-      outgoing  – uri → [{section_label, slug, elementName, section}]
-    """
     g = rdflib.ConjunctiveGraph()
     for ttl in sorted(OBJECTEN_DIR.rglob("*.ttl")):
         g.parse(str(ttl), format="turtle")
 
-    # Object-index
     obj_info: dict[str, dict] = {}
     for s in g.subjects(RDF.type, MEDMIJ.Object):
         slug = str(s).split("/")[-1]
@@ -180,7 +183,6 @@ def build_context() -> tuple[dict[str, dict], dict[str, list]]:
             "section":     section,
         }
 
-    # Uitgaande relaties
     outgoing: dict[str, list] = {}
     for pred in RELATION_PREDS:
         for s, o in g.subject_objects(pred):
@@ -197,9 +199,81 @@ def build_context() -> tuple[dict[str, dict], dict[str, list]]:
     return obj_info, outgoing
 
 
+# ── versie / diff ──────────────────────────────────────────────────────────────
+
+def load_releases() -> dict:
+    if not RELEASES_FILE.exists():
+        return {"latest_release": None, "versions": []}
+    return json.loads(RELEASES_FILE.read_text(encoding="utf-8"))
+
+
+def compute_changes(parent_ref: str) -> dict[str, str]:
+    """
+    Vergelijk huidige objecten met parent_ref via git diff.
+    Geeft {code: 'new'|'modified'} terug.
+    """
+    try:
+        result = subprocess.run(
+            ["git", "diff", "--name-status", parent_ref, "HEAD", "--", str(OBJECTEN_DIR)],
+            capture_output=True, text=True, check=True,
+        )
+    except subprocess.CalledProcessError:
+        print(f"Waarschuwing: git diff mislukt voor ref '{parent_ref}'.")
+        return {}
+
+    changes: dict[str, str] = {}
+    for line in result.stdout.strip().splitlines():
+        if not line:
+            continue
+        parts = line.split("\t")
+        status = parts[0]
+        filepath = parts[-1]
+        if not filepath.endswith(".ttl"):
+            continue
+        obj = parse_object(Path(filepath))
+        if not obj or not obj["code"]:
+            continue
+        changes[obj["code"]] = "new" if status == "A" else "modified"
+
+    return changes
+
+
+def write_version_meta(version_cfg: dict, releases: dict, changes: dict[str, str]) -> None:
+    """Schrijf version-meta.js zodat het template de versie-info kan inladen."""
+    versions_for_js = []
+    for v in releases.get("versions", []):
+        versions_for_js.append({
+            "id":    v["id"],
+            "label": v["label"],
+            "type":  v["type"],
+            "path":  v.get("path", "/"),
+            "date":  v.get("date"),
+        })
+
+    meta = {
+        "current":        version_cfg["id"],
+        "current_label":  version_cfg["label"],
+        "current_type":   version_cfg["type"],
+        "latest_release": releases.get("latest_release"),
+        "versions":       versions_for_js,
+        "changes":        changes,
+        "has_changes":    bool(changes),
+    }
+
+    js = f"window.__MEDMIJ_VERSION_META__ = {json.dumps(meta, ensure_ascii=False, indent=2)};\n"
+    out = DOCS_DIR / "version-meta.js"
+    out.write_text(js, encoding="utf-8")
+    print(f"Versie-meta: {out} (versie={version_cfg['id']}, {len(changes)} wijzigingen)")
+
+
 # ── pagina genereren ──────────────────────────────────────────────────────────
 
-def generate_page(dir_path: Path, obj_info: dict, outgoing: dict) -> None:
+def generate_page(
+    dir_path: Path,
+    obj_info: dict,
+    outgoing: dict,
+    changes: dict[str, str],
+) -> None:
     title = DIR_TITLES.get(dir_path.name, dir_path.name.replace("-", " ").title())
     rows = []
 
@@ -216,6 +290,10 @@ def generate_page(dir_path: Path, obj_info: dict, outgoing: dict) -> None:
         css     = LAYER_CLASSES.get(row["layer"], "layer-none")
         code_id = html_escape(row["code"])
         slug    = obj_info.get(row["uri"], {}).get("slug", "")
+        change  = changes.get(row["code"], "")
+
+        if change:
+            css += " row-changed"
 
         if row["arrangementText"]:
             tekst = text_cell(row["arrangementText"], row["toelichting"])
@@ -224,12 +302,18 @@ def generate_page(dir_path: Path, obj_info: dict, outgoing: dict) -> None:
 
         tekst += rel_badges_html(row["uri"], outgoing)
 
+        change_attr = f' data-changed="{change}"' if change else ""
+        code_cell = (
+            f'{change_badge_html(change)}'
+            f'<span class="code-badge" data-code="{code_id}">{code_id}</span>'
+        )
+
         table_rows.append(
-            f'<tr class="{css}" id="{html_escape(slug)}">'
+            f'<tr class="{css}" id="{html_escape(slug)}"{change_attr}>'
             f'<td class="col-num">{i}.</td>'
             f'<td class="col-text">{tekst}</td>'
             f'<td class="col-code">'
-            f'<span class="code-badge" data-code="{code_id}">{code_id}</span>'
+            f'{code_cell}'
             f'</td>'
             f'</tr>'
         )
@@ -274,12 +358,58 @@ def publish_rdf() -> None:
 # ── main ──────────────────────────────────────────────────────────────────────
 
 def main():
+    parser = argparse.ArgumentParser(description="Genereer MedMij documentatiesite.")
+    parser.add_argument(
+        "--version",
+        metavar="VERSION_ID",
+        default=None,
+        help="Versie-ID uit releases.json (standaard: eerste versie of 'main')",
+    )
+    parser.add_argument(
+        "--compare-ref",
+        metavar="GIT_REF",
+        default=None,
+        help="Git-ref (tag/commit) om wijzigingen tegen te vergelijken. "
+             "Overschrijft parent_ref uit releases.json.",
+    )
+    args = parser.parse_args()
+
+    releases = load_releases()
+
+    # Bepaal huidige versie-config
+    version_cfg = None
+    if args.version:
+        for v in releases.get("versions", []):
+            if v["id"] == args.version:
+                version_cfg = v
+                break
+        if not version_cfg:
+            print(f"Versie '{args.version}' niet gevonden in releases.json.")
+    if not version_cfg:
+        version_cfg = releases.get("versions", [{}])[0] if releases.get("versions") else {
+            "id": "main", "label": "main", "type": "branch", "path": "/",
+        }
+
+    # Bepaal parent ref voor diff
+    parent_ref = args.compare_ref or version_cfg.get("parent_ref")
+
+    # Bereken wijzigingen t.o.v. parent
+    changes: dict[str, str] = {}
+    if parent_ref:
+        print(f"Vergelijk met '{parent_ref}'...")
+        changes = compute_changes(parent_ref)
+        print(f"  {len(changes)} gewijzigde objecten gevonden.")
+
+    # Schrijf version-meta.js voor het template
+    write_version_meta(version_cfg, releases, changes)
+
+    # Genereer pagina's
     obj_info, outgoing = build_context()
     print(f"Context: {len(obj_info)} objecten, {sum(len(v) for v in outgoing.values())} relaties")
 
     for subdir in sorted(OBJECTEN_DIR.iterdir()):
         if subdir.is_dir() and not subdir.name.startswith("."):
-            generate_page(subdir, obj_info, outgoing)
+            generate_page(subdir, obj_info, outgoing, changes)
 
     publish_rdf()
 

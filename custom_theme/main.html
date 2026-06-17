@@ -7,6 +7,7 @@
   <title>{% if page.title and not page.is_homepage %}{{ page.title }} — {% endif %}{{ config.site_name }}</title>
 
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="{{ base_url }}/version-meta.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
@@ -312,6 +313,89 @@
     .fade-up-1 { animation-delay: 0.06s; }
     .fade-up-2 { animation-delay: 0.12s; }
     .fade-up-3 { animation-delay: 0.18s; }
+
+    /* ── versie-picker ── */
+    #version-picker {
+      position: relative; margin-left: auto; flex-shrink: 0;
+    }
+    #version-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 5px 10px; border-radius: 7px; cursor: pointer;
+      background: #ffffff; border: 1px solid #e2e8f0;
+      font-size: 0.75rem; font-family: inherit; color: #374151;
+      transition: all 0.14s; white-space: nowrap;
+      box-shadow: 0 1px 2px rgba(15,23,42,0.05);
+    }
+    #version-btn:hover { border-color: #c7d2fe; background: #f5f7ff; color: #4338ca; }
+    #version-btn svg { flex-shrink: 0; }
+    .version-type-icon { opacity: 0.55; }
+    .version-latest-badge {
+      font-size: 0.58rem; font-weight: 700; letter-spacing: 0.05em;
+      text-transform: uppercase; background: #ecfdf5; color: #065f46;
+      border: 1px solid #6ee7b7; border-radius: 4px; padding: 1px 5px;
+    }
+    #version-dropdown {
+      display: none; position: absolute; right: 0; top: calc(100% + 6px);
+      background: #ffffff; border: 1px solid #e5e9ef; border-radius: 10px;
+      box-shadow: 0 8px 24px rgba(15,23,42,0.12), 0 0 0 1px rgba(99,102,241,0.06);
+      min-width: 210px; z-index: 100; overflow: hidden;
+    }
+    #version-dropdown.open { display: block; }
+    .version-group-label {
+      padding: 8px 14px 4px; font-size: 0.6rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase; color: #b0bac4;
+    }
+    .version-option {
+      display: flex; align-items: center; gap: 8px;
+      padding: 7px 14px; cursor: pointer; transition: background 0.1s;
+      text-decoration: none; color: #374151; font-size: 0.78rem;
+    }
+    .version-option:hover { background: #f5f7ff; color: #4338ca; }
+    .version-option.current { background: #eef2ff; color: #4338ca; font-weight: 500; }
+    .version-option .vo-label { flex: 1; }
+    .version-option .vo-date { font-size: 0.65rem; color: #94a3b8; }
+    .version-option .vo-latest {
+      font-size: 0.58rem; font-weight: 700; text-transform: uppercase;
+      background: #ecfdf5; color: #065f46; border: 1px solid #6ee7b7;
+      border-radius: 3px; padding: 1px 4px;
+    }
+    .version-option .vo-check {
+      width: 14px; height: 14px; flex-shrink: 0;
+    }
+    .version-sep { height: 1px; background: #f0f4f8; margin: 4px 0; }
+
+    /* ── wijzigings-badges in tabel ── */
+    .change-badge {
+      display: inline-block; font-size: 0.58rem; font-weight: 700;
+      letter-spacing: 0.05em; text-transform: uppercase;
+      border-radius: 4px; padding: 2px 5px; margin-right: 5px; vertical-align: middle;
+    }
+    .change-new {
+      background: #ecfdf5; color: #065f46; border: 1px solid #6ee7b7;
+    }
+    .change-modified {
+      background: #fffbeb; color: #92400e; border: 1px solid #fcd34d;
+    }
+    .row-changed.layer-biz { background: rgba(245,158,11,0.11); }
+    .row-changed.layer-app { background: rgba(14,165,233,0.1); }
+    .row-changed.layer-tech { background: rgba(16,185,129,0.1); }
+    .row-changed.layer-none { background: rgba(99,102,241,0.06); }
+
+    /* ── wijzigingen-filter ── */
+    #changes-filter-btn {
+      cursor: pointer; font-family: inherit;
+      display: none; align-items: center; gap: 6px;
+      padding: 5px 12px; border-radius: 6px; font-size: 0.75rem; font-weight: 500;
+      transition: all 0.15s; white-space: nowrap;
+      background: #fffbeb; border: 1px solid #fcd34d; color: #92400e;
+    }
+    #changes-filter-btn.active {
+      background: #d97706; border-color: #b45309; color: #ffffff;
+    }
+    #changes-filter-btn .changes-dot {
+      width: 8px; height: 8px; border-radius: 2px; background: #d97706; flex-shrink: 0;
+    }
+    #changes-filter-btn.active .changes-dot { background: rgba(255,255,255,0.7); }
   </style>
 </head>
 
@@ -464,6 +548,24 @@
         <span class="breadcrumb-current">{{ page.title }}</span>
       {% endif %}
     </nav>
+
+    {# versie-picker #}
+    <div id="version-picker" style="display:none">
+      <button id="version-btn" onclick="toggleVersionDropdown()">
+        <span class="version-type-icon" id="version-type-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="13" height="13">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9.568 3H5.25A2.25 2.25 0 0 0 3 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 0 0 5.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 0 0 9.568 3Z"/>
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 6h.008v.008H6V6Z"/>
+          </svg>
+        </span>
+        <span id="version-btn-label">–</span>
+        <span id="version-btn-latest" class="version-latest-badge" style="display:none">Nieuwste</span>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="12" height="12" style="opacity:0.45">
+          <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"/>
+        </svg>
+      </button>
+      <div id="version-dropdown"></div>
+    </div>
   </div>
 
   {# ── home page ── #}
@@ -538,6 +640,10 @@
         </button>
         <button class="layer-filter-btn" data-layer="layer-tech">
           <span class="filter-dot" style="background:#059669"></span>Technologie
+        </button>
+        <button id="changes-filter-btn" onclick="toggleChangesFilter()">
+          <span class="changes-dot"></span>
+          <span id="changes-filter-label">Wijzigingen</span>
         </button>
         <span id="filter-status" style="display:none;margin-left:4px;font-size:0.75rem;color:#64748b"></span>
         <button id="clear-filter" onclick="clearFilters()" style="display:none;margin-left:2px;padding:4px 10px;border-radius:6px;border:1px solid #e5e9ef;background:#f8fafc;color:#94a3b8;font-size:0.72rem;cursor:pointer;font-family:inherit;transition:all 0.14s"
@@ -646,13 +752,17 @@ filterBtns.forEach(btn => {
 
 function clearFilters() {
   activeFilters.clear();
+  changesFilterActive = false;
+  document.getElementById('changes-filter-btn')?.classList.remove('active');
   applyFilters();
 }
 
 function applyFilters() {
   let visible = 0;
   allRows.forEach(row => {
-    const show = activeFilters.size === 0 || [...activeFilters].some(f => row.classList.contains(f));
+    const layerOk   = activeFilters.size === 0 || [...activeFilters].some(f => row.classList.contains(f));
+    const changesOk = !changesFilterActive || row.hasAttribute('data-changed');
+    const show = layerOk && changesOk;
     row.style.display = show ? '' : 'none';
     if (show) visible++;
   });
@@ -663,7 +773,8 @@ function applyFilters() {
     btn.classList.toggle('dimmed', activeFilters.size > 0 && !isActive);
   });
 
-  if (activeFilters.size > 0) {
+  const anyActive = activeFilters.size > 0 || changesFilterActive;
+  if (anyActive) {
     filterStatus.textContent = `${visible} van ${allRows.length} rijen`;
     filterStatus.style.display = '';
     clearFilterBtn.style.display = '';
@@ -689,6 +800,136 @@ document.querySelectorAll('.code-badge[data-code]').forEach(b => {
     setTimeout(() => { b.textContent = orig; b.classList.remove('copied'); }, 1300);
   });
 });
+
+// ── versie-picker ──────────────────────────────────────────────────────────
+(function initVersionPicker() {
+  const meta = window.__MEDMIJ_VERSION_META__;
+  if (!meta || !meta.versions || meta.versions.length < 1) return;
+
+  const picker    = document.getElementById('version-picker');
+  const btnLabel  = document.getElementById('version-btn-label');
+  const btnLatest = document.getElementById('version-btn-latest');
+  const dropdown  = document.getElementById('version-dropdown');
+  const typeIcon  = document.getElementById('version-type-icon');
+
+  // Bepaal huidige pad-prefix zodat links kloppen
+  const currentPath = window.location.pathname;
+
+  // Huidige versie-label tonen
+  btnLabel.textContent = meta.current_label || meta.current;
+
+  const isLatest = meta.current === meta.latest_release;
+  if (isLatest) btnLatest.style.display = '';
+
+  // Branch-icon vs release-icon
+  if (meta.current_type === 'release') {
+    typeIcon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="13" height="13">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M9.568 3H5.25A2.25 2.25 0 0 0 3 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 0 0 5.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 0 0 9.568 3Z"/>
+      <path stroke-linecap="round" stroke-linejoin="round" d="M6 6h.008v.008H6V6Z"/></svg>`;
+  } else {
+    typeIcon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="13" height="13">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 7.5h-.75A2.25 2.25 0 0 0 4.5 9.75v7.5a2.25 2.25 0 0 0 2.25 2.25h7.5a2.25 2.25 0 0 0 2.25-2.25v-7.5a2.25 2.25 0 0 0-2.25-2.25h-.75m-6 3.75 3 3m0 0 3-3m-3 3V1.5m6 9h.75a2.25 2.25 0 0 1 2.25 2.25v7.5a2.25 2.25 0 0 1-2.25 2.25h-7.5a2.25 2.25 0 0 1-2.25-2.25v-.75"/></svg>`;
+  }
+
+  // Bouw dropdown-inhoud
+  function buildVersionUrl(versionPath) {
+    // Vervang het versie-pad-segment in de huidige URL
+    // Versie-paden zijn '/' (root) of '/vX.Y/' etc.
+    // We zoeken het huidige sectie-segment (arrangements, modules, ...)
+    const base = window.location.origin;
+    const siteRoot = '{{ base_url }}';
+
+    // Strip de site-root prefix van het huidige pad
+    let pagePart = currentPath;
+    if (siteRoot && siteRoot !== '/' && pagePart.startsWith(siteRoot)) {
+      pagePart = pagePart.slice(siteRoot.length);
+    }
+    // pagePart is nu bijv. 'arrangements/' of ''
+    const targetBase = versionPath === '/' ? siteRoot || '/' : versionPath;
+    return targetBase.replace(/\/$/, '') + '/' + pagePart.replace(/^\//, '');
+  }
+
+  const branches = meta.versions.filter(v => v.type === 'branch');
+  const releases = meta.versions.filter(v => v.type === 'release');
+
+  let html = '';
+
+  if (branches.length) {
+    html += `<div class="version-group-label">Branches</div>`;
+    for (const v of branches) {
+      const isCur = v.id === meta.current;
+      const url   = buildVersionUrl(v.path || '/');
+      html += `<a href="${url}" class="version-option${isCur ? ' current' : ''}">
+        <svg class="vo-check" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" style="opacity:${isCur ? 1 : 0}">
+          <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/>
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="13" height="13" style="opacity:0.5;flex-shrink:0">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 7.5h-.75A2.25 2.25 0 0 0 4.5 9.75v7.5a2.25 2.25 0 0 0 2.25 2.25h7.5a2.25 2.25 0 0 0 2.25-2.25v-7.5a2.25 2.25 0 0 0-2.25-2.25h-.75m-6 3.75 3 3m0 0 3-3m-3 3V1.5m6 9h.75a2.25 2.25 0 0 1 2.25 2.25v7.5a2.25 2.25 0 0 1-2.25 2.25h-7.5a2.25 2.25 0 0 1-2.25-2.25v-.75"/>
+        </svg>
+        <span class="vo-label">${v.label}</span>
+      </a>`;
+    }
+  }
+
+  if (releases.length) {
+    if (branches.length) html += `<div class="version-sep"></div>`;
+    html += `<div class="version-group-label">Releases</div>`;
+    for (const v of releases) {
+      const isCur    = v.id === meta.current;
+      const isLatest = v.id === meta.latest_release;
+      const url      = buildVersionUrl(v.path || `/${v.id}/`);
+      const date     = v.date ? `<span class="vo-date">${v.date}</span>` : '';
+      const badge    = isLatest ? `<span class="vo-latest">Nieuwste</span>` : '';
+      html += `<a href="${url}" class="version-option${isCur ? ' current' : ''}">
+        <svg class="vo-check" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" style="opacity:${isCur ? 1 : 0}">
+          <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/>
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="13" height="13" style="opacity:0.5;flex-shrink:0">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9.568 3H5.25A2.25 2.25 0 0 0 3 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 0 0 5.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 0 0 9.568 3Z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 6h.008v.008H6V6Z"/>
+        </svg>
+        <span class="vo-label">${v.label}</span>
+        ${date}${badge}
+      </a>`;
+    }
+  }
+
+  dropdown.innerHTML = html;
+  picker.style.display = '';
+})();
+
+function toggleVersionDropdown() {
+  const dd = document.getElementById('version-dropdown');
+  dd.classList.toggle('open');
+}
+document.addEventListener('click', e => {
+  if (!document.getElementById('version-picker')?.contains(e.target)) {
+    document.getElementById('version-dropdown')?.classList.remove('open');
+  }
+});
+
+// ── wijzigingen filter ─────────────────────────────────────────────────────
+(function initChangesFilter() {
+  const meta = window.__MEDMIJ_VERSION_META__;
+  if (!meta || !meta.has_changes) return;
+
+  const btn = document.getElementById('changes-filter-btn');
+  if (!btn) return;
+
+  const changedRows = document.querySelectorAll('.doc-content tbody tr[data-changed]');
+  if (!changedRows.length) return;
+
+  const label = document.getElementById('changes-filter-label');
+  label.textContent = `Wijzigingen (${changedRows.length})`;
+  btn.style.display = 'inline-flex';
+})();
+
+let changesFilterActive = false;
+function toggleChangesFilter() {
+  changesFilterActive = !changesFilterActive;
+  document.getElementById('changes-filter-btn')?.classList.toggle('active', changesFilterActive);
+  applyFilters();
+}
 </script>
 </body>
 </html>

@@ -1,0 +1,13 @@
+{
+  "latest_release": null,
+  "versions": [
+    {
+      "id": "main",
+      "label": "main",
+      "type": "branch",
+      "git_ref": "HEAD",
+      "parent_ref": null,
+      "path": "/"
+    }
+  ]
+}
