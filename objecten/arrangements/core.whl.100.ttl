@@ -3,10 +3,10 @@
 
 obj:medmij-beheer-beheert-en-publiceert-whitelist a medmij:Arrangement,
         medmij:Object ;
-    medmij:arrangementText "MedMij Beheer beheert en publiceert een actuele Whitelist, namens de deelnemende Dienstverleners aanbieder en Dienstverleners persoon. De Whitelist beschrijft welke Nodes in MedMij-verkeer mogen deelnemen. De Whitelist voldoet aan wat over haar is bepaald in de Informatiemodellen." ;
+    medmij:arrangementText "MedMij Beheer beheert en publiceert een actuele Whitelist, namens de deelnemende Dienstverleners aanbieder en Dienstverleners persoon. De Whitelist beschrijft welke Nodes in MedMij-verkeer mogen deelnemen, onderscheiden naar nodetype (Frontchannel, Backchannel en Stelselnode). De Whitelist voldoet aan wat over haar is bepaald in de Informatiemodellen en wordt gepubliceerd als gesigneerd JSON-document." ;
     medmij:code "core.whl.100" ;
     medmij:elementName "MedMij Beheer beheert en publiceert Whitelist" ;
     medmij:layer "Business" ;
-    medmij:mappingNote "Whitelist beschrijft welke Nodes mogen deelnemen aan MedMij-verkeer; voldoet aan Informatiemodellen." ;
+    medmij:mappingNote "Whitelist beschrijft per nodetype (FC/BC/Stelsel) welke Nodes mogen deelnemen; gesigneerd JSON-document." ;
     medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
 
