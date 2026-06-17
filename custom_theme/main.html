@@ -832,21 +832,21 @@ document.querySelectorAll('.code-badge[data-code]').forEach(b => {
   }
 
   // Bouw dropdown-inhoud
-  function buildVersionUrl(versionPath) {
-    // Vervang het versie-pad-segment in de huidige URL
-    // Versie-paden zijn '/' (root) of '/vX.Y/' etc.
-    // We zoeken het huidige sectie-segment (arrangements, modules, ...)
-    const base = window.location.origin;
-    const siteRoot = '{{ base_url }}';
+  function buildVersionUrl(targetPath) {
+    // meta.current_path is het absolute URL-pad van deze versie, bijv. '/' of '/v1.1/'
+    const myPath = (meta.current_path || '/').replace(/([^/])$/, '$1/'); // zorg voor trailing slash
 
-    // Strip de site-root prefix van het huidige pad
-    let pagePart = currentPath;
-    if (siteRoot && siteRoot !== '/' && pagePart.startsWith(siteRoot)) {
-      pagePart = pagePart.slice(siteRoot.length);
+    // Strip het versie-prefix van het huidige pathname → paginadeel, bijv. 'arrangements/'
+    let page = currentPath;
+    if (myPath !== '/' && page.startsWith(myPath)) {
+      page = page.slice(myPath.length);
+    } else {
+      page = page.replace(/^\//, '');
     }
-    // pagePart is nu bijv. 'arrangements/' of ''
-    const targetBase = versionPath === '/' ? siteRoot || '/' : versionPath;
-    return targetBase.replace(/\/$/, '') + '/' + pagePart.replace(/^\//, '');
+
+    // Plak het doelpad-prefix voor het paginadeel
+    const base = (targetPath || '/').replace(/\/$/, ''); // '' voor root of '/v1.1'
+    return base + '/' + page;
   }
 
   const branches = meta.versions.filter(v => v.type === 'branch');

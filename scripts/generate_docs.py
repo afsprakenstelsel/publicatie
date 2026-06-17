@@ -254,6 +254,7 @@ def write_version_meta(version_cfg: dict, releases: dict, changes: dict[str, str
         "current":        version_cfg["id"],
         "current_label":  version_cfg["label"],
         "current_type":   version_cfg["type"],
+        "current_path":   version_cfg.get("path", "/"),
         "latest_release": releases.get("latest_release"),
         "versions":       versions_for_js,
         "changes":        changes,
