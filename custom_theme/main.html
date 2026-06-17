@@ -314,6 +314,17 @@
     .fade-up-2 { animation-delay: 0.12s; }
     .fade-up-3 { animation-delay: 0.18s; }
 
+    /* ── versie-niet-beschikbaar toast ── */
+    #version-toast {
+      position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
+      background: #1e2a3a; color: #f8fafc; font-size: 0.8rem;
+      padding: 10px 18px; border-radius: 8px; z-index: 200;
+      box-shadow: 0 4px 16px rgba(15,23,42,0.25);
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.2s;
+    }
+    #version-toast.show { opacity: 1; }
+
     /* ── versie-picker ── */
     #version-picker {
       position: relative; margin-left: auto; flex-shrink: 0;
@@ -346,9 +357,10 @@
       letter-spacing: 0.1em; text-transform: uppercase; color: #b0bac4;
     }
     .version-option {
-      display: flex; align-items: center; gap: 8px;
+      display: flex; align-items: center; gap: 8px; width: 100%;
       padding: 7px 14px; cursor: pointer; transition: background 0.1s;
       text-decoration: none; color: #374151; font-size: 0.78rem;
+      background: none; border: none; font-family: inherit; text-align: left;
     }
     .version-option:hover { background: #f5f7ff; color: #4338ca; }
     .version-option.current { background: #eef2ff; color: #4338ca; font-weight: 500; }
@@ -460,6 +472,8 @@
 {% endmacro %}
 
 <body>
+
+<div id="version-toast"></div>
 
 {# ── search overlay ─────────────────────────────────────────────────── #}
 <div id="search-overlay">
@@ -857,20 +871,20 @@ document.querySelectorAll('.code-badge[data-code]').forEach(b => {
 
   let html = '';
 
+  function versionOptionHtml(isCur, iconSvg, labelHtml) {
+    const check = `<svg class="vo-check" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" style="opacity:${isCur ? 1 : 0}"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>`;
+    return `${check}${iconSvg}<span class="vo-label">${labelHtml}</span>`;
+  }
+
+  const branchIcon = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="13" height="13" style="opacity:0.5;flex-shrink:0"><path stroke-linecap="round" stroke-linejoin="round" d="M7.5 7.5h-.75A2.25 2.25 0 0 0 4.5 9.75v7.5a2.25 2.25 0 0 0 2.25 2.25h7.5a2.25 2.25 0 0 0 2.25-2.25v-7.5a2.25 2.25 0 0 0-2.25-2.25h-.75m-6 3.75 3 3m0 0 3-3m-3 3V1.5m6 9h.75a2.25 2.25 0 0 1 2.25 2.25v7.5a2.25 2.25 0 0 1-2.25 2.25h-7.5a2.25 2.25 0 0 1-2.25-2.25v-.75"/></svg>`;
+  const releaseIcon = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="13" height="13" style="opacity:0.5;flex-shrink:0"><path stroke-linecap="round" stroke-linejoin="round" d="M9.568 3H5.25A2.25 2.25 0 0 0 3 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 0 0 5.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 0 0 9.568 3Z"/><path stroke-linecap="round" stroke-linejoin="round" d="M6 6h.008v.008H6V6Z"/></svg>`;
+
   if (branches.length) {
     html += `<div class="version-group-label">Branches</div>`;
     for (const v of branches) {
       const isCur = v.id === meta.current;
       const url   = buildVersionUrl(v.path || '/');
-      html += `<a href="${url}" class="version-option${isCur ? ' current' : ''}">
-        <svg class="vo-check" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" style="opacity:${isCur ? 1 : 0}">
-          <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/>
-        </svg>
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="13" height="13" style="opacity:0.5;flex-shrink:0">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 7.5h-.75A2.25 2.25 0 0 0 4.5 9.75v7.5a2.25 2.25 0 0 0 2.25 2.25h7.5a2.25 2.25 0 0 0 2.25-2.25v-7.5a2.25 2.25 0 0 0-2.25-2.25h-.75m-6 3.75 3 3m0 0 3-3m-3 3V1.5m6 9h.75a2.25 2.25 0 0 1 2.25 2.25v7.5a2.25 2.25 0 0 1-2.25 2.25h-7.5a2.25 2.25 0 0 1-2.25-2.25v-.75"/>
-        </svg>
-        <span class="vo-label">${v.label}</span>
-      </a>`;
+      html += `<button class="version-option${isCur ? ' current' : ''}" onclick="navigateToVersion('${url}','${v.label}')">${versionOptionHtml(isCur, branchIcon, v.label)}</button>`;
     }
   }
 
@@ -881,19 +895,8 @@ document.querySelectorAll('.code-badge[data-code]').forEach(b => {
       const isCur    = v.id === meta.current;
       const isLatest = v.id === meta.latest_release;
       const url      = buildVersionUrl(v.path || `/${v.id}/`);
-      const date     = v.date ? `<span class="vo-date">${v.date}</span>` : '';
-      const badge    = isLatest ? `<span class="vo-latest">Nieuwste</span>` : '';
-      html += `<a href="${url}" class="version-option${isCur ? ' current' : ''}">
-        <svg class="vo-check" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" style="opacity:${isCur ? 1 : 0}">
-          <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/>
-        </svg>
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="13" height="13" style="opacity:0.5;flex-shrink:0">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M9.568 3H5.25A2.25 2.25 0 0 0 3 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 0 0 5.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 0 0 9.568 3Z"/>
-          <path stroke-linecap="round" stroke-linejoin="round" d="M6 6h.008v.008H6V6Z"/>
-        </svg>
-        <span class="vo-label">${v.label}</span>
-        ${date}${badge}
-      </a>`;
+      const extra    = (v.date ? `<span class="vo-date">${v.date}</span>` : '') + (isLatest ? `<span class="vo-latest">Nieuwste</span>` : '');
+      html += `<button class="version-option${isCur ? ' current' : ''}" onclick="navigateToVersion('${url}','${v.label}')">${versionOptionHtml(isCur, releaseIcon, v.label + extra)}</button>`;
     }
   }
 
@@ -902,14 +905,38 @@ document.querySelectorAll('.code-badge[data-code]').forEach(b => {
 })();
 
 function toggleVersionDropdown() {
-  const dd = document.getElementById('version-dropdown');
-  dd.classList.toggle('open');
+  document.getElementById('version-dropdown').classList.toggle('open');
 }
 document.addEventListener('click', e => {
   if (!document.getElementById('version-picker')?.contains(e.target)) {
     document.getElementById('version-dropdown')?.classList.remove('open');
   }
 });
+
+let _toastTimer = null;
+function showVersionToast(msg) {
+  const t = document.getElementById('version-toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(_toastTimer);
+  _toastTimer = setTimeout(() => t.classList.remove('show'), 3500);
+}
+
+function navigateToVersion(url, label) {
+  document.getElementById('version-dropdown').classList.remove('open');
+  // Controleer eerst of de doelversie beschikbaar is
+  fetch(url, { method: 'HEAD' })
+    .then(r => {
+      if (r.ok) {
+        window.location.href = url;
+      } else {
+        showVersionToast(`"${label}" is niet beschikbaar. Gebruik build_all.py voor alle versies.`);
+      }
+    })
+    .catch(() => {
+      showVersionToast(`"${label}" is niet beschikbaar. Gebruik build_all.py voor alle versies.`);
+    });
+}
 
 // ── wijzigingen filter ─────────────────────────────────────────────────────
 (function initChangesFilter() {
