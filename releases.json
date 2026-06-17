@@ -1,13 +1,47 @@
 {
-  "latest_release": null,
+  "latest_release": "v1.1",
   "versions": [
     {
       "id": "main",
-      "label": "main",
+      "label": "main (ontwikkeling)",
       "type": "branch",
       "git_ref": "HEAD",
-      "parent_ref": null,
+      "parent_ref": "v1.1",
       "path": "/"
+    },
+    {
+      "id": "feature/account-beveiliging",
+      "label": "Account beveiliging",
+      "type": "branch",
+      "git_ref": "feature/account-beveiliging",
+      "parent_ref": "v1.0",
+      "path": "/feature-account-beveiliging/"
+    },
+    {
+      "id": "feature/aanbiederslijst-uitbreiding",
+      "label": "Aanbiederslijst uitbreiding",
+      "type": "branch",
+      "git_ref": "feature/aanbiederslijst-uitbreiding",
+      "parent_ref": "v1.0",
+      "path": "/feature-aanbiederslijst/"
+    },
+    {
+      "id": "v1.1",
+      "label": "Versie 1.1",
+      "type": "release",
+      "date": "2025-06-17",
+      "git_ref": "v1.1",
+      "parent_ref": "v1.0",
+      "path": "/v1.1/"
+    },
+    {
+      "id": "v1.0",
+      "label": "Versie 1.0",
+      "type": "release",
+      "date": "2025-01-01",
+      "git_ref": "v1.0",
+      "parent_ref": null,
+      "path": "/v1.0/"
     }
   ]
 }
