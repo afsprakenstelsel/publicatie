@@ -86,7 +86,32 @@ def build_version(version: dict) -> None:
         shutil.rmtree(wt, ignore_errors=True)
 
 
+def serve(site_root: Path, port: int = 8080) -> None:
+    import http.server
+    import os
+    import threading
+    import webbrowser
+
+    os.chdir(site_root)
+
+    class QuietHandler(http.server.SimpleHTTPRequestHandler):
+        def log_message(self, fmt, *args):
+            pass  # stil
+
+    httpd = http.server.HTTPServer(("", port), QuietHandler)
+    url = f"http://localhost:{port}/"
+    print(f"\n▸  Lokale preview op {url}")
+    print(f"   Ctrl+C om te stoppen\n")
+    threading.Timer(0.3, lambda: webbrowser.open(url)).start()
+    try:
+        httpd.serve_forever()
+    except KeyboardInterrupt:
+        print("\nServer gestopt.")
+
+
 def main() -> None:
+    serve_after = "--serve" in sys.argv
+
     releases = json.loads((ROOT / "releases.json").read_text(encoding="utf-8"))
     versions = releases.get("versions", [])
 
@@ -96,7 +121,6 @@ def main() -> None:
 
     print(f"Bouw {len(versions)} versie(s)...\n")
 
-    # Verwijder eerst de hele site/ zodat er geen stale bestanden achterblijven
     site_root = ROOT / "site"
     if site_root.exists():
         shutil.rmtree(site_root)
@@ -105,9 +129,12 @@ def main() -> None:
         build_version(version)
 
     print(f"\n✓  Alle versies gebouwd in site/")
-    print(f"\nStart de demo:")
-    print(f"   python -m http.server 8080 --directory {site_root}/")
-    print(f"   open http://localhost:8080/")
+
+    if serve_after:
+        serve(site_root)
+    else:
+        print(f"\nVoor lokale preview:  python scripts/build_all.py --serve")
+        print(f"Voor deployment:      ghp-import site/ -p")
 
 
 if __name__ == "__main__":
