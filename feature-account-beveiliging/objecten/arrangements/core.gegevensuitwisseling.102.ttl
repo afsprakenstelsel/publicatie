@@ -1,0 +1,12 @@
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj: <https://register.medmij.nl/objects/> .
+
+obj:maximaal-n-keer-per-24-uur-automatisch-verzamelen a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "De Dienstverlener persoon mag slechts één keer per 24 uur geautomatiseerd gegevens verzamelen bij een Dienstverlener aanbieder." ;
+    medmij:code "core.gegevensuitwisseling.102" ;
+    medmij:elementName "Maximaal één keer per 24 uur automatisch verzamelen" ;
+    medmij:layer "Business" ;
+    medmij:mappingNote "DVP verzamelt geautomatiseerd maximaal één keer per dag per DVA." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
+

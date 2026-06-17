@@ -1,0 +1,10 @@
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj: <https://register.medmij.nl/objects/> .
+
+obj:dvp-server a medmij:Component,
+        medmij:Object ;
+    medmij:code "core.rollen.200 / 203" ;
+    medmij:elementName "DVP Server" ;
+    medmij:layer "Applicatie" ;
+    medmij:mappingNote "Verzamelt en deelt gezondheidsgegevens namens Persoon; fungeert als OAuth Client." .
+

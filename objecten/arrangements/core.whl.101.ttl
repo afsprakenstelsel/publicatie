@@ -1,0 +1,12 @@
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj: <https://register.medmij.nl/objects/> .
+
+obj:medmij-beheer-biedt-functie-opvragen-whitelist-aan-deelnemers a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "MedMij Beheer biedt aan Deelnemers de functie Opvragen Whitelist om de actuele versie van die Whitelist op te vragen. Betrokken rollen gebruiken hiertoe het betreffende stroomdiagram. De communicatie verloopt uitsluitend via TLS 1.3 of hoger." ;
+    medmij:code "core.whl.101" ;
+    medmij:elementName "MedMij Beheer biedt functie Opvragen Whitelist aan Deelnemers" ;
+    medmij:layer "Business" ;
+    medmij:mappingNote "Deelnemers vragen actuele Whitelist op via stroomdiagram; TLS 1.3 of hoger verplicht." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
+

@@ -1,0 +1,12 @@
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj: <https://register.medmij.nl/objects/> .
+
+obj:dvp-kan-functie-verwijderen-gegevens-aanbieden a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "Dienstverlener persoon kan Persoon de functie Verwijderen gegevens bieden, waarmee Persoon gegevens, die via de MedMij Functie Verzamelen zijn verkregen, uit het persoonlijk gezondheidsdossier kan verwijderen." ;
+    medmij:code "core.dossier.105" ;
+    medmij:elementName "DVP kan functie Verwijderen gegevens aanbieden" ;
+    medmij:layer "Business" ;
+    medmij:mappingNote "Persoon kan via DVP gegevens verkregen via Verzamelen uit Dossier verwijderen." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
+

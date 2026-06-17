@@ -1,0 +1,14 @@
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj: <https://register.medmij.nl/objects/> .
+
+obj:comp-dvp-server--oauth-2-0-rfc-6749 a medmij:Object,
+        medmij:ObjectComponent ;
+    medmij:code "—" ;
+    medmij:component obj:oauth-2-0-rfc-6749 ;
+    medmij:componentClass medmij:Specification ;
+    medmij:elementName "DVP Server implementeert OAuth 2.0 (RFC 6749)" ;
+    medmij:layer "—" ;
+    medmij:mappingNote "DVP Server fungeert als OAuth Client conform RFC 6749." ;
+    medmij:whole obj:dvp-server ;
+    medmij:wholeClass medmij:Component .
+

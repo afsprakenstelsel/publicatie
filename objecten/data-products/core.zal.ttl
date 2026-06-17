@@ -1,0 +1,10 @@
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj: <https://register.medmij.nl/objects/> .
+
+obj:aanbiederslijst-zal a medmij:DataProduct,
+        medmij:Object ;
+    medmij:code "(core.zal.*)" ;
+    medmij:elementName "Aanbiederslijst (ZAL)" ;
+    medmij:layer "Applicatie" ;
+    medmij:mappingNote "Bevat welke Aanbieders welke Gegevensdiensten op welke endpoints aanbieden; opgehaald door DVP." .
+

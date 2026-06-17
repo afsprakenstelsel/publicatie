@@ -1,0 +1,10 @@
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj: <https://register.medmij.nl/objects/> .
+
+obj:digid-koppelvlakspecificatie a medmij:Object,
+        medmij:Specification ;
+    medmij:code "(core.authn.*)" ;
+    medmij:elementName "DigiD Koppelvlakspecificatie" ;
+    medmij:layer "Applicatie" ;
+    medmij:mappingNote "Specificatie van de koppeling met het DigiD-stelsel." .
+

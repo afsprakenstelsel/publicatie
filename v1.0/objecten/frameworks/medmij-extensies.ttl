@@ -1,0 +1,10 @@
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj: <https://register.medmij.nl/objects/> .
+
+obj:medmij-extensies a medmij:Framework,
+        medmij:Object ;
+    medmij:code "—" ;
+    medmij:elementName "MedMij Extensies" ;
+    medmij:layer "Business" ;
+    medmij:mappingNote "Optioneel uitbreidbaar deel bovenop de Core (bijv. Abonneren, Vertegenwoordiging)." .
+

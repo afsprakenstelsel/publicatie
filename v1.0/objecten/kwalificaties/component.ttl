@@ -1,0 +1,14 @@
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj: <https://register.medmij.nl/objects/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+obj:qual-component a medmij:Object,
+        medmij:QualificationRule ;
+    medmij:code "—" ;
+    medmij:elementName "Kwalificatieregel Component" ;
+    medmij:forClass medmij:Component ;
+    medmij:layer "—" ;
+    medmij:mappingNote "Een Node implementeert een Component; system-kwalificatie." ;
+    medmij:qualificationLevel "system" ;
+    medmij:versioned true .
+

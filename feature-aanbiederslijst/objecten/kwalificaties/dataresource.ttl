@@ -1,0 +1,14 @@
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj: <https://register.medmij.nl/objects/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+obj:qual-dataresource a medmij:Object,
+        medmij:QualificationRule ;
+    medmij:code "—" ;
+    medmij:elementName "Kwalificatieregel DataResource" ;
+    medmij:forClass medmij:DataResource ;
+    medmij:layer "—" ;
+    medmij:mappingNote "Dynamisch; opgenomen als NodeCapability of NodeMetadata." ;
+    medmij:qualificationLevel "—" ;
+    medmij:versioned false .
+

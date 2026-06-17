@@ -1,0 +1,10 @@
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj: <https://register.medmij.nl/objects/> .
+
+obj:delen a medmij:Object,
+        medmij:Service ;
+    medmij:code "—" ;
+    medmij:elementName "Delen" ;
+    medmij:layer "Business" ;
+    medmij:mappingNote "DVP biedt Persoon de functie om gezondheidsgegevens met DVA te delen." .
+

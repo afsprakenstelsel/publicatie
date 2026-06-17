@@ -1,0 +1,10 @@
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj: <https://register.medmij.nl/objects/> .
+
+obj:medmij-domeinen a medmij:Framework,
+        medmij:Object ;
+    medmij:code "—" ;
+    medmij:elementName "MedMij Domeinen" ;
+    medmij:layer "Business" ;
+    medmij:mappingNote "Domeinspecifieke aanvullingen (bijv. Zorg) die cross-cutting van toepassing zijn." .
+

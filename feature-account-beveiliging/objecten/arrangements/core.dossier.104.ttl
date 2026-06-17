@@ -1,0 +1,18 @@
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj: <https://register.medmij.nl/objects/> .
+
+obj:persoon-kan-medmij-inhoud-traceren-in-dossier a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText """
+In het kader van de functie Raadplegen dossier zal Persoon te allen tijde moeten kunnen nagaan:
+
+- welke inhoud van het Dossier wel, en welke niet, via MedMij-verkeer van Dienstverlener aanbieder is betrokken van welke Aanbieder, en sindsdien niet is veranderd;
+- welke inhoud van het Dossier wel, en welke niet, via MedMij-verkeer bij Dienstverlener aanbieder is geplaatst ten behoeve van welke Aanbieder.
+""" ;
+    medmij:code "core.dossier.104" ;
+    medmij:elementName "Persoon kan MedMij-inhoud traceren in Dossier" ;
+    medmij:layer "Business" ;
+    medmij:mappingNote "Persoon kan altijd nagaan welke inhoud via MedMij-verkeer verzameld of geplaatst is." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> ;
+    medmij:toelichting "Hiermee is het voor de Persoon duidelijk op welk deel van de inhoud van zijn dossier hij de aan het MedMij Afsprakenstelsel verbonden vertrouwen kan verbinden. Het is immers goed mogelijk dat een PGO alleen op bepaalde onderdelen deelneemt, en dus voldoet, aan het MedMij Afsprakenstelsel." .
+

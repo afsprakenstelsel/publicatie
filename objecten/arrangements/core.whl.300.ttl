@@ -1,0 +1,12 @@
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj: <https://register.medmij.nl/objects/> .
+
+obj:medmij-stelselnode-biedt-opvragen-whitelist-aan-nodes a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "De MedMij Stelselnode biedt aan Nodes de functie Opvragen Whitelist om de actuele versie van de Whitelist op te vragen. Betrokken rollen gebruiken hiervoor het betreffende stroomdiagram. De Stelselnode publiceert de Whitelist op een hoog-beschikbaar eindpunt met een gegarandeerde uptime van 99,9% (maandgemiddelde) en valideert bij elke aanvraag het certificaat van de aanvragende Node." ;
+    medmij:code "core.whl.300" ;
+    medmij:elementName "MedMij Stelselnode biedt Opvragen Whitelist aan Nodes" ;
+    medmij:layer "Technologie" ;
+    medmij:mappingNote "Stelselnode biedt hoog-beschikbaar WHL-eindpunt (99,9% uptime) met certificaatvalidatie per aanvraag." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
+

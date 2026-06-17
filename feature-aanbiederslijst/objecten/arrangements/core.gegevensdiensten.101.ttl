@@ -1,0 +1,13 @@
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj: <https://register.medmij.nl/objects/> .
+
+obj:dva-ontsluit-minstens-n-gegevensdienst a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "Elke Dienstverlener aanbieder ontsluit op elk moment minstens één Gegevensdienst." ;
+    medmij:code "core.gegevensdiensten.101" ;
+    medmij:elementName "DVA ontsluit minstens één Gegevensdienst" ;
+    medmij:layer "Business" ;
+    medmij:mappingNote "Elke DVA ontsluit op elk moment minimaal één Gegevensdienst (Verzamelen of Delen)." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> ;
+    medmij:toelichting "Het ontsluiten van een Gegevensdienst door een Dienstverlener aanbieder is, in deze versie van het MedMij Afsprakenstelsel, hetzij in het kader van Verzamelen of in het kader van Delen van zekere gezondheidsinformatie. De term 'ontsluiten' wordt hier gebruikt in plaats van de term 'aanbieden', omdat als aanbieder van een Gegevensdienst de Aanbieder wordt gezien, niet de Deelnemer (Dienstverlener aanbieder). De Deelnemer ontsluit de Gegevensdienst dus namens de Aanbieder die die Gegevensdienst aanbiedt." .
+

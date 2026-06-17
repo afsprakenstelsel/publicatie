@@ -1,0 +1,10 @@
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj: <https://register.medmij.nl/objects/> .
+
+obj:authorization-endpoint-per-aanbiedergegevensdienst a medmij:DataResource,
+        medmij:Object ;
+    medmij:code "(core.authoz.*)" ;
+    medmij:elementName "Authorization endpoint (per AanbiederGegevensdienst)" ;
+    medmij:layer "Technologie" ;
+    medmij:mappingNote "Het adres waarop de DVP Server een authorization request initieert." .
+

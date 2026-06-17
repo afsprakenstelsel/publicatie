@@ -1,0 +1,10 @@
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj: <https://register.medmij.nl/objects/> .
+
+obj:opvragen-aanbiederslijst a medmij:Module,
+        medmij:Object ;
+    medmij:code "(core.zal.*)" ;
+    medmij:elementName "Opvragen Aanbiederslijst" ;
+    medmij:layer "Applicatie" ;
+    medmij:mappingNote "DVP haalt ZAL op bij MedMij Registratie; bepaalt beschikbare endpoints." .
+

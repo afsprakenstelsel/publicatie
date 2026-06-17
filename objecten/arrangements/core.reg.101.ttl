@@ -1,0 +1,12 @@
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj: <https://register.medmij.nl/objects/> .
+
+obj:aanbiedersregister-is-human-readable a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "Het Aanbiedersregister is voor mensen begrijpelijk (human readable) weergegeven." ;
+    medmij:code "core.reg.101" ;
+    medmij:elementName "Aanbiedersregister is human-readable" ;
+    medmij:layer "Business" ;
+    medmij:mappingNote "Register begrijpelijk weergegeven voor mensen." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
+

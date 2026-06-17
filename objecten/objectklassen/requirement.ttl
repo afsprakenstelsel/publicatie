@@ -1,0 +1,14 @@
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj: <https://register.medmij.nl/objects/> .
+
+obj:class-requirement a medmij:Object,
+        medmij:ObjectClass ;
+    medmij:classCode "Requirement" ;
+    medmij:code "—" ;
+    medmij:definition "Een technische of functionele norm waaraan een systeem, component of deelnemer moet voldoen, ongeacht implementatiekeuze." ;
+    medmij:dutchName "Eis" ;
+    medmij:elementName "Eis" ;
+    medmij:examples "TLS 1.2+ verplicht, DigiD level-of-assurance, PKIO-certificaat op Node" ;
+    medmij:layer "—" ;
+    medmij:mappingNote "Technische of functionele norm waaraan systemen of deelnemers moeten voldoen." .
+

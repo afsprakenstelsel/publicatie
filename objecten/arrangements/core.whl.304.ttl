@@ -1,0 +1,12 @@
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj: <https://register.medmij.nl/objects/> .
+
+obj:nodes-valideren-whitelist-hostnames-zijn-fqdn-conform-rfc3696 a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "Nodes valideren elke nieuw verkregen Whitelist tegen het XML-schema van de Whitelist. Alle hostnames op de Whitelist zijn fully-qualified domain names, conform RFC3696, sectie 2." ;
+    medmij:code "core.whl.304" ;
+    medmij:elementName "Nodes valideren Whitelist; hostnames zijn FQDN conform RFC3696" ;
+    medmij:layer "Technologie" ;
+    medmij:mappingNote "Elke nieuw verkregen Whitelist gevalideerd; alle hostnames zijn fully-qualified domain names." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
+

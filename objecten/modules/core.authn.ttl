@@ -1,0 +1,10 @@
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj: <https://register.medmij.nl/objects/> .
+
+obj:authenticeren a medmij:Module,
+        medmij:Object ;
+    medmij:code "(core.authn.*)" ;
+    medmij:elementName "Authenticeren" ;
+    medmij:layer "Business/Applicatie" ;
+    medmij:mappingNote "Identiteitsvaststelling Persoon via externe Authentication Server (DigiD)." .
+

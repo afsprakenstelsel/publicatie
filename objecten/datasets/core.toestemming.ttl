@@ -1,0 +1,10 @@
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj: <https://register.medmij.nl/objects/> .
+
+obj:beeindigingsverklaring a medmij:DataSet,
+        medmij:Object ;
+    medmij:code "(core.toestemming.*)" ;
+    medmij:elementName "Beeindigingsverklaring" ;
+    medmij:layer "Business" ;
+    medmij:mappingNote "Gegevensset waarmee Persoon een abonnement of langdurige toestemming intrekt." .
+

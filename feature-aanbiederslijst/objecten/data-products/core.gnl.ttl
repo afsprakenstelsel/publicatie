@@ -1,0 +1,10 @@
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj: <https://register.medmij.nl/objects/> .
+
+obj:gegevensdienstnamenlijst-gnl a medmij:DataProduct,
+        medmij:Object ;
+    medmij:code "(core.gnl.*)" ;
+    medmij:elementName "Gegevensdienstnamenlijst (GNL)" ;
+    medmij:layer "Applicatie" ;
+    medmij:mappingNote "Bevat gebruiksvriendelijke namen van gegevensdiensten; opgehaald door DVP en DVA." .
+

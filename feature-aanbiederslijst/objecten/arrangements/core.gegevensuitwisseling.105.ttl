@@ -1,0 +1,12 @@
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj: <https://register.medmij.nl/objects/> .
+
+obj:dvp-notificeert-persoon-bij-48-uur-stagnerende-uitwisseling a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "Indien uitwisseling van gegevens binnen een langdurige toestemming 48 uur of langer niet mogelijk is, is de DVP verplicht de Persoon te notificeren op een door de Persoon gewenste manier. Dit kan bijvoorbeeld in de app/browser, per e-mail of per SMS." ;
+    medmij:code "core.gegevensuitwisseling.105" ;
+    medmij:elementName "DVP notificeert Persoon bij 48 uur stagnerende uitwisseling" ;
+    medmij:layer "Business" ;
+    medmij:mappingNote "Verplichte notificatie als langdurige toestemming 48 uur niet kan worden gebruikt." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
+

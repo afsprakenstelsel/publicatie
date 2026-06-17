@@ -1,0 +1,13 @@
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj: <https://register.medmij.nl/objects/> .
+
+obj:bron-en-context-opslaan-bij-verzamelde-informatie a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "Dienstverlener persoon draagt ervoor zorg dat in het Dossier bij alle bij Dienstverlener aanbieder in het kader van een Gegevensdienst verzamelde informatie onlosmakelijk deze Dienstverlener aanbieder en Gegevensdienst als bron en verzamelcontext worden aangetekend. Dienstverlener persoon draagt ervoor zorg dat, in geval van het delen van informatie met een (andere) Aanbieder, deze bron- en context-informatie wordt meegeleverd aan de Dienstverlener aanbieder. Voor de benoeming van de bron wordt daarbij gebruik gemaakt van de Aanbiedersnaam. Voor de benoeming van de context wordt daarbij gebruik gemaakt van de betreffende Gegevensdienstnaam uit de Gegevensdienstnamenlijst." ;
+    medmij:code "core.dossier.102" ;
+    medmij:elementName "Bron en context opslaan bij verzamelde informatie" ;
+    medmij:layer "Business" ;
+    medmij:mappingNote "Bij verzamelde info in Dossier worden DVA en Gegevensdienst als bron/context vastgelegd." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> ;
+    medmij:toelichting "Hiermee wordt geborgd dat bij de uitgewisselde zorg- en gezondheidsinformatie altijd duidelijk is bij welke bron (Dienstverlener aanbieder) en in welke context (Gegevensdienst) deze is verzameld. Een ontvanger van deze informatie kan deze meta-informatie gebruiken voor een betere interpretatie van de betreffende informatie." .
+

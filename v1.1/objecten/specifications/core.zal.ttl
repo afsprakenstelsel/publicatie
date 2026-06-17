@@ -1,0 +1,10 @@
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj: <https://register.medmij.nl/objects/> .
+
+obj:medmij-interfaceversie-zal-formaat a medmij:Object,
+        medmij:Specification ;
+    medmij:code "(core.zal.*)" ;
+    medmij:elementName "MedMij Interfaceversie (ZAL-formaat)" ;
+    medmij:layer "Applicatie" ;
+    medmij:mappingNote "Interne specificatie van het formaat van endpoints in de Aanbiederslijst." .
+

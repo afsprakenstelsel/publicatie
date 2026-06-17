@@ -1,0 +1,14 @@
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj: <https://register.medmij.nl/objects/> .
+
+obj:comp-aanbiederslijst-zal--authorization-endpoint-per-aanbiedergegevensdienst a medmij:Object,
+        medmij:ObjectComponent ;
+    medmij:code "—" ;
+    medmij:component obj:authorization-endpoint-per-aanbiedergegevensdienst ;
+    medmij:componentClass medmij:Dataresource ;
+    medmij:elementName "Aanbiederslijst (ZAL) bevat Authorization Endpoint per AanbiederGegevensdienst" ;
+    medmij:layer "—" ;
+    medmij:mappingNote "ZAL bevat per Aanbieder-Gegevensdienst het authorization endpoint-adres." ;
+    medmij:whole obj:aanbiederslijst-zal ;
+    medmij:wholeClass medmij:Dataproduct .
+

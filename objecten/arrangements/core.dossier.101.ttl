@@ -1,0 +1,12 @@
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj: <https://register.medmij.nl/objects/> .
+
+obj:dvp-biedt-persoon-functie-delen a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "Dienstverlener persoon biedt Persoon de functie Delen om bij Dienstverlener aanbieder ten behoeve van een Persoon, indien deze daartoe ontvankelijk is, gezondheidsinformatie te plaatsen die op deze Persoon betrekking heeft en die afkomstig is uit het Dossier. De DVP vraagt voorafgaand aan elke Deelactie een expliciete bevestiging van de Persoon en toont daarbij welke gegevens worden gedeeld en met welke Aanbieder. Bij deze functie betrokken rollen gebruiken hiertoe het betreffende stroomdiagram." ;
+    medmij:code "core.dossier.101" ;
+    medmij:elementName "DVP biedt Persoon functie Delen met expliciete bevestiging" ;
+    medmij:layer "Business" ;
+    medmij:mappingNote "DVP biedt functie om gezondheidsinfo vanuit Dossier te plaatsen bij DVA; expliciete bevestiging per Deelactie vereist." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
+

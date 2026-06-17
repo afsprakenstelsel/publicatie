@@ -1,0 +1,10 @@
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj: <https://register.medmij.nl/objects/> .
+
+obj:rollenmodel-diagram-business-applicatie-technologie a medmij:ImplementationGuideline,
+        medmij:Object ;
+    medmij:code "(rollen-core)" ;
+    medmij:elementName "Rollenmodel-diagram (Business/Applicatie/Technologie)" ;
+    medmij:layer "Business" ;
+    medmij:mappingNote "Visuele weergave van rolrelaties over de drie architectuurlagen." .
+

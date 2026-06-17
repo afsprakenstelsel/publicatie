@@ -1,0 +1,12 @@
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj: <https://register.medmij.nl/objects/> .
+
+obj:automatisch-opvragen-wordt-gelogd a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "Bij geautomatiseerd verzamelen moet bij het request gelogd worden dat het om een automatische opvraging gaat." ;
+    medmij:code "core.gegevensuitwisseling.200" ;
+    medmij:elementName "Automatisch opvragen wordt gelogd" ;
+    medmij:layer "Applicatie" ;
+    medmij:mappingNote "Bij elke automatische opvraging wordt gelogd dat het een automatisch request betreft." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
+

@@ -1,0 +1,13 @@
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj: <https://register.medmij.nl/objects/> .
+
+obj:medmij-registratie-heeft-stelselnode-medmij-nl-als-hostname a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "MedMij Registratie heeft stelselnode.medmij.nl als hostname." ;
+    medmij:code "core.whl.303" ;
+    medmij:elementName "MedMij Registratie heeft stelselnode.medmij.nl als hostname" ;
+    medmij:layer "Technologie" ;
+    medmij:mappingNote "Vaste hostname zodat Backchannel Nodes in foutsituaties Whitelist kunnen ophalen." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> ;
+    medmij:toelichting "Door op deze manier de MedMij Stelselnode te autoriseren voor MedMij-verkeer wordt ervoor gezorgd dat ook in foutsituaties of bootstrap-situaties een Backchannel Node de MedMij Stelselnode kan aanspreken om een Whitelist op te halen." .
+

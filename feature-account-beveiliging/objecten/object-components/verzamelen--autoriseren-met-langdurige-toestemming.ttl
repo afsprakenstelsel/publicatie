@@ -1,0 +1,14 @@
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj: <https://register.medmij.nl/objects/> .
+
+obj:comp-verzamelen--autoriseren-met-langdurige-toestemming a medmij:Object,
+        medmij:ObjectComponent ;
+    medmij:code "—" ;
+    medmij:component obj:autoriseren-met-langdurige-toestemming ;
+    medmij:componentClass medmij:Module ;
+    medmij:elementName "Verzamelen bevat Autoriseren met langdurige toestemming" ;
+    medmij:layer "—" ;
+    medmij:mappingNote "Refresh-token flow als optioneel onderdeel van Verzamelen." ;
+    medmij:whole obj:verzamelen ;
+    medmij:wholeClass medmij:Service .
+

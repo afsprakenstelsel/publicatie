@@ -1,0 +1,12 @@
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj: <https://register.medmij.nl/objects/> .
+
+obj:register-bevat-namen-identificerende-gegevens-en-uitwisselingsstatus a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "Het Aanbiedersregister bevat de gebruiksvriendelijke namen van aangesloten aanbieders, de bijbehorende identificerende gegevens, de bijbehorende gegevensdiensten en de uitwisselingsstatus. Het Aanbiedersregister bevat alleen de gegevens van aanbieders die voldoen aan de eisen en normen die in de DAP beschreven staan." ;
+    medmij:code "core.reg.102" ;
+    medmij:elementName "Register bevat namen, identificerende gegevens en uitwisselingsstatus" ;
+    medmij:layer "Business" ;
+    medmij:mappingNote "Alleen Aanbieders die voldoen aan DAP-eisen en -normen zijn opgenomen." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
+

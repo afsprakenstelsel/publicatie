@@ -1,0 +1,12 @@
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj: <https://register.medmij.nl/objects/> .
+
+obj:dvp-mag-automatisch-verzamelen-aanbieden a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "Dienstverlener persoon mag de Persoon de functie Automatisch verzamelen aanbieden, mits uitgevoerd vanuit een gegeven langdurige toestemming, het doel is de gebruiksvriendelijkheid (performance) voor de Persoon te verbeteren of dat dit ten dienste staat van analytische oplossingen waarbij de afhankelijkheid van de Persoon de dienstverlening belemmert. De Dienstverlener persoon moet hier afspraken over opnemen in de Gebruikersovereenkomst die hij met de Persoon afsluit." ;
+    medmij:code "core.dossier.107" ;
+    medmij:elementName "DVP mag Automatisch verzamelen aanbieden" ;
+    medmij:layer "Business" ;
+    medmij:mappingNote "Automatisch verzamelen mag alleen bij langdurige toestemming voor performance of analyse-doeleinden." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
+

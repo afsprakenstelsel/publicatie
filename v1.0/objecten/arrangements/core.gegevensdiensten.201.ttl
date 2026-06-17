@@ -1,0 +1,12 @@
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj: <https://register.medmij.nl/objects/> .
+
+obj:dva-registreert-unieke-endpoints-per-gegevensdienst a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "Voor iedere gegevensdienst moet de Dienstverlener aanbieder unieke endpoints voor de Resource Server registreren in de MedMij Registratie." ;
+    medmij:code "core.gegevensdiensten.201" ;
+    medmij:elementName "DVA registreert unieke endpoints per Gegevensdienst" ;
+    medmij:layer "Applicatie" ;
+    medmij:mappingNote "Dienstverlener aanbieder registreert unieke Resource Server-endpoints in MedMij Registratie." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
+

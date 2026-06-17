@@ -1,0 +1,10 @@
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj: <https://register.medmij.nl/objects/> .
+
+obj:user-agent a medmij:Component,
+        medmij:Object ;
+    medmij:code "core.rollen.203" ;
+    medmij:elementName "User Agent" ;
+    medmij:layer "Applicatie" ;
+    medmij:mappingNote "Front-end van DVP; communiceert met Authorization Server via browser-redirect." .
+

@@ -1,0 +1,10 @@
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj: <https://register.medmij.nl/objects/> .
+
+obj:toestemmingsverklaring a medmij:DataSet,
+        medmij:Object ;
+    medmij:code "(core.authoz.*)" ;
+    medmij:elementName "Toestemmingsverklaring" ;
+    medmij:layer "Business" ;
+    medmij:mappingNote "Gegevensset van de afgegeven toestemming (Persoon, DVA, gegevensdienst, tijdstip)." .
+

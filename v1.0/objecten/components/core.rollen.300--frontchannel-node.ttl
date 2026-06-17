@@ -1,0 +1,10 @@
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj: <https://register.medmij.nl/objects/> .
+
+obj:frontchannel-node a medmij:Component,
+        medmij:Object ;
+    medmij:code "core.rollen.300" ;
+    medmij:elementName "Frontchannel Node" ;
+    medmij:layer "Technologie" ;
+    medmij:mappingNote "Node die internet-facing communiceert met User Agent (webbrowser)." .
+

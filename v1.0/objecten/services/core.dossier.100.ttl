@@ -1,0 +1,10 @@
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj: <https://register.medmij.nl/objects/> .
+
+obj:verzamelen a medmij:Object,
+        medmij:Service ;
+    medmij:code "core.dossier.100" ;
+    medmij:elementName "Verzamelen" ;
+    medmij:layer "Business" ;
+    medmij:mappingNote "DVP biedt Persoon de functie om gezondheidsgegevens bij DVA op te halen." .
+

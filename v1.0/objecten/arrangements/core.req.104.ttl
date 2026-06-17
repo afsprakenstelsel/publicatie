@@ -1,0 +1,12 @@
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj: <https://register.medmij.nl/objects/> .
+
+obj:medmij-beheer-past-uitwisselingsstatus-aan a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "MedMij Beheer kan als enige partij de uitwisselingsstatus van een aanbieder of de bij de Aanbieder behorende gegevensdiensten aanpassen. MedMij Beheer baseert de keuze tot wijziging op de normen die in de DAP of specifieke bijlagen beschreven staan." ;
+    medmij:code "core.req.104" ;
+    medmij:elementName "MedMij Beheer past uitwisselingsstatus aan" ;
+    medmij:layer "Business" ;
+    medmij:mappingNote "Enige partij die uitwisselingsstatus kan aanpassen; op basis van DAP-normen." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
+

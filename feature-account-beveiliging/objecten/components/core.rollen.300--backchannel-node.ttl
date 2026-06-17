@@ -1,0 +1,10 @@
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj: <https://register.medmij.nl/objects/> .
+
+obj:backchannel-node a medmij:Component,
+        medmij:Object ;
+    medmij:code "core.rollen.300" ;
+    medmij:elementName "Backchannel Node" ;
+    medmij:layer "Technologie" ;
+    medmij:mappingNote "Node die communiceert met andere backchannel-nodes; gebaseerd op lijstregistraties." .
+

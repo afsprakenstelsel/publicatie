@@ -1,0 +1,10 @@
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj: <https://register.medmij.nl/objects/> .
+
+obj:happy-flow-authenticeren-diagram a medmij:ImplementationGuideline,
+        medmij:Object ;
+    medmij:code "(core.authn.*)" ;
+    medmij:elementName "Happy flow Authenticeren (diagram)" ;
+    medmij:layer "Applicatie" ;
+    medmij:mappingNote "Beschrijft de DigiD-authenticatiestappen." .
+

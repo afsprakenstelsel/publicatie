@@ -1,0 +1,12 @@
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj: <https://register.medmij.nl/objects/> .
+
+obj:dva-biedt-resource-server a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "Dienstverlener aanbieder biedt een geautomatiseerde rol Resource Server, voor het namens Aanbieders uitwisselen van gezondheidsinformatie met DVP Server. Eén Dienstverlener aanbieder biedt één of meer combinaties van één Authorization Server en één Resource Server en elke combinatie van één Authorization Server en één Resource Server wordt door één Dienstverlener aanbieder geboden." ;
+    medmij:code "core.rollen.202" ;
+    medmij:elementName "DVA biedt Resource Server" ;
+    medmij:layer "Applicatie" ;
+    medmij:mappingNote "DVA biedt Resource Server; 1 DVA — 1..n combinaties van Authorization Server + Resource Server." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
+
