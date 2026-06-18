@@ -2,6 +2,7 @@ window.__MEDMIJ_VERSION_META__ = {
   "current": "main",
   "current_label": "main (ontwikkeling)",
   "current_type": "branch",
+  "current_path": "/",
   "latest_release": "v1.1",
   "versions": [
     {
