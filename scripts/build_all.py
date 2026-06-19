@@ -44,11 +44,18 @@ def build_version(version: dict) -> None:
 
     wt = Path(tempfile.mkdtemp(prefix="medmij-wt-"))
     try:
-        # Git worktree aanmaken (detached, zodat branches en tags beiden werken)
-        run(
+        # Git worktree aanmaken (detached, zodat branches en tags beiden werken).
+        # In CI bestaat alleen de remote tracking ref (origin/...), dus val terug
+        # op die variant als de directe ref niet gevonden wordt.
+        result = subprocess.run(
             ["git", "worktree", "add", "--detach", str(wt), git_ref],
-            cwd=ROOT, label="git worktree add",
+            cwd=ROOT, capture_output=True, text=True,
         )
+        if result.returncode != 0:
+            run(
+                ["git", "worktree", "add", "--detach", str(wt), f"origin/{git_ref}"],
+                cwd=ROOT, label="git worktree add",
+            )
 
         # Overschrijf buildtools in de worktree met de versie uit main
         # (zodat de versie-picker altijd aanwezig is, ook in oudere versies)
