@@ -24,6 +24,6 @@ jobs:
 
       - run: python scripts/add_relations.py
 
-      - run: python scripts/generate_docs.py
+      - run: python scripts/build_all.py
 
-      - run: mkdocs gh-deploy --force
+      - run: ghp-import site/ -p -f
