@@ -1,0 +1,10 @@
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj: <https://register.medmij.nl/objects/> .
+
+obj:gezondheidsgegevens-generiek a medmij:DataSet,
+        medmij:Object ;
+    medmij:code "(informatiemodel.*)" ;
+    medmij:elementName "Gezondheidsgegevens (generiek)" ;
+    medmij:layer "Applicatie" ;
+    medmij:mappingNote "De inhoudelijke gegevensset die via Verzamelen of Delen wordt uitgewisseld; per gegevensdienst gespecificeerd." .
+

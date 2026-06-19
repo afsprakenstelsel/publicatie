@@ -1,0 +1,15 @@
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj: <https://register.medmij.nl/objects/> .
+
+obj:whitelist-controle-v-r-tls-handshake-client-of-v-r-verwerking-server a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText """
+De Node die de TLS-client zou worden, voert de in verantwoordelijkheid core.whl.306 bedoelde controle tegen de Whitelist uit, voorafgaand aan de start van de TLS-handshake. Indien die controle niet kan worden uitgevoerd of een negatief resultaat oplevert, wordt de TLS-handshake niet gestart.
+De Node die de TLS-server is, voert de in verantwoordelijkheid core.whl.306 bedoelde controle tegen de Whitelist geheel uit voordat enige volgende stap wordt gezet door de OAuth Authorization Server of OAuth Resource Server, volgens de specificaties van de functies Verzamelen en Delen. Deze vereiste wordt volgordelijkheid genoemd. Indien de controle tegen de Whitelist niet kan worden uitgevoerd, of een negatief resultaat oplevert, wordt de procesgang onmiddellijk afgebroken. De controle slaagt dan en slechts dan als op de Whitelist ten minste een van de volgende namen uit het door de TLS-client aangeboden certificaat voorkomen: de Common Name of een van de eventuele Subject Alternative Names.
+""" ;
+    medmij:code "core.whl.307" ;
+    medmij:elementName "Whitelist-controle vóór TLS-handshake (client) of vóór verwerking (server)" ;
+    medmij:layer "Technologie" ;
+    medmij:mappingNote "TLS-client controleert vooraf; TLS-server controleert volledig vóór eerstvolgende stap (volgordelijkheid)." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
+

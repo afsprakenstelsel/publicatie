@@ -1,0 +1,12 @@
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj: <https://register.medmij.nl/objects/> .
+
+obj:automatisch-verzamelen-alleen-voor-actieve-accounts a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "De Dienstverlener persoon mag alleen geautomatiseerd gegevens verzamelen voor actieve accounts." ;
+    medmij:code "core.gegevensuitwisseling.103" ;
+    medmij:elementName "Automatisch verzamelen alleen voor actieve accounts" ;
+    medmij:layer "Business" ;
+    medmij:mappingNote "DVP mag geen geautomatiseerde uitwisseling doen voor inactieve accounts." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
+

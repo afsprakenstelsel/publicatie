@@ -1,0 +1,17 @@
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj: <https://register.medmij.nl/objects/> .
+
+obj:dva-verifieert-toestemming-persoon-v-r-verzamelen a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText """
+Dienstverlener aanbieder vergewist zich ervan, elke keer opnieuw voordat hij Persoon gezondheidsinformatie van Aanbieder laat verzamelen door middel van de functie Verzamelen, dat deze Persoon uitdrukkelijk Toestemming heeft gegeven aan Aanbieder om de in de Gegevensdienst betrokken gezondheidsinformatie aan Dienstverlener persoon ter beschikking te laten stellen. De vraag om Toestemming heeft een vaste formulering, die is opgenomen in de functie Autoriseren. Deze Toestemming is:
+
+- geldig voor de huidige sessie, of
+- bij langdurige toestemming geldig voor onbepaalde tijd, mits minimaal één keer per 6 maanden gebruikgemaakt wordt van de toestemming en deze niet ingetrokken is.
+""" ;
+    medmij:code "core.autorisatie.100" ;
+    medmij:elementName "DVA verifieert Toestemming Persoon vóór Verzamelen" ;
+    medmij:layer "Business" ;
+    medmij:mappingNote "Elke keer opnieuw: uitdrukkelijke Toestemming Persoon vereist; geldig voor sessie of 6 maanden (langdurig)." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
+

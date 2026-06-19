@@ -1,0 +1,14 @@
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj: <https://register.medmij.nl/objects/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+obj:qual-specification a medmij:Object,
+        medmij:QualificationRule ;
+    medmij:code "—" ;
+    medmij:elementName "Kwalificatieregel Specification" ;
+    medmij:forClass medmij:Specification ;
+    medmij:layer "—" ;
+    medmij:mappingNote "Systeem moet conformiteit aantonen; vastgelegd in SystemQualificationLog." ;
+    medmij:qualificationLevel "system" ;
+    medmij:versioned true .
+

@@ -1,0 +1,10 @@
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj: <https://register.medmij.nl/objects/> .
+
+obj:tls-1-2-of-hoger-op-alle-medmij-verkeer a medmij:Object,
+        medmij:Requirement ;
+    medmij:code "(core.netwerk.*)" ;
+    medmij:elementName "TLS 1.2 of hoger op alle MedMij-verkeer" ;
+    medmij:layer "Technologie" ;
+    medmij:mappingNote "Alle backchannel- en frontchannel-verkeer versleuteld via TLS." .
+

@@ -1,0 +1,14 @@
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj: <https://register.medmij.nl/objects/> .
+
+obj:class-framework a medmij:Object,
+        medmij:ObjectClass ;
+    medmij:classCode "Framework" ;
+    medmij:code "—" ;
+    medmij:definition "Het overkoepelende kader waarvan andere objecten deel uitmaken. Geeft scope en samenhang aan." ;
+    medmij:dutchName "Stelsel" ;
+    medmij:elementName "Stelsel" ;
+    medmij:examples "MedMij Afsprakenstelsel, MedMij Core, MedMij Extensies, MedMij Domeinen" ;
+    medmij:layer "—" ;
+    medmij:mappingNote "Overkoepelend kader dat scope en samenhang geeft aan andere objecten." .
+

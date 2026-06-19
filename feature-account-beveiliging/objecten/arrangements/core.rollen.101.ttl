@@ -1,0 +1,12 @@
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj: <https://register.medmij.nl/objects/> .
+
+obj:deelnemer-speelt-dvp-en-of-dva a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "Een Deelnemer neemt de functionele rol van Dienstverlener persoon en/of Dienstverlener aanbieder op zich. Hierbij speelt één Deelnemer één of meerdere dienstverleners en wordt elke dienstverlener gespeeld door één Deelnemer." ;
+    medmij:code "core.rollen.101" ;
+    medmij:elementName "Deelnemer speelt DVP en/of DVA" ;
+    medmij:layer "Business" ;
+    medmij:mappingNote "Een Deelnemer neemt minimaal één serviceverlenersrol op zich; elke dienstverlener door één Deelnemer." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
+

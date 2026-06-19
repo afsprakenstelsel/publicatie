@@ -1,0 +1,14 @@
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj: <https://register.medmij.nl/objects/> .
+
+obj:comp-delen--autoriseren-zonder-langdurige-toestemming a medmij:Object,
+        medmij:ObjectComponent ;
+    medmij:code "—" ;
+    medmij:component obj:autoriseren-zonder-langdurige-toestemming ;
+    medmij:componentClass medmij:Module ;
+    medmij:elementName "Delen bevat Autoriseren zonder langdurige toestemming" ;
+    medmij:layer "—" ;
+    medmij:mappingNote "OAuth Authorization Code flow als onderdeel van Delen." ;
+    medmij:whole obj:delen ;
+    medmij:wholeClass medmij:Service .
+

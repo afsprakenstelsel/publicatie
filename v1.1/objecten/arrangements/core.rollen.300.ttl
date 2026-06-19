@@ -1,0 +1,22 @@
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj: <https://register.medmij.nl/objects/> .
+
+obj:dvp-server-gebruikt-n-frontchannel-node-uit-ocl a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText """
+In het MedMij-netwerk functioneert:
+
+- iedere rol uit de applicatie-laag op één of meer Frontchannel en/of Backchannel Nodes;
+- elke DVP Server voor al diens frontchannel-verkeer op één Frontchannel Node, met een hostname die voor die DVP Server voorkomt op de OAuth Client List;
+- MedMij Registratie op precies één node, de Stelselnode. Zonder de MedMij Stelselnode is er geen MedMij-netwerk.
+""" ;
+    medmij:code "core.rollen.300" ;
+    medmij:elementName "DVP Server gebruikt één Frontchannel Node uit OCL" ;
+    medmij:layer "Technologie" ;
+    medmij:mappingNote "Elke DVP Server gebruikt precies één Frontchannel Node met hostname uit OAuth Client List." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> ;
+    medmij:toelichting """
+Het is toegestaan om een Authorization Server en een Resource Server te verdelen over verschillende Nodes, maar ook te combineren op dezelfde. De afsprakenset staat het zelfs toe dat Authorization Server en Resource Server elk apart op meerdere Nodes worden geprojecteerd. Het kan dan voorkomen dat, bij de betreffende AanbiederGegevensdiensten in de Aanbiederslijst, hostnames in de endpointadressen staan die verschillen tussen het authorization endpoint, het token endpoint en het resource endpoint, zelfs bij eenzelfde Interfaceversie. Een belangrijke eis blijft evenwel dat al deze hostnames bij Nodes van eenzelfde Dienstverlener aanbieder horen.
+In het Aanbiedersdomein treden alleen de Nodes op in het MedMij-netwerk. Dat wil zeggen dat achterliggende xIS'en niet over het MedMij-netwerk communiceren met de Node. Dat verkeer is verborgen achter de Node.
+""" .
+

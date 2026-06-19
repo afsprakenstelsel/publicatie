@@ -1,0 +1,10 @@
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj: <https://register.medmij.nl/objects/> .
+
+obj:toelichting-oauth-grant-type-keuze a medmij:ImplementationGuideline,
+        medmij:Object ;
+    medmij:code "core.rollen.206" ;
+    medmij:elementName "Toelichting OAuth grant type keuze" ;
+    medmij:layer "Applicatie" ;
+    medmij:mappingNote "Onderbouwing van keuze voor Authorization Code i.p.v. andere grant types." .
+

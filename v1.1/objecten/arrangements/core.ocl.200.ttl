@@ -1,0 +1,12 @@
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj: <https://register.medmij.nl/objects/> .
+
+obj:medmij-registratie-en-auth-server-implementeren-opvragen-ocl a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "MedMij Registratie en Authorization Server implementeren de functie Opvragen OAuth Client List, door middel van het bepaalde inzake het interface voor OAuth Client List op Interfaces lijsten. Zij gebruiken hiervoor het betreffende stroomdiagram." ;
+    medmij:code "core.ocl.200" ;
+    medmij:elementName "MedMij Registratie en Auth.Server implementeren Opvragen OCL" ;
+    medmij:layer "Applicatie" ;
+    medmij:mappingNote "Implementatie via OCL-interface op Interfaces lijsten; stroomdiagram verplicht." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
+

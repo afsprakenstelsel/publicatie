@@ -1,0 +1,14 @@
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj: <https://register.medmij.nl/objects/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+obj:qual-service a medmij:Object,
+        medmij:QualificationRule ;
+    medmij:code "—" ;
+    medmij:elementName "Kwalificatieregel Service" ;
+    medmij:forClass medmij:Service ;
+    medmij:layer "—" ;
+    medmij:mappingNote "DVA kwalificeert per service per versie; DVP ook." ;
+    medmij:qualificationLevel "participant" ;
+    medmij:versioned true .
+

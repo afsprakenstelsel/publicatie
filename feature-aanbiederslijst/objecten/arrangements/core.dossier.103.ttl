@@ -1,0 +1,13 @@
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj: <https://register.medmij.nl/objects/> .
+
+obj:dvp-biedt-persoon-functie-raadplegen-dossier a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "Dienstverlener persoon biedt Persoon de functie Raadplegen dossier om het persoonlijk gezondheidsdossier te raadplegen." ;
+    medmij:code "core.dossier.103" ;
+    medmij:elementName "DVP biedt Persoon functie Raadplegen dossier" ;
+    medmij:layer "Business" ;
+    medmij:mappingNote "Persoon kan Dossier raadplegen; functie mag niet ontbreken (vereist voor Regie)." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> ;
+    medmij:toelichting "Omdat deze functie zich niet over meerdere domeinen uitstrekt, is zij niet nader gespecificeerd in een stroomdiagram. Het is aan de vrijheid van de Deelnemer om deze naar behoefte van haar klanten in te richten. Maar zij mag niet ontbreken, omdat dan de Persoon geen Regie over het dossier zou kunnen voeren." .
+

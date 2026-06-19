@@ -1,0 +1,10 @@
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj: <https://register.medmij.nl/objects/> .
+
+obj:aanbiedersregister-reg a medmij:DataProduct,
+        medmij:Object ;
+    medmij:code "(core.functies.*)" ;
+    medmij:elementName "Aanbiedersregister (REG)" ;
+    medmij:layer "Business" ;
+    medmij:mappingNote "Publiek raadpleegbaar register van Aanbieders en hun gegevensdiensten; voor mensen leesbaar." .
+

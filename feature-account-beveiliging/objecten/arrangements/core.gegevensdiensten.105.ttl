@@ -1,0 +1,12 @@
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj: <https://register.medmij.nl/objects/> .
+
+obj:stichting-medmij-kan-registraties-verwijderen-bij-niet-functioneren a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "In aansluiting op verantwoordelijkheid core.gegevensdiensten.102 heeft Stichting MedMij het recht registraties van Aanbieder-gegevensdienst-combinaties te verwijderen als blijkt dat uitwisseling voor deze combinatie niet mogelijk is, of dat voor deze combinatie niet wordt voldaan aan de normen die staan beschreven in het Ketennormenbeleid." ;
+    medmij:code "core.gegevensdiensten.105" ;
+    medmij:elementName "Stichting MedMij kan registraties verwijderen bij niet-functioneren" ;
+    medmij:layer "Business" ;
+    medmij:mappingNote "Recht op verwijdering als uitwisseling niet mogelijk is of ketennormen worden geschonden." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
+

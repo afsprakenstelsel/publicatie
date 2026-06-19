@@ -1,0 +1,10 @@
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj: <https://register.medmij.nl/objects/> .
+
+obj:digid-als-authenticatiemiddel-niveau-substantieel a medmij:Object,
+        medmij:Requirement ;
+    medmij:code "(core.authn.*)" ;
+    medmij:elementName "DigiD als authenticatiemiddel (niveau Substantieel)" ;
+    medmij:layer "Applicatie" ;
+    medmij:mappingNote "DVA is verplicht DigiD te gebruiken; andere middelen vereisen afzonderlijke toelating." .
+

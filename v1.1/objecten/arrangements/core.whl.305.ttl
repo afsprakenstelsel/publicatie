@@ -1,0 +1,12 @@
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj: <https://register.medmij.nl/objects/> .
+
+obj:whitelist-verkeer-beveiligd-met-versleuteling-server-auth a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "Ten behoeve van de technische beveiliging van het gegevensverkeer, dat zich voltrekt in het kader van de functie Opvragen Whitelist, maken betrokken rollen gebruik van Versleuteling, Server Authentication en Server Authorization." ;
+    medmij:code "core.whl.305" ;
+    medmij:elementName "Whitelist-verkeer beveiligd met Versleuteling + Server Auth" ;
+    medmij:layer "Technologie" ;
+    medmij:mappingNote "Opvragen Whitelist gebruikt Versleuteling, Server Authentication en Server Authorization." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
+

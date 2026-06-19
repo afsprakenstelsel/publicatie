@@ -1,0 +1,10 @@
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj: <https://register.medmij.nl/objects/> .
+
+obj:medmij-core a medmij:Framework,
+        medmij:Object ;
+    medmij:code "—" ;
+    medmij:elementName "MedMij Core" ;
+    medmij:layer "Business" ;
+    medmij:mappingNote "Verplicht fundament voor alle deelnemers; omvat de kernfuncties." .
+

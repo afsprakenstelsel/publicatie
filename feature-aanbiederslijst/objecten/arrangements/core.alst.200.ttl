@@ -1,0 +1,12 @@
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj: <https://register.medmij.nl/objects/> .
+
+obj:medmij-registratie-en-dvp-server-implementeren-opvragen-aanbiederslijst a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "MedMij Registratie en elke DVP Server implementeren de functie Opvragen Aanbiederslijst, door middel van het bepaalde inzake het Aanbiederslijstinterface op Interfaces lijsten. Zij gebruiken hiertoe het betreffende stroomdiagram. De DVP Server valideert de signatuur van de ontvangen Aanbiederslijst alvorens deze te verwerken. Bij een ongeldige signatuur wordt de vorige geldige versie behouden en wordt een foutmelding gelogd." ;
+    medmij:code "core.alst.200" ;
+    medmij:elementName "MedMij Registratie en DVP Server implementeren Opvragen Aanbiederslijst" ;
+    medmij:layer "Applicatie" ;
+    medmij:mappingNote "Implementatie via Aanbiederslijstinterface; stroomdiagram en signatuurvalidatie verplicht." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
+

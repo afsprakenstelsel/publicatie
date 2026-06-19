@@ -1,0 +1,10 @@
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj: <https://register.medmij.nl/objects/> .
+
+obj:uitzonderingstabel-authenticeren-authn-1-2 a medmij:ImplementationGuideline,
+        medmij:Object ;
+    medmij:code "(core.authn.*)" ;
+    medmij:elementName "Uitzonderingstabel Authenticeren (authn 1-2)" ;
+    medmij:layer "Applicatie" ;
+    medmij:mappingNote "Beschrijft twee afwijkende situaties bij authenticatie en de bijbehorende acties." .
+

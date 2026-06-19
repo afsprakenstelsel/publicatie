@@ -1,0 +1,12 @@
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj: <https://register.medmij.nl/objects/> .
+
+obj:medmij-beheer-onderhoudt-lijstenarchief a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "MedMij Beheer onderhoudt een archief van alle ooit verspreide versies van de Aanbiederslijst, de OAuth Client List, de Whitelist en de Gegevensdienstnamenlijst. De bewaartermijn, gerekend vanaf het einde van de geldigheid van de betreffende versie, is niet korter dan die van de logbestanden als bedoeld in verantwoordelijkheid core.logging.101." ;
+    medmij:code "core.algemeen.100" ;
+    medmij:elementName "MedMij Beheer onderhoudt lijstenarchief" ;
+    medmij:layer "Business" ;
+    medmij:mappingNote "Bewaartermijn alle verspreide lijsten ≥ bewaartermijn logbestanden (core.logging.101)." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
+

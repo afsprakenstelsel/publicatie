@@ -1,0 +1,10 @@
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj: <https://register.medmij.nl/objects/> .
+
+obj:fhir-profiel-per-gegevensdienst a medmij:DataSet,
+        medmij:Object ;
+    medmij:code "(informatiemodel.*)" ;
+    medmij:elementName "FHIR-profiel per gegevensdienst" ;
+    medmij:layer "Applicatie" ;
+    medmij:mappingNote "Concrete FHIR-profilering van de gegevensset; opgenomen als ObjectVersion met standardFamily=FHIR R4." .
+

@@ -1,0 +1,20 @@
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj: <https://register.medmij.nl/objects/> .
+
+obj:informeren-persoon-bij-verwijderen-gegevens a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText """
+In het kader van de functie Verwijderen gegevens zal Persoon te allen tijde worden geïnformeerd:
+
+- Welke verzamelde gegevens precies verwijderd worden.
+- Dat verwijderen alleen in de PGO plaats vindt (en niet in enig bron systeem).
+- Dat verwijderde gegevens in een later stadium mogelijk niet meer opgevraagd kunnen worden uit de bron systemen (bijv. bij het verlopen van de beschikbaarheidstermijn).
+
+De gepresenteerde informatie ondersteunt de gebruiksvriendelijkheid door gebruik te maken van taalniveau B1. Met de gepresenteerde informatie is het voor de Persoon duidelijk op welk deel van de inhoud van zijn dossier de functie verwijderen gegevens wordt toegepast, en wat hiervan de mogelijke consequenties zijn.
+""" ;
+    medmij:code "core.dossier.106" ;
+    medmij:elementName "Informeren Persoon bij Verwijderen gegevens" ;
+    medmij:layer "Business" ;
+    medmij:mappingNote "Persoon wordt geïnformeerd over wat verwijderd wordt en consequenties (taalniveau B1)." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
+

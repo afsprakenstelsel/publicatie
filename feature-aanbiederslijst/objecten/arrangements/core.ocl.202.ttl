@@ -1,0 +1,12 @@
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj: <https://register.medmij.nl/objects/> .
+
+obj:auth-server-valideert-ocl-tegen-xml-schema a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "Authorization Server valideert elke nieuwe verkregen OAuth Client List tegen het XML-schema van de OAuth Client List." ;
+    medmij:code "core.ocl.202" ;
+    medmij:elementName "Auth.Server valideert OCL tegen XML-schema" ;
+    medmij:layer "Applicatie" ;
+    medmij:mappingNote "Elke nieuw verkregen OCL gevalideerd tegen gepubliceerd XML-schema." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
+

@@ -1,0 +1,10 @@
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj: <https://register.medmij.nl/objects/> .
+
+obj:autoriseren-met-langdurige-toestemming a medmij:Module,
+        medmij:Object ;
+    medmij:code "(core.authoz.*)" ;
+    medmij:elementName "Autoriseren (met langdurige toestemming)" ;
+    medmij:layer "Business/Applicatie" ;
+    medmij:mappingNote "Refresh-token flow; alleen van toepassing voor Verzamelen." .
+

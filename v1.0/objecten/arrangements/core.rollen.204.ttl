@@ -1,0 +1,12 @@
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj: <https://register.medmij.nl/objects/> .
+
+obj:medmij-beheer-ontsluit-medmij-registratie a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "MedMij Beheer ontsluit ten behoeve van alle betrokkenen een geautomatiseerde rol, hier genoemd: MedMij Registratie." ;
+    medmij:code "core.rollen.204" ;
+    medmij:elementName "MedMij Beheer ontsluit MedMij Registratie" ;
+    medmij:layer "Applicatie" ;
+    medmij:mappingNote "MedMij Beheer ontsluit de centrale geautomatiseerde rol MedMij Registratie (Stelselnode)." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
+

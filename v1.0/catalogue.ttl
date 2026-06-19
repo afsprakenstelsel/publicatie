@@ -1,0 +1,2030 @@
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj: <https://register.medmij.nl/objects/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+obj:aanbieder-verantwoordelijk-voor-kwaliteit-registergegevens a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "Aanbieders zijn zelf verantwoordelijk voor de kwaliteit van de informatie die in het register staat. Gewenste wijzigingen kunnen worden doorgegeven aan MedMij Beheer of worden doorgevoerd via de geboden interfaces." ;
+    medmij:code "core.req.103" ;
+    medmij:elementName "Aanbieder verantwoordelijk voor kwaliteit registergegevens" ;
+    medmij:layer "Business" ;
+    medmij:mappingNote "Wijzigingen doorgeven aan MedMij Beheer of via geboden interfaces." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
+
+obj:aanbiedersregister-99-9-beschikbaar-max-480-min-onbeschikbaar a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "Het Aanbiedersregister is voor minstens 99,9% van de tijd beschikbaar. Onbeschikbaarheid duurt maximaal acht uren (480 minuten)." ;
+    medmij:code "core.reg.300" ;
+    medmij:elementName "Aanbiedersregister ≥99,9% beschikbaar; max. 480 min. onbeschikbaar" ;
+    medmij:layer "Technologie" ;
+    medmij:mappingNote "Hoge beschikbaarheidseis voor publiek raadpleegbaar register." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
+
+obj:aanbiedersregister-is-human-readable a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "Het Aanbiedersregister is voor mensen begrijpelijk (human readable) weergegeven." ;
+    medmij:code "core.reg.101" ;
+    medmij:elementName "Aanbiedersregister is human-readable" ;
+    medmij:layer "Business" ;
+    medmij:mappingNote "Register begrijpelijk weergegeven voor mensen." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
+
+obj:abonneren-extensie a medmij:Object,
+        medmij:Service ;
+    medmij:code "—" ;
+    medmij:elementName "Abonneren (extensie)" ;
+    medmij:layer "Business" ;
+    medmij:mappingNote "Uitbreiding op Core; DVP abonneert zich op pushberichten van DVA." .
+
+obj:account-wordt-actief-bij-hergebruik-persoon a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "De dienstverlener persoon geeft een inactief account de status 'actief' zodra de Persoon weer gebruikmaakt van het account." ;
+    medmij:code "core.account.102" ;
+    medmij:elementName "Account wordt actief bij hergebruik Persoon" ;
+    medmij:layer "Business" ;
+    medmij:mappingNote "DVP herstelt status 'actief' zodra Persoon account weer gebruikt." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
+
+obj:account-wordt-inactief-na-6-maanden-niet-gebruik a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "De Dienstverlener persoon geeft een account de status 'inactief' zodra een account 6 maanden lang niet gebruikt is door de Persoon." ;
+    medmij:code "core.account.101" ;
+    medmij:elementName "Account wordt inactief na 6 maanden niet-gebruik" ;
+    medmij:layer "Business" ;
+    medmij:mappingNote "DVP geeft account status 'inactief' na 6 maanden zonder gebruik." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
+
+obj:auth-server-haalt-ocl-minstens-elke-15-min-op a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "Authorization Server betrekt minstens elke vijftien minuten (900 seconden) de meest recente OAuth Client List van MedMij Registratie." ;
+    medmij:code "core.ocl.201" ;
+    medmij:elementName "Auth.Server haalt OCL minstens elke 15 min op" ;
+    medmij:governedBy obj:opvragen-oauth-client-list ;
+    medmij:layer "Applicatie" ;
+    medmij:mappingNote "Maximaal 900 seconden oud; meest recente OCL van MedMij Registratie." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
+
+obj:auth-server-valideert-ocl-tegen-xml-schema a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "Authorization Server valideert elke nieuwe verkregen OAuth Client List tegen het XML-schema van de OAuth Client List." ;
+    medmij:code "core.ocl.202" ;
+    medmij:elementName "Auth.Server valideert OCL tegen XML-schema" ;
+    medmij:governedBy obj:opvragen-oauth-client-list ;
+    medmij:layer "Applicatie" ;
+    medmij:mappingNote "Elke nieuw verkregen OCL gevalideerd tegen gepubliceerd XML-schema." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
+
+obj:authentication-server a medmij:Component,
+        medmij:Object ;
+    medmij:code "core.rollen.205" ;
+    medmij:elementName "Authentication Server" ;
+    medmij:layer "Applicatie" ;
+    medmij:mappingNote "Externe component (DigiD) die identiteit van Persoon vaststelt." .
+
+obj:authorization-server-gebruikt-authentication-server a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "Ten behoeve van het authenticeren van Persoon, zal de betrokken Authorization Server, in de rol van Authentication Client, gebruikmaken van de Authentication Server van een Dienstverlener authenticatie." ;
+    medmij:code "core.rollen.205" ;
+    medmij:elementName "Authorization Server gebruikt Authentication Server" ;
+    medmij:layer "Applicatie" ;
+    medmij:mappingNote "Authorization Server gebruikt externe Authentication Server (DigiD) als Authentication Client." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
+
+obj:automatisch-opvragen-wordt-gelogd a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "Bij geautomatiseerd verzamelen moet bij het request gelogd worden dat het om een automatische opvraging gaat." ;
+    medmij:code "core.gegevensuitwisseling.200" ;
+    medmij:elementName "Automatisch opvragen wordt gelogd" ;
+    medmij:layer "Applicatie" ;
+    medmij:mappingNote "Bij elke automatische opvraging wordt gelogd dat het een automatisch request betreft." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
+
+obj:automatisch-verzamelen-alleen-voor-actieve-accounts a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "De Dienstverlener persoon mag alleen geautomatiseerd gegevens verzamelen voor actieve accounts." ;
+    medmij:code "core.gegevensuitwisseling.103" ;
+    medmij:elementName "Automatisch verzamelen alleen voor actieve accounts" ;
+    medmij:layer "Business" ;
+    medmij:mappingNote "DVP mag geen geautomatiseerde uitwisseling doen voor inactieve accounts." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
+
+obj:automatisch-verzamelen-alleen-voor-performance-of-analyse a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "De Dienstverlener persoon mag alleen de functie Automatisch verzamelen aanbieden indien het doel is de performance voor de Persoon te verbeteren. Daarnaast kan gebruikgemaakt worden van automatisch verzamelen ten dienste van analytische oplossingen, zoals AI modules en andere technische toepassingen, waarbij de afhankelijkheid van de gebruiker een bottleneck is voor de te leveren dienst." ;
+    medmij:code "core.gegevensuitwisseling.100" ;
+    medmij:elementName "Automatisch verzamelen alleen voor performance of analyse" ;
+    medmij:layer "Business" ;
+    medmij:mappingNote "DVP mag alleen automatisch verzamelen als doel performance voor Persoon is of analytische oplossing." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
+
+obj:automatisch-verzamelen-vereist-uitdrukkelijke-opdracht-persoon a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "De Dienstverlener persoon mag alleen gebruik maken van automatisch verzamelen bij een uitdrukkelijke opdracht van de Persoon." ;
+    medmij:code "core.gegevensuitwisseling.101" ;
+    medmij:elementName "Automatisch verzamelen vereist uitdrukkelijke opdracht Persoon" ;
+    medmij:layer "Business" ;
+    medmij:mappingNote "DVP mag automatisch verzamelen alleen bij expliciete opdracht van Persoon." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
+
+obj:backchannel-node a medmij:Component,
+        medmij:Object ;
+    medmij:code "core.rollen.300" ;
+    medmij:elementName "Backchannel Node" ;
+    medmij:layer "Technologie" ;
+    medmij:mappingNote "Node die communiceert met andere backchannel-nodes; gebaseerd op lijstregistraties." .
+
+obj:backchannel-nodes-controleren-whitelist-voor-verkeer a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "Backchannel Nodes laten, elk hunnerzijds, backchannel-verkeer over het MedMij-netwerk dan en alleen dan doorgang vinden, nadat zij hebben vastgesteld dat de hostname van de andere Node, waarmee verbinding gemaakt zou worden, op de meest actuele Whitelist voorkomt." ;
+    medmij:code "core.whl.306" ;
+    medmij:elementName "Backchannel Nodes controleren Whitelist voor verkeer" ;
+    medmij:governedBy obj:opvragen-whitelist ;
+    medmij:layer "Technologie" ;
+    medmij:mappingNote "Backchannel-verkeer alleen toegestaan als hostname andere Node op Whitelist staat." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> ;
+    medmij:toelichting "In geval van frontchannel-verkeer vindt er geen Server Authorization plaats." .
+
+obj:batch-automatisch-verzamelen-23-00-06-00-gespreid a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "Batch-gewijs geautomatiseerd verzamelen voor meerdere Personen mag alleen in het tijdslot van 23.00 uur tot 6.00 uur en niet allemaal op hetzelfde tijdstip." ;
+    medmij:code "core.gegevensuitwisseling.201" ;
+    medmij:elementName "Batch automatisch verzamelen: 23:00–06:00, gespreid" ;
+    medmij:layer "Applicatie" ;
+    medmij:mappingNote "Batch-gewijs verzamelen voor meerdere Personen alleen in nachtvenster, niet simultaan." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
+
+obj:beeindigingsverklaring a medmij:DataSet,
+        medmij:Object ;
+    medmij:code "(core.toestemming.*)" ;
+    medmij:elementName "Beeindigingsverklaring" ;
+    medmij:layer "Business" ;
+    medmij:mappingNote "Gegevensset waarmee Persoon een abonnement of langdurige toestemming intrekt." .
+
+obj:bron-en-context-opslaan-bij-verzamelde-informatie a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "Dienstverlener persoon draagt ervoor zorg dat in het Dossier bij alle bij Dienstverlener aanbieder in het kader van een Gegevensdienst verzamelde informatie onlosmakelijk deze Dienstverlener aanbieder en Gegevensdienst als bron en verzamelcontext worden aangetekend. Dienstverlener persoon draagt ervoor zorg dat, in geval van het delen van informatie met een (andere) Aanbieder, deze bron- en context-informatie wordt meegeleverd aan de Dienstverlener aanbieder. Voor de benoeming van de bron wordt daarbij gebruik gemaakt van de Aanbiedersnaam. Voor de benoeming van de context wordt daarbij gebruik gemaakt van de betreffende Gegevensdienstnaam uit de Gegevensdienstnamenlijst." ;
+    medmij:code "core.dossier.102" ;
+    medmij:elementName "Bron en context opslaan bij verzamelde informatie" ;
+    medmij:layer "Business" ;
+    medmij:mappingNote "Bij verzamelde info in Dossier worden DVA en Gegevensdienst als bron/context vastgelegd." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> ;
+    medmij:toelichting "Hiermee wordt geborgd dat bij de uitgewisselde zorg- en gezondheidsinformatie altijd duidelijk is bij welke bron (Dienstverlener aanbieder) en in welke context (Gegevensdienst) deze is verzameld. Een ontvanger van deze informatie kan deze meta-informatie gebruiken voor een betere interpretatie van de betreffende informatie." .
+
+obj:class-arrangement a medmij:Object,
+        medmij:ObjectClass ;
+    medmij:classCode "Arrangement" ;
+    medmij:code "—" ;
+    medmij:definition "Een verantwoordelijkheid of verplichting die deelnemers in onderlinge overeenstemming nakomen; de 'artikelen' van het stelsel." ;
+    medmij:dutchName "Afspraak" ;
+    medmij:elementName "Afspraak" ;
+    medmij:examples "core.rollen.101, core.dossier.100, core.authn.203" ;
+    medmij:layer "—" ;
+    medmij:mappingNote "Verantwoordelijkheid of verplichting die deelnemers in onderlinge overeenstemming nakomen." .
+
+obj:class-component a medmij:Object,
+        medmij:ObjectClass ;
+    medmij:classCode "Component" ;
+    medmij:code "—" ;
+    medmij:definition "Een technische rol in de architectuur; een setje verantwoordelijkheden dat door een of meer systemen wordt ingevuld." ;
+    medmij:dutchName "Architectuurcomponent" ;
+    medmij:elementName "Architectuurcomponent" ;
+    medmij:examples "DVP Server, Authorization Server, Resource Server, User Agent, MedMij Registratie" ;
+    medmij:layer "—" ;
+    medmij:mappingNote "Technische rol in de architectuur; verantwoordelijkheden ingevuld door een of meer systemen." .
+
+obj:class-dataproduct a medmij:Object,
+        medmij:ObjectClass ;
+    medmij:classCode "DataProduct" ;
+    medmij:code "—" ;
+    medmij:definition "Een gepubliceerd, samengesteld gegevensproduct dat door MedMij Beheer wordt beheerd en verspreid." ;
+    medmij:dutchName "Dataproduct" ;
+    medmij:elementName "Dataproduct" ;
+    medmij:examples "Aanbiederslijst (ZAL), OAuth Client List (OCL), Gegevensdienstnamenlijst (GNL), Whitelist (WHL), Aanbiedersregister" ;
+    medmij:layer "—" ;
+    medmij:mappingNote "Gepubliceerd, samengesteld gegevensproduct beheerd en verspreid door MedMij Beheer." .
+
+obj:class-dataresource a medmij:Object,
+        medmij:ObjectClass ;
+    medmij:classCode "DataResource" ;
+    medmij:code "—" ;
+    medmij:definition "Een individuele, adresseerbare gegevensbron of API-endpoint waarvan de locatie in een dataproduct is opgenomen." ;
+    medmij:dutchName "Gegevensbron / endpoint" ;
+    medmij:elementName "Gegevensbron / endpoint" ;
+    medmij:examples "Authorization endpoint, Token endpoint, Resource endpoint (per AanbiederGegevensdienst)" ;
+    medmij:layer "—" ;
+    medmij:mappingNote "Individuele, adresseerbare gegevensbron of API-endpoint opgenomen in een dataproduct." .
+
+obj:class-dataset a medmij:Object,
+        medmij:ObjectClass ;
+    medmij:classCode "DataSet" ;
+    medmij:code "—" ;
+    medmij:definition "Een set van gegevenselementen die als eenheid worden uitgewisseld, doorgaans op basis van een informatiestandaard." ;
+    medmij:dutchName "Gegevensset" ;
+    medmij:elementName "Gegevensset" ;
+    medmij:examples "FHIR-profiel per gegevensdienst, gezondheidsgegevens conform MedMij-informatiemodel" ;
+    medmij:layer "—" ;
+    medmij:mappingNote "Set van gegevenselementen die als eenheid worden uitgewisseld op basis van een informatiestandaard." .
+
+obj:class-framework a medmij:Object,
+        medmij:ObjectClass ;
+    medmij:classCode "Framework" ;
+    medmij:code "—" ;
+    medmij:definition "Het overkoepelende kader waarvan andere objecten deel uitmaken. Geeft scope en samenhang aan." ;
+    medmij:dutchName "Stelsel" ;
+    medmij:elementName "Stelsel" ;
+    medmij:examples "MedMij Afsprakenstelsel, MedMij Core, MedMij Extensies, MedMij Domeinen" ;
+    medmij:layer "—" ;
+    medmij:mappingNote "Overkoepelend kader dat scope en samenhang geeft aan andere objecten." .
+
+obj:class-implementationguideline a medmij:Object,
+        medmij:ObjectClass ;
+    medmij:classCode "ImplementationGuideline" ;
+    medmij:code "—" ;
+    medmij:definition "Een aanbeveling, toelichting of uitwerking die helpt bij correcte implementatie maar zelf geen eis is." ;
+    medmij:dutchName "Implementatierichtlijn" ;
+    medmij:elementName "Implementatierichtlijn" ;
+    medmij:examples "Happy flow-beschrijvingen, uitzonderingstabellen, toelichtingen bij verantwoordelijkheden" ;
+    medmij:layer "—" ;
+    medmij:mappingNote "Aanbeveling of toelichting die helpt bij correcte implementatie, zelf geen eis." .
+
+obj:class-module a medmij:Object,
+        medmij:ObjectClass ;
+    medmij:classCode "Module" ;
+    medmij:code "—" ;
+    medmij:definition "Een herbruikbare functionele bouwsteen die een samenhangend cluster van functies omvat." ;
+    medmij:dutchName "Functionele module" ;
+    medmij:elementName "Functionele module" ;
+    medmij:examples "Autoriseren, Authenticeren, Opvragen Aanbiederslijst" ;
+    medmij:layer "—" ;
+    medmij:mappingNote "Herbruikbare functionele bouwsteen met samenhangend cluster van functies." .
+
+obj:class-requirement a medmij:Object,
+        medmij:ObjectClass ;
+    medmij:classCode "Requirement" ;
+    medmij:code "—" ;
+    medmij:definition "Een technische of functionele norm waaraan een systeem, component of deelnemer moet voldoen, ongeacht implementatiekeuze." ;
+    medmij:dutchName "Eis" ;
+    medmij:elementName "Eis" ;
+    medmij:examples "TLS 1.2+ verplicht, DigiD level-of-assurance, PKIO-certificaat op Node" ;
+    medmij:layer "—" ;
+    medmij:mappingNote "Technische of functionele norm waaraan systemen of deelnemers moeten voldoen." .
+
+obj:class-service a medmij:Object,
+        medmij:ObjectClass ;
+    medmij:classCode "Service" ;
+    medmij:code "—" ;
+    medmij:definition "Een concreet aangeboden functie voor gegevensuitwisseling tussen DVA en DVP, waarvoor een DVA zich kwalificeert." ;
+    medmij:dutchName "Gegevensdienst" ;
+    medmij:elementName "Gegevensdienst" ;
+    medmij:examples "Verzamelen, Delen, Abonneren, Beheren Toestemmingen" ;
+    medmij:layer "—" ;
+    medmij:mappingNote "Concreet aangeboden functie voor gegevensuitwisseling waarvoor een DVA zich kwalificeert." .
+
+obj:class-specification a medmij:Object,
+        medmij:ObjectClass ;
+    medmij:classCode "Specification" ;
+    medmij:code "—" ;
+    medmij:definition "Een externe of interne standaard of interface-definitie waarnaar in verantwoordelijkheden wordt verwezen." ;
+    medmij:dutchName "Specificatie" ;
+    medmij:elementName "Specificatie" ;
+    medmij:examples "OAuth 2.0, FHIR R4, OpenID Connect, MedMij Interfaceversie (ZAL/OCL-formaat)" ;
+    medmij:layer "—" ;
+    medmij:mappingNote "Externe of interne standaard waarnaar in verantwoordelijkheden wordt verwezen." .
+
+obj:comp-aanbiederslijst-zal--authorization-endpoint-per-aanbiedergegevensdienst a medmij:Object,
+        medmij:ObjectComponent ;
+    medmij:code "—" ;
+    medmij:component obj:authorization-endpoint-per-aanbiedergegevensdienst ;
+    medmij:componentClass medmij:Dataresource ;
+    medmij:elementName "Aanbiederslijst (ZAL) bevat Authorization Endpoint per AanbiederGegevensdienst" ;
+    medmij:layer "—" ;
+    medmij:mappingNote "ZAL bevat per Aanbieder-Gegevensdienst het authorization endpoint-adres." ;
+    medmij:whole obj:aanbiederslijst-zal ;
+    medmij:wholeClass medmij:Dataproduct .
+
+obj:comp-aanbiederslijst-zal--resource-endpoint-per-aanbiedergegevensdienst a medmij:Object,
+        medmij:ObjectComponent ;
+    medmij:code "—" ;
+    medmij:component obj:resource-endpoint-per-aanbiedergegevensdienst ;
+    medmij:componentClass medmij:Dataresource ;
+    medmij:elementName "Aanbiederslijst (ZAL) bevat Resource Endpoint per AanbiederGegevensdienst" ;
+    medmij:layer "—" ;
+    medmij:mappingNote "ZAL bevat per Aanbieder-Gegevensdienst het resource endpoint-adres." ;
+    medmij:whole obj:aanbiederslijst-zal ;
+    medmij:wholeClass medmij:Dataproduct .
+
+obj:comp-aanbiederslijst-zal--token-endpoint-per-aanbiedergegevensdienst a medmij:Object,
+        medmij:ObjectComponent ;
+    medmij:code "—" ;
+    medmij:component obj:token-endpoint-per-aanbiedergegevensdienst ;
+    medmij:componentClass medmij:Dataresource ;
+    medmij:elementName "Aanbiederslijst (ZAL) bevat Token Endpoint per AanbiederGegevensdienst" ;
+    medmij:layer "—" ;
+    medmij:mappingNote "ZAL bevat per Aanbieder-Gegevensdienst het token endpoint-adres." ;
+    medmij:whole obj:aanbiederslijst-zal ;
+    medmij:wholeClass medmij:Dataproduct .
+
+obj:comp-authenticeren--digid-koppelvlakspecificatie a medmij:Object,
+        medmij:ObjectComponent ;
+    medmij:code "—" ;
+    medmij:component obj:digid-koppelvlakspecificatie ;
+    medmij:componentClass medmij:Specification ;
+    medmij:elementName "Authenticeren bevat DigiD Koppelvlakspecificatie" ;
+    medmij:layer "—" ;
+    medmij:mappingNote "Authenticatiemodule conformeert aan DigiD koppelvlakspecificatie." ;
+    medmij:whole obj:authenticeren ;
+    medmij:wholeClass medmij:Module .
+
+obj:comp-authenticeren--openid-connect-oidc a medmij:Object,
+        medmij:ObjectComponent ;
+    medmij:code "—" ;
+    medmij:component obj:openid-connect-oidc ;
+    medmij:componentClass medmij:Specification ;
+    medmij:elementName "Authenticeren bevat OpenID Connect (OIDC)" ;
+    medmij:layer "—" ;
+    medmij:mappingNote "Authenticatiemodule gebruikt OIDC voor BSN-ophaling via DigiD." ;
+    medmij:whole obj:authenticeren ;
+    medmij:wholeClass medmij:Module .
+
+obj:comp-authorization-server--oauth-2-0-rfc-6749 a medmij:Object,
+        medmij:ObjectComponent ;
+    medmij:code "—" ;
+    medmij:component obj:oauth-2-0-rfc-6749 ;
+    medmij:componentClass medmij:Specification ;
+    medmij:elementName "Authorization Server implementeert OAuth 2.0 (RFC 6749)" ;
+    medmij:layer "—" ;
+    medmij:mappingNote "Authorization Server implementeert OAuth Authorization Server-rol." ;
+    medmij:whole obj:authorization-server ;
+    medmij:wholeClass medmij:Component .
+
+obj:comp-authorization-server--openid-connect-oidc a medmij:Object,
+        medmij:ObjectComponent ;
+    medmij:code "—" ;
+    medmij:component obj:openid-connect-oidc ;
+    medmij:componentClass medmij:Specification ;
+    medmij:elementName "Authorization Server implementeert OpenID Connect (OIDC)" ;
+    medmij:layer "—" ;
+    medmij:mappingNote "Authorization Server fungeert als Authentication Client via OIDC." ;
+    medmij:whole obj:authorization-server ;
+    medmij:wholeClass medmij:Component .
+
+obj:comp-autoriseren-zonder-langdurige-toestemming--oauth-2-0-rfc-6749 a medmij:Object,
+        medmij:ObjectComponent ;
+    medmij:code "—" ;
+    medmij:component obj:oauth-2-0-rfc-6749 ;
+    medmij:componentClass medmij:Specification ;
+    medmij:elementName "Autoriseren zonder langdurige toestemming implementeert OAuth 2.0 (RFC 6749)" ;
+    medmij:layer "—" ;
+    medmij:mappingNote "Autorisatiemodule is gebaseerd op OAuth 2.0 Authorization Code grant." ;
+    medmij:whole obj:autoriseren-zonder-langdurige-toestemming ;
+    medmij:wholeClass medmij:Module .
+
+obj:comp-autoriseren-zonder-langdurige-toestemming--pkce-rfc-7636 a medmij:Object,
+        medmij:ObjectComponent ;
+    medmij:code "—" ;
+    medmij:component obj:pkce-rfc-7636 ;
+    medmij:componentClass medmij:Specification ;
+    medmij:elementName "Autoriseren zonder langdurige toestemming implementeert PKCE (RFC 7636)" ;
+    medmij:layer "—" ;
+    medmij:mappingNote "Proof Key for Code Exchange verplicht als aanvulling op OAuth 2.0." ;
+    medmij:whole obj:autoriseren-zonder-langdurige-toestemming ;
+    medmij:wholeClass medmij:Module .
+
+obj:comp-delen--authenticeren a medmij:Object,
+        medmij:ObjectComponent ;
+    medmij:code "—" ;
+    medmij:component obj:authenticeren ;
+    medmij:componentClass medmij:Module ;
+    medmij:elementName "Delen bevat Authenticeren" ;
+    medmij:layer "—" ;
+    medmij:mappingNote "DigiD-authenticatiestap als onderdeel van Delen." ;
+    medmij:whole obj:delen ;
+    medmij:wholeClass medmij:Service .
+
+obj:comp-delen--autoriseren-zonder-langdurige-toestemming a medmij:Object,
+        medmij:ObjectComponent ;
+    medmij:code "—" ;
+    medmij:component obj:autoriseren-zonder-langdurige-toestemming ;
+    medmij:componentClass medmij:Module ;
+    medmij:elementName "Delen bevat Autoriseren zonder langdurige toestemming" ;
+    medmij:layer "—" ;
+    medmij:mappingNote "OAuth Authorization Code flow als onderdeel van Delen." ;
+    medmij:whole obj:delen ;
+    medmij:wholeClass medmij:Service .
+
+obj:comp-delen--bevestigingsverklaring a medmij:Object,
+        medmij:ObjectComponent ;
+    medmij:code "—" ;
+    medmij:component obj:bevestigingsverklaring ;
+    medmij:componentClass medmij:Dataset ;
+    medmij:elementName "Delen bevat Bevestigingsverklaring" ;
+    medmij:layer "—" ;
+    medmij:mappingNote "Bevestigingsverklaring is de DataSet bij de Delen-autorisatie." ;
+    medmij:whole obj:delen ;
+    medmij:wholeClass medmij:Service .
+
+obj:comp-delen--fhir-profiel-per-gegevensdienst a medmij:Object,
+        medmij:ObjectComponent ;
+    medmij:code "—" ;
+    medmij:component obj:fhir-profiel-per-gegevensdienst ;
+    medmij:componentClass medmij:Dataset ;
+    medmij:elementName "Delen bevat FHIR-profiel per gegevensdienst" ;
+    medmij:layer "—" ;
+    medmij:mappingNote "Elke gegevensdienst binnen Delen heeft een specifiek FHIR-profiel als DataSet." ;
+    medmij:whole obj:delen ;
+    medmij:wholeClass medmij:Service .
+
+obj:comp-delen--opvragen-aanbiederslijst a medmij:Object,
+        medmij:ObjectComponent ;
+    medmij:code "—" ;
+    medmij:component obj:opvragen-aanbiederslijst ;
+    medmij:componentClass medmij:Module ;
+    medmij:elementName "Delen bevat Opvragen Aanbiederslijst" ;
+    medmij:layer "—" ;
+    medmij:mappingNote "DVP haalt ZAL op als voorbereidende stap in Delen." ;
+    medmij:whole obj:delen ;
+    medmij:wholeClass medmij:Service .
+
+obj:comp-dvp-server--oauth-2-0-rfc-6749 a medmij:Object,
+        medmij:ObjectComponent ;
+    medmij:code "—" ;
+    medmij:component obj:oauth-2-0-rfc-6749 ;
+    medmij:componentClass medmij:Specification ;
+    medmij:elementName "DVP Server implementeert OAuth 2.0 (RFC 6749)" ;
+    medmij:layer "—" ;
+    medmij:mappingNote "DVP Server fungeert als OAuth Client conform RFC 6749." ;
+    medmij:whole obj:dvp-server ;
+    medmij:wholeClass medmij:Component .
+
+obj:comp-medmij-afsprakenstelsel--medmij-core a medmij:Object,
+        medmij:ObjectComponent ;
+    medmij:code "—" ;
+    medmij:component obj:medmij-core ;
+    medmij:componentClass medmij:Framework ;
+    medmij:elementName "MedMij Afsprakenstelsel bevat MedMij Core" ;
+    medmij:layer "—" ;
+    medmij:mappingNote "Core is verplicht fundament van het totale Stelsel." ;
+    medmij:whole obj:medmij-afsprakenstelsel ;
+    medmij:wholeClass medmij:Framework .
+
+obj:comp-medmij-afsprakenstelsel--medmij-domeinen a medmij:Object,
+        medmij:ObjectComponent ;
+    medmij:code "—" ;
+    medmij:component obj:medmij-domeinen ;
+    medmij:componentClass medmij:Framework ;
+    medmij:elementName "MedMij Afsprakenstelsel bevat MedMij Domeinen" ;
+    medmij:layer "—" ;
+    medmij:mappingNote "Domeinen zijn domeinspecifieke aanvullingen binnen het Stelsel." ;
+    medmij:whole obj:medmij-afsprakenstelsel ;
+    medmij:wholeClass medmij:Framework .
+
+obj:comp-medmij-afsprakenstelsel--medmij-extensies a medmij:Object,
+        medmij:ObjectComponent ;
+    medmij:code "—" ;
+    medmij:component obj:medmij-extensies ;
+    medmij:componentClass medmij:Framework ;
+    medmij:elementName "MedMij Afsprakenstelsel bevat MedMij Extensies" ;
+    medmij:layer "—" ;
+    medmij:mappingNote "Extensies zijn optionele uitbreiding bovenop Core." ;
+    medmij:whole obj:medmij-afsprakenstelsel ;
+    medmij:wholeClass medmij:Framework .
+
+obj:comp-medmij-core--aanbiederslijst-zal a medmij:Object,
+        medmij:ObjectComponent ;
+    medmij:code "—" ;
+    medmij:component obj:aanbiederslijst-zal ;
+    medmij:componentClass medmij:Dataproduct ;
+    medmij:elementName "MedMij Core bevat Aanbiederslijst (ZAL)" ;
+    medmij:layer "—" ;
+    medmij:mappingNote "ZAL is het centrale DataProduct voor endpoint-routing door DVP." ;
+    medmij:whole obj:medmij-core ;
+    medmij:wholeClass medmij:Framework .
+
+obj:comp-medmij-core--aanbiedersregister-reg a medmij:Object,
+        medmij:ObjectComponent ;
+    medmij:code "—" ;
+    medmij:component obj:aanbiedersregister-reg ;
+    medmij:componentClass medmij:Dataproduct ;
+    medmij:elementName "MedMij Core bevat Aanbiedersregister (REG)" ;
+    medmij:layer "—" ;
+    medmij:mappingNote "REG is het publieke, human-readable register van Aanbieders en hun diensten." ;
+    medmij:whole obj:medmij-core ;
+    medmij:wholeClass medmij:Framework .
+
+obj:comp-medmij-core--authorization-server a medmij:Object,
+        medmij:ObjectComponent ;
+    medmij:code "—" ;
+    medmij:component obj:authorization-server ;
+    medmij:componentClass medmij:Component ;
+    medmij:elementName "MedMij Core bevat Authorization Server" ;
+    medmij:layer "—" ;
+    medmij:mappingNote "Authorization Server is de DVA-component voor toestemming en autorisatie." ;
+    medmij:whole obj:medmij-core ;
+    medmij:wholeClass medmij:Framework .
+
+obj:comp-medmij-core--beheren-toestemmingen a medmij:Object,
+        medmij:ObjectComponent ;
+    medmij:code "—" ;
+    medmij:component obj:beheren-toestemmingen ;
+    medmij:componentClass medmij:Service ;
+    medmij:elementName "MedMij Core bevat Beheren Toestemmingen" ;
+    medmij:layer "—" ;
+    medmij:mappingNote "Beheren Toestemmingen is een Core-service voor beheer van langdurige toestemmingen." ;
+    medmij:whole obj:medmij-core ;
+    medmij:wholeClass medmij:Framework .
+
+obj:comp-medmij-core--delen a medmij:Object,
+        medmij:ObjectComponent ;
+    medmij:code "—" ;
+    medmij:component obj:delen ;
+    medmij:componentClass medmij:Service ;
+    medmij:elementName "MedMij Core bevat Delen" ;
+    medmij:layer "—" ;
+    medmij:mappingNote "Delen is de Core-gegevensdienst voor plaatsen van gezondheidsdata bij DVA." ;
+    medmij:whole obj:medmij-core ;
+    medmij:wholeClass medmij:Framework .
+
+obj:comp-medmij-core--dvp-server a medmij:Object,
+        medmij:ObjectComponent ;
+    medmij:code "—" ;
+    medmij:component obj:dvp-server ;
+    medmij:componentClass medmij:Component ;
+    medmij:elementName "MedMij Core bevat DVP Server" ;
+    medmij:layer "—" ;
+    medmij:mappingNote "DVP Server is de applicatiecomponent aan de persoonskant." ;
+    medmij:whole obj:medmij-core ;
+    medmij:wholeClass medmij:Framework .
+
+obj:comp-medmij-core--gegevensdienstnamenlijst-gnl a medmij:Object,
+        medmij:ObjectComponent ;
+    medmij:code "—" ;
+    medmij:component obj:gegevensdienstnamenlijst-gnl ;
+    medmij:componentClass medmij:Dataproduct ;
+    medmij:elementName "MedMij Core bevat Gegevensdienstnamenlijst (GNL)" ;
+    medmij:layer "—" ;
+    medmij:mappingNote "GNL is het DataProduct voor gebruiksvriendelijke weergave van gegevensdiensten." ;
+    medmij:whole obj:medmij-core ;
+    medmij:wholeClass medmij:Framework .
+
+obj:comp-medmij-core--medmij-registratie a medmij:Object,
+        medmij:ObjectComponent ;
+    medmij:code "—" ;
+    medmij:component obj:medmij-registratie ;
+    medmij:componentClass medmij:Component ;
+    medmij:elementName "MedMij Core bevat MedMij Registratie" ;
+    medmij:layer "—" ;
+    medmij:mappingNote "Centrale component voor lijstbeheer en publicatie (Stelselnode)." ;
+    medmij:whole obj:medmij-core ;
+    medmij:wholeClass medmij:Framework .
+
+obj:comp-medmij-core--oauth-client-list-ocl a medmij:Object,
+        medmij:ObjectComponent ;
+    medmij:code "—" ;
+    medmij:component obj:oauth-client-list-ocl ;
+    medmij:componentClass medmij:Dataproduct ;
+    medmij:elementName "MedMij Core bevat OAuth Client List (OCL)" ;
+    medmij:layer "—" ;
+    medmij:mappingNote "OCL is het DataProduct voor validatie van DVP-clients door DVA." ;
+    medmij:whole obj:medmij-core ;
+    medmij:wholeClass medmij:Framework .
+
+obj:comp-medmij-core--pkio-pki-overheid-certificatenbeleid a medmij:Object,
+        medmij:ObjectComponent ;
+    medmij:code "—" ;
+    medmij:component obj:pkio-pki-overheid-certificatenbeleid ;
+    medmij:componentClass medmij:Specification ;
+    medmij:elementName "MedMij Core bevat PKIO PKI Overheid Certificatenbeleid" ;
+    medmij:layer "—" ;
+    medmij:mappingNote "PKIO-certificaten verplicht op Backchannel Nodes." ;
+    medmij:whole obj:medmij-core ;
+    medmij:wholeClass medmij:Framework .
+
+obj:comp-medmij-core--resource-server a medmij:Object,
+        medmij:ObjectComponent ;
+    medmij:code "—" ;
+    medmij:component obj:resource-server ;
+    medmij:componentClass medmij:Component ;
+    medmij:elementName "MedMij Core bevat Resource Server" ;
+    medmij:layer "—" ;
+    medmij:mappingNote "Resource Server is de DVA-component voor gegevensontsluiting." ;
+    medmij:whole obj:medmij-core ;
+    medmij:wholeClass medmij:Framework .
+
+obj:comp-medmij-core--tls-1-2-1-3-rfc-5246-8446 a medmij:Object,
+        medmij:ObjectComponent ;
+    medmij:code "—" ;
+    medmij:component obj:tls-1-2-1-3-rfc-5246-8446 ;
+    medmij:componentClass medmij:Specification ;
+    medmij:elementName "MedMij Core bevat TLS 1.2/1.3 (RFC 5246/8446)" ;
+    medmij:layer "—" ;
+    medmij:mappingNote "TLS is verplichte beveiligingsstandaard voor al het MedMij-verkeer." ;
+    medmij:whole obj:medmij-core ;
+    medmij:wholeClass medmij:Framework .
+
+obj:comp-medmij-core--user-agent a medmij:Object,
+        medmij:ObjectComponent ;
+    medmij:code "—" ;
+    medmij:component obj:user-agent ;
+    medmij:componentClass medmij:Component ;
+    medmij:elementName "MedMij Core bevat User Agent" ;
+    medmij:layer "—" ;
+    medmij:mappingNote "User Agent is de front-endcomponent die Persoon bedient." ;
+    medmij:whole obj:medmij-core ;
+    medmij:wholeClass medmij:Framework .
+
+obj:comp-medmij-core--verzamelen a medmij:Object,
+        medmij:ObjectComponent ;
+    medmij:code "—" ;
+    medmij:component obj:verzamelen ;
+    medmij:componentClass medmij:Service ;
+    medmij:elementName "MedMij Core bevat Verzamelen" ;
+    medmij:layer "—" ;
+    medmij:mappingNote "Verzamelen is de primaire Core-gegevensdienst voor ophalen van gezondheidsdata." ;
+    medmij:whole obj:medmij-core ;
+    medmij:wholeClass medmij:Framework .
+
+obj:comp-medmij-core--whitelist-whl a medmij:Object,
+        medmij:ObjectComponent ;
+    medmij:code "—" ;
+    medmij:component obj:whitelist-whl ;
+    medmij:componentClass medmij:Dataproduct ;
+    medmij:elementName "MedMij Core bevat Whitelist (WHL)" ;
+    medmij:layer "—" ;
+    medmij:mappingNote "WHL is het DataProduct voor Node-autorisatie in het MedMij-netwerk." ;
+    medmij:whole obj:medmij-core ;
+    medmij:wholeClass medmij:Framework .
+
+obj:comp-resource-server--fhir-r4-hl7 a medmij:Object,
+        medmij:ObjectComponent ;
+    medmij:code "—" ;
+    medmij:component obj:fhir-r4-hl7 ;
+    medmij:componentClass medmij:Specification ;
+    medmij:elementName "Resource Server implementeert FHIR R4 (HL7)" ;
+    medmij:layer "—" ;
+    medmij:mappingNote "Resource Server levert gezondheidsdata conform FHIR R4-profielen." ;
+    medmij:whole obj:resource-server ;
+    medmij:wholeClass medmij:Component .
+
+obj:comp-verzamelen--authenticeren a medmij:Object,
+        medmij:ObjectComponent ;
+    medmij:code "—" ;
+    medmij:component obj:authenticeren ;
+    medmij:componentClass medmij:Module ;
+    medmij:elementName "Verzamelen bevat Authenticeren" ;
+    medmij:layer "—" ;
+    medmij:mappingNote "DigiD-authenticatiestap als onderdeel van Verzamelen." ;
+    medmij:whole obj:verzamelen ;
+    medmij:wholeClass medmij:Service .
+
+obj:comp-verzamelen--autoriseren-met-langdurige-toestemming a medmij:Object,
+        medmij:ObjectComponent ;
+    medmij:code "—" ;
+    medmij:component obj:autoriseren-met-langdurige-toestemming ;
+    medmij:componentClass medmij:Module ;
+    medmij:elementName "Verzamelen bevat Autoriseren met langdurige toestemming" ;
+    medmij:layer "—" ;
+    medmij:mappingNote "Refresh-token flow als optioneel onderdeel van Verzamelen." ;
+    medmij:whole obj:verzamelen ;
+    medmij:wholeClass medmij:Service .
+
+obj:comp-verzamelen--autoriseren-zonder-langdurige-toestemming a medmij:Object,
+        medmij:ObjectComponent ;
+    medmij:code "—" ;
+    medmij:component obj:autoriseren-zonder-langdurige-toestemming ;
+    medmij:componentClass medmij:Module ;
+    medmij:elementName "Verzamelen bevat Autoriseren zonder langdurige toestemming" ;
+    medmij:layer "—" ;
+    medmij:mappingNote "OAuth Authorization Code flow als onderdeel van Verzamelen." ;
+    medmij:whole obj:verzamelen ;
+    medmij:wholeClass medmij:Service .
+
+obj:comp-verzamelen--fhir-profiel-per-gegevensdienst a medmij:Object,
+        medmij:ObjectComponent ;
+    medmij:code "—" ;
+    medmij:component obj:fhir-profiel-per-gegevensdienst ;
+    medmij:componentClass medmij:Dataset ;
+    medmij:elementName "Verzamelen bevat FHIR-profiel per gegevensdienst" ;
+    medmij:layer "—" ;
+    medmij:mappingNote "Elke gegevensdienst binnen Verzamelen heeft een specifiek FHIR-profiel als DataSet." ;
+    medmij:whole obj:verzamelen ;
+    medmij:wholeClass medmij:Service .
+
+obj:comp-verzamelen--opvragen-aanbiederslijst a medmij:Object,
+        medmij:ObjectComponent ;
+    medmij:code "—" ;
+    medmij:component obj:opvragen-aanbiederslijst ;
+    medmij:componentClass medmij:Module ;
+    medmij:elementName "Verzamelen bevat Opvragen Aanbiederslijst" ;
+    medmij:layer "—" ;
+    medmij:mappingNote "DVP haalt ZAL op als voorbereidende stap in Verzamelen." ;
+    medmij:whole obj:verzamelen ;
+    medmij:wholeClass medmij:Service .
+
+obj:comp-verzamelen--opvragen-whitelist a medmij:Object,
+        medmij:ObjectComponent ;
+    medmij:code "—" ;
+    medmij:component obj:opvragen-whitelist ;
+    medmij:componentClass medmij:Module ;
+    medmij:elementName "Verzamelen bevat Opvragen Whitelist" ;
+    medmij:layer "—" ;
+    medmij:mappingNote "Nodes halen WHL op als beveiligingscheck binnen Verzamelen." ;
+    medmij:whole obj:verzamelen ;
+    medmij:wholeClass medmij:Service .
+
+obj:comp-verzamelen--toestemmingsverklaring a medmij:Object,
+        medmij:ObjectComponent ;
+    medmij:code "—" ;
+    medmij:component obj:toestemmingsverklaring ;
+    medmij:componentClass medmij:Dataset ;
+    medmij:elementName "Verzamelen bevat Toestemmingsverklaring" ;
+    medmij:layer "—" ;
+    medmij:mappingNote "Toestemmingsverklaring (wie, wanneer, welke dienst) is de DataSet bij autorisatie." ;
+    medmij:whole obj:verzamelen ;
+    medmij:wholeClass medmij:Service .
+
+obj:comp-whitelist-whl--stelselnode-endpoints-zal-ocl-gnl-whl a medmij:Object,
+        medmij:ObjectComponent ;
+    medmij:code "—" ;
+    medmij:component obj:stelselnode-endpoints-zal-ocl-gnl-whl ;
+    medmij:componentClass medmij:Dataresource ;
+    medmij:elementName "Whitelist (WHL) bevat Stelselnode Endpoints (ZAL/OCL/GNL/WHL)" ;
+    medmij:layer "—" ;
+    medmij:mappingNote "WHL bevat de endpoints van MedMij Registratie (Stelselnode)." ;
+    medmij:whole obj:whitelist-whl ;
+    medmij:wholeClass medmij:Dataproduct .
+
+obj:deelnemer-speelt-dvp-en-of-dva a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "Een Deelnemer neemt de functionele rol van Dienstverlener persoon en/of Dienstverlener aanbieder op zich. Hierbij speelt één Deelnemer één of meerdere dienstverleners en wordt elke dienstverlener gespeeld door één Deelnemer." ;
+    medmij:code "core.rollen.101" ;
+    medmij:elementName "Deelnemer speelt DVP en/of DVA" ;
+    medmij:layer "Business" ;
+    medmij:mappingNote "Een Deelnemer neemt minimaal één serviceverlenersrol op zich; elke dienstverlener door één Deelnemer." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
+
+obj:deelnemersovereenkomst a medmij:DataSet,
+        medmij:Object ;
+    medmij:code "—" ;
+    medmij:elementName "Deelnemersovereenkomst" ;
+    medmij:layer "Business" ;
+    medmij:mappingNote "De overeenkomst waarmee een Deelnemer zich bindt aan het afsprakenstelsel (zie Agreement in datamodel)." .
+
+obj:definitie-medmij-verkeer a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText """
+Als MedMij-verkeer is gedefinieerd: al het gegevensverkeer in het kader van enige functie-implementatie, onmiddellijk tussen twee verschillende van de vier volgende soorten rollen, namelijk:
+
+- ten eerste DVP Server,
+- ten tweede User Agent,
+- ten derde Authorization Server of Resource Server en
+- ten vierde MedMij Registratie,
+
+met dien verstande dat:
+
+- in deze rollen telkens begrepen zijn de door hen eventueel verzorgde respectievelijke Autorisatie-rollen,
+- van deze rollen telkens uitgesloten zijn de door hen eventueel verzorgde Authenticatie-rollen, en
+- in deze rollen, met betrekking tot de functie-implementaties, telkens inbegrepen zijn de Nodes waarop zij functioneren.
+""" ;
+    medmij:code "core.rollen.207" ;
+    medmij:elementName "Definitie MedMij-verkeer" ;
+    medmij:layer "Applicatie" ;
+    medmij:mappingNote "MedMij-verkeer = verkeer tussen DVP Server, User Agent, Authorization/Resource Server en MedMij Registratie." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
+
+obj:dva-be-indigt-langdurige-toestemming-bij-overlijden a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "De Aanbieder, en daarmee de Dienstverlener aanbieder, moet de aanwezige langdurige toestemmingen beëindigen bij overlijden van de Persoon." ;
+    medmij:code "core.dossier.108" ;
+    medmij:elementName "DVA beëindigt langdurige toestemming bij overlijden" ;
+    medmij:layer "Business" ;
+    medmij:mappingNote "Aanbieder/DVA moet actieve langdurige toestemmingen beëindigen bij overlijden Persoon." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
+
+obj:dva-biedt-authorization-server a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "Dienstverlener aanbieder biedt een geautomatiseerde rol Authorization Server, voor het namens Aanbieders uitwisselen van gezondheidsinformatie met DVP Server. Deze rol wordt altijd gecombineerd met een Resource Server." ;
+    medmij:code "core.rollen.201" ;
+    medmij:elementName "DVA biedt Authorization Server" ;
+    medmij:layer "Applicatie" ;
+    medmij:mappingNote "DVA biedt Authorization Server voor uitwisseling namens Aanbieders; altijd gecombineerd met Resource Server." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
+
+obj:dva-biedt-resource-server a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "Dienstverlener aanbieder biedt een geautomatiseerde rol Resource Server, voor het namens Aanbieders uitwisselen van gezondheidsinformatie met DVP Server. Eén Dienstverlener aanbieder biedt één of meer combinaties van één Authorization Server en één Resource Server en elke combinatie van één Authorization Server en één Resource Server wordt door één Dienstverlener aanbieder geboden." ;
+    medmij:code "core.rollen.202" ;
+    medmij:elementName "DVA biedt Resource Server" ;
+    medmij:layer "Applicatie" ;
+    medmij:mappingNote "DVA biedt Resource Server; 1 DVA — 1..n combinaties van Authorization Server + Resource Server." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
+
+obj:dva-levert-alle-gegevensdiensten-uit-aanbiederslijst a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "Voor elke Gegevensdienst waarvan de Aanbiederslijst aangeeft dat een zekere Aanbieder deze aanbiedt, zal een Dienstverlener aanbieder ervoor zorgdragen dat die Gegevensdienst ook geleverd wordt. Daarbij wordt geen enkel onderscheid gemaakt tussen Dienstverleners persoon, tenzij het MedMij Afsprakenstelsel daartoe uitdrukkelijk verplicht. Dit geldt ook voor de mogelijke andere Gegevensdienst(en) die in de Catalogus staan genoemd als Vereist bij eerstgenoemde Gegevensdienst." ;
+    medmij:code "core.gegevensdiensten.103" ;
+    medmij:elementName "DVA levert alle Gegevensdiensten uit Aanbiederslijst" ;
+    medmij:layer "Business" ;
+    medmij:mappingNote "DVA levert elke opgenomen Gegevensdienst zonder onderscheid naar DVP; inclusief vereiste diensten uit Catalogus." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> ;
+    medmij:toelichting "Net als verantwoordelijkheid core.gegevensdiensten.102, moet ook vanuit deze verantwoordelijkheid rekening gehouden worden met de afhankelijkheid tussen de Dienstverlener aanbieder en de Aanbieder. Deze regel legt de verantwoordelijkheid bij de Dienstverlener aanbieder voor het zorgdragen dat de Aanbieder met wie hij een dienstverleningsovereenkomst heeft, ook de Gegevensdienst levert die hij toegezegd heeft." .
+
+obj:dva-levert-nog-1-uur-na-verlopen-aanbiederslijst-vermelding a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "Het in verantwoordelijkheid core.gegevensdiensten.103 bepaalde is ook van toepassing zolang de geldigheid van de toepasselijke vermelding in de Aanbiederslijst niet langer dan één uur (3600 seconden) geleden is verstreken." ;
+    medmij:code "core.gegevensdiensten.104" ;
+    medmij:elementName "DVA levert nog 1 uur na verlopen Aanbiederslijst-vermelding" ;
+    medmij:layer "Business" ;
+    medmij:mappingNote "Ruimte voor na-ijlende sessies die de vorige versie van de Aanbiederslijst gebruiken." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> ;
+    medmij:toelichting "Zo wordt ervoor ruimte geboden dat na-ijlende sessies, die nog gebruik maken van de verstrijkende versie van de Aanbiederslijst, nog kunnen worden afgemaakt." .
+
+obj:dva-ontsluit-minstens-n-gegevensdienst a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "Elke Dienstverlener aanbieder ontsluit op elk moment minstens één Gegevensdienst." ;
+    medmij:code "core.gegevensdiensten.101" ;
+    medmij:elementName "DVA ontsluit minstens één Gegevensdienst" ;
+    medmij:layer "Business" ;
+    medmij:mappingNote "Elke DVA ontsluit op elk moment minimaal één Gegevensdienst (Verzamelen of Delen)." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> ;
+    medmij:toelichting "Het ontsluiten van een Gegevensdienst door een Dienstverlener aanbieder is, in deze versie van het MedMij Afsprakenstelsel, hetzij in het kader van Verzamelen of in het kader van Delen van zekere gezondheidsinformatie. De term 'ontsluiten' wordt hier gebruikt in plaats van de term 'aanbieden', omdat als aanbieder van een Gegevensdienst de Aanbieder wordt gezien, niet de Deelnemer (Dienstverlener aanbieder). De Deelnemer ontsluit de Gegevensdienst dus namens de Aanbieder die die Gegevensdienst aanbiedt." .
+
+obj:dva-registreert-unieke-endpoints-per-gegevensdienst a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "Voor iedere gegevensdienst moet de Dienstverlener aanbieder unieke endpoints voor de Resource Server registreren in de MedMij Registratie." ;
+    medmij:code "core.gegevensdiensten.201" ;
+    medmij:elementName "DVA registreert unieke endpoints per Gegevensdienst" ;
+    medmij:layer "Applicatie" ;
+    medmij:mappingNote "Dienstverlener aanbieder registreert unieke Resource Server-endpoints in MedMij Registratie." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
+
+obj:dva-verifieert-bevestiging-persoon-v-r-delen a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "Dienstverlener aanbieder vergewist zich ervan, elke keer opnieuw voordat hij Persoon gezondheidsinformatie ten behoeve van Aanbieder laat plaatsen, dat deze Persoon uitdrukkelijk heeft bevestigd om de in de Gegevensdienst betrokken gezondheidsinformatie aan Aanbieder ter beschikking te willen stellen. De vraag om Bevestiging heeft een vaste formulering, die is opgenomen in de functie Delen. Deze bevestiging geldt niet buiten één doorloping van de functie Delen." ;
+    medmij:code "core.autorisatie.101" ;
+    medmij:elementName "DVA verifieert Bevestiging Persoon vóór Delen" ;
+    medmij:layer "Business" ;
+    medmij:mappingNote "Elke keer opnieuw: uitdrukkelijke Bevestiging Persoon vereist; geldig voor één doorloping van Delen." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
+
+obj:dva-verifieert-toestemming-persoon-v-r-verzamelen a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText """
+Dienstverlener aanbieder vergewist zich ervan, elke keer opnieuw voordat hij Persoon gezondheidsinformatie van Aanbieder laat verzamelen door middel van de functie Verzamelen, dat deze Persoon uitdrukkelijk Toestemming heeft gegeven aan Aanbieder om de in de Gegevensdienst betrokken gezondheidsinformatie aan Dienstverlener persoon ter beschikking te laten stellen. De vraag om Toestemming heeft een vaste formulering, die is opgenomen in de functie Autoriseren. Deze Toestemming is:
+
+- geldig voor de huidige sessie, of
+- bij langdurige toestemming geldig voor onbepaalde tijd, mits minimaal één keer per 6 maanden gebruikgemaakt wordt van de toestemming en deze niet ingetrokken is.
+""" ;
+    medmij:code "core.autorisatie.100" ;
+    medmij:elementName "DVA verifieert Toestemming Persoon vóór Verzamelen" ;
+    medmij:layer "Business" ;
+    medmij:mappingNote "Elke keer opnieuw: uitdrukkelijke Toestemming Persoon vereist; geldig voor sessie of 6 maanden (langdurig)." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
+
+obj:dvp-biedt-dvp-server-aan-persoon a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "Dienstverlener persoon biedt aan Persoon, in het kader van de toepasselijke Dienstverleningsovereenkomst, een geautomatiseerde rol ter gebruik, hier genoemd: DVP Server. Eén Dienstverlener persoon biedt één of meerdere DVP Servers en elke DVP Server wordt door één Dienstverlener persoon geboden." ;
+    medmij:code "core.rollen.200" ;
+    medmij:elementName "DVP biedt DVP Server aan Persoon" ;
+    medmij:layer "Applicatie" ;
+    medmij:mappingNote "DVP biedt geautomatiseerde applicatierol DVP Server; 1 DVP — 1..n DVP Servers." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
+
+obj:dvp-biedt-persoon-functie-delen a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "Dienstverlener persoon biedt Persoon de functie Delen om bij Dienstverlener aanbieder ten behoeve van een Persoon, indien deze daartoe ontvankelijk is, gezondheidsinformatie te plaatsen die op deze Persoon betrekking heeft en die afkomstig is uit het Dossier. Bij deze functie betrokken rollen gebruiken hiertoe het betreffende stroomdiagram." ;
+    medmij:code "core.dossier.101" ;
+    medmij:elementName "DVP biedt Persoon functie Delen" ;
+    medmij:layer "Business" ;
+    medmij:mappingNote "DVP biedt functie om gezondheidsinfo vanuit Dossier te plaatsen bij DVA." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
+
+obj:dvp-biedt-persoon-functie-raadplegen-dossier a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "Dienstverlener persoon biedt Persoon de functie Raadplegen dossier om het persoonlijk gezondheidsdossier te raadplegen." ;
+    medmij:code "core.dossier.103" ;
+    medmij:elementName "DVP biedt Persoon functie Raadplegen dossier" ;
+    medmij:layer "Business" ;
+    medmij:mappingNote "Persoon kan Dossier raadplegen; functie mag niet ontbreken (vereist voor Regie)." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> ;
+    medmij:toelichting "Omdat deze functie zich niet over meerdere domeinen uitstrekt, is zij niet nader gespecificeerd in een stroomdiagram. Het is aan de vrijheid van de Deelnemer om deze naar behoefte van haar klanten in te richten. Maar zij mag niet ontbreken, omdat dan de Persoon geen Regie over het dossier zou kunnen voeren." .
+
+obj:dvp-biedt-persoon-functie-verzamelen a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "Dienstverlener persoon biedt Persoon de functie Verzamelen om bij Dienstverlener aanbieder gezondheidsinformatie te verzamelen van Aanbieder, indien deze die informatie beschikbaar stelt, die op deze Persoon betrekking heeft en kan deze in een persoonlijk gezondheidsdossier (Dossier) van Persoon laten bewaren. Bij deze functie betrokken rollen gebruiken hiertoe het betreffende stroomdiagram." ;
+    medmij:code "core.dossier.100" ;
+    medmij:elementName "DVP biedt Persoon functie Verzamelen" ;
+    medmij:layer "Business" ;
+    medmij:mappingNote "DVP biedt functie om gezondheidsinfo bij DVA te verzamelen en in Dossier op te slaan." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> ;
+    medmij:toelichting "Deze verantwoordelijkheid introduceert ook de notie van een persoonlijk gezondheidsdossier. Het opslaan in een persoonlijk gezondheidsdossier is optionele functionaliteit in het afsprakenstelsel. Wanneer deze functionaliteit wordt aangeboden moet ook het beheer worden aangeboden. Omdat de functie verzamelen zich over verschillende functionele rollen uitstrekt, is om interoperabiliteitsredenen de specificatie van het stroomdiagram aangehaald." .
+
+obj:dvp-kan-functie-verwijderen-gegevens-aanbieden a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "Dienstverlener persoon kan Persoon de functie Verwijderen gegevens bieden, waarmee Persoon gegevens, die via de MedMij Functie Verzamelen zijn verkregen, uit het persoonlijk gezondheidsdossier kan verwijderen." ;
+    medmij:code "core.dossier.105" ;
+    medmij:elementName "DVP kan functie Verwijderen gegevens aanbieden" ;
+    medmij:layer "Business" ;
+    medmij:mappingNote "Persoon kan via DVP gegevens verkregen via Verzamelen uit Dossier verwijderen." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
+
+obj:dvp-laat-persoon-gezondheidsinformatie-verzamelen-of-plaatsen a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "Dienstverlener persoon laat Persoon gezondheidsinformatie verzamelen bij een Dienstverlener aanbieder of, ten behoeve van een Aanbieder, plaatsen bij een Dienstverlener aanbieder." ;
+    medmij:code "core.gegevensdiensten.100" ;
+    medmij:elementName "DVP laat Persoon gezondheidsinformatie verzamelen of plaatsen" ;
+    medmij:layer "Business" ;
+    medmij:mappingNote "DVP faciliteert uitwisseling van gezondheidsinfo bij DVA voor Persoon." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
+
+obj:dvp-mag-automatisch-verzamelen-aanbieden a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "Dienstverlener persoon mag de Persoon de functie Automatisch verzamelen aanbieden, mits uitgevoerd vanuit een gegeven langdurige toestemming, het doel is de gebruiksvriendelijkheid (performance) voor de Persoon te verbeteren of dat dit ten dienste staat van analytische oplossingen waarbij de afhankelijkheid van de Persoon de dienstverlening belemmert. De Dienstverlener persoon moet hier afspraken over opnemen in de Gebruikersovereenkomst die hij met de Persoon afsluit." ;
+    medmij:code "core.dossier.107" ;
+    medmij:elementName "DVP mag Automatisch verzamelen aanbieden" ;
+    medmij:layer "Business" ;
+    medmij:mappingNote "Automatisch verzamelen mag alleen bij langdurige toestemming voor performance of analyse-doeleinden." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
+
+obj:dvp-notificeert-persoon-bij-48-uur-stagnerende-uitwisseling a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "Indien uitwisseling van gegevens binnen een langdurige toestemming 48 uur of langer niet mogelijk is, is de DVP verplicht de Persoon te notificeren op een door de Persoon gewenste manier. Dit kan bijvoorbeeld in de app/browser, per e-mail of per SMS." ;
+    medmij:code "core.gegevensuitwisseling.105" ;
+    medmij:elementName "DVP notificeert Persoon bij 48 uur stagnerende uitwisseling" ;
+    medmij:layer "Business" ;
+    medmij:mappingNote "Verplichte notificatie als langdurige toestemming 48 uur niet kan worden gebruikt." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
+
+obj:dvp-notificeert-persoon-bij-inactief-account a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "De Dienstverlener persoon moet de Persoon notificeren per e-mail of (als de DVP dit aanbiedt) per SMS van het feit dat het account de status 'inactief' heeft gekregen en indien van toepassing geen gebruikmaakt van aanwezige langdurige toestemmingen, totdat de Persoon opnieuw inlogt." ;
+    medmij:code "core.account.103" ;
+    medmij:elementName "DVP notificeert Persoon bij inactief account" ;
+    medmij:layer "Business" ;
+    medmij:mappingNote "DVP stuurt e-mail of SMS bij statuswijziging naar inactief; langdurige toestemmingen onderbroken." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
+
+obj:dvp-notificeert-persoon-bij-succesvolle-automatische-uitwisseling a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "De Dienstverlener persoon is verplicht de Persoon van succesvolle automatische uitwisseling te notificeren op een door de Persoon gewenste manier. Dit kan bijvoorbeeld in de app/browser, per e-mail of per SMS." ;
+    medmij:code "core.gegevensuitwisseling.104" ;
+    medmij:elementName "DVP notificeert Persoon bij succesvolle automatische uitwisseling" ;
+    medmij:layer "Business" ;
+    medmij:mappingNote "Notificatie op door Persoon gewenste wijze (app, e-mail, SMS)." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
+
+obj:dvp-server-auth-server-en-resource-server-implementeren-gegevensdienst a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "Als een Dienstverleners persoon een zekere Gegevensdienst ontsluit ten behoeve van zijn Personen en daartoe laat leveren door een Dienstverlener aanbieder, zullen de DVP Server van die Dienstverlener persoon en de Authorization Server en Resource Server van die Dienstverlener aanbieder daarvoor de bij de Gegevensdienst horende functie implementeren en de bij de Gegevensdienst horende Systeemrollen gebruiken, zoals deze in de Catalogus zijn opgenomen, en zich daarbij conformeren aan de specificaties van die Systeemrollen zoals die zijn gepubliceerd op de plaats(en) waarnaar de Catalogus verwijst." ;
+    medmij:code "core.gegevensdiensten.200" ;
+    medmij:elementName "DVP Server, Auth.Server en Resource Server implementeren Gegevensdienst" ;
+    medmij:layer "Applicatie" ;
+    medmij:mappingNote "Juiste functie-implementaties en informatiestandaarden conform Catalogus; conformiteit borgt interoperabiliteit." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> ;
+    medmij:toelichting "Zo wordt geborgd dat de juiste functie-implementaties en informatiestandaarden worden gebruikt. Ook wordt het correcte gebruik geborgd, wat bijdraagt aan interoperabiliteit en vertrouwen." .
+
+obj:dvp-server-en-auth-server-halen-gnl-minstens-elke-15-min-op a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "DVP Server en Authorization Server betrekken minstens elke vijftien minuten (900 seconden) de meest recente Gegevensdienstnamenlijst van MedMij Registratie." ;
+    medmij:code "core.gnl.201" ;
+    medmij:elementName "DVP Server en Auth.Server halen GNL minstens elke 15 min op" ;
+    medmij:governedBy obj:opvragen-gegevensdienstnamenlijst ;
+    medmij:layer "Applicatie" ;
+    medmij:mappingNote "Maximaal 900 seconden oud; meest recente versie van MedMij Registratie." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
+
+obj:dvp-server-en-auth-server-valideren-gnl-tegen-xml-schema a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "DVP Server en Authorization Server valideren elke nieuwe verkregen Gegevensdienstnamenlijst tegen het XML-schema van de Gegevensdienstnamenlijst." ;
+    medmij:code "core.gnl.202" ;
+    medmij:elementName "DVP Server en Auth.Server valideren GNL tegen XML-schema" ;
+    medmij:governedBy obj:opvragen-gegevensdienstnamenlijst ;
+    medmij:layer "Applicatie" ;
+    medmij:mappingNote "Elke nieuw verkregen GNL wordt gevalideerd tegen gepubliceerd XML-schema." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
+
+obj:dvp-server-haalt-aanbiederslijst-minstens-elke-15-min-op a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "DVP Server betrekt minstens elke vijftien minuten (900 seconden) de meest recente Aanbiederslijst van MedMij Registratie." ;
+    medmij:code "core.alst.201" ;
+    medmij:elementName "DVP Server haalt Aanbiederslijst minstens elke 15 min op" ;
+    medmij:governedBy obj:opvragen-aanbiederslijst ;
+    medmij:layer "Applicatie" ;
+    medmij:mappingNote "Maximaal 900 seconden oud; meest recente versie van MedMij Registratie." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
+
+obj:dvp-server-valideert-aanbiederslijst-tegen-xml-schema a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "DVP Server valideert elke nieuw verkregen Aanbiederslijst tegen het XML-schema van de Aanbiederslijst." ;
+    medmij:code "core.alst.202" ;
+    medmij:elementName "DVP Server valideert Aanbiederslijst tegen XML-schema" ;
+    medmij:governedBy obj:opvragen-aanbiederslijst ;
+    medmij:layer "Applicatie" ;
+    medmij:mappingNote "Elke nieuw verkregen Aanbiederslijst gevalideerd tegen gepubliceerd XML-schema." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
+
+obj:eigenaar-medmij-speelt-rol-medmij-beheer a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "Eigenaar MedMij neemt de functionele rol van MedMij Beheer op zich. Er is één Eigenaar MedMij die één MedMij Beheer speelt." ;
+    medmij:code "core.rollen.100" ;
+    medmij:elementName "Eigenaar MedMij speelt rol MedMij Beheer" ;
+    medmij:layer "Business" ;
+    medmij:mappingNote "Er is precies één Eigenaar MedMij die MedMij Beheer speelt." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
+
+obj:frontchannel-node a medmij:Component,
+        medmij:Object ;
+    medmij:code "core.rollen.300" ;
+    medmij:elementName "Frontchannel Node" ;
+    medmij:layer "Technologie" ;
+    medmij:mappingNote "Node die internet-facing communiceert met User Agent (webbrowser)." .
+
+obj:gezondheidsgegevens-generiek a medmij:DataSet,
+        medmij:Object ;
+    medmij:code "(informatiemodel.*)" ;
+    medmij:elementName "Gezondheidsgegevens (generiek)" ;
+    medmij:layer "Applicatie" ;
+    medmij:mappingNote "De inhoudelijke gegevensset die via Verzamelen of Delen wordt uitgewisseld; per gegevensdienst gespecificeerd." .
+
+obj:happy-flow-authenticeren-diagram a medmij:ImplementationGuideline,
+        medmij:Object ;
+    medmij:code "(core.authn.*)" ;
+    medmij:elementName "Happy flow Authenticeren (diagram)" ;
+    medmij:layer "Applicatie" ;
+    medmij:mappingNote "Beschrijft de DigiD-authenticatiestappen." .
+
+obj:happy-flow-autoriseren-sequence-diagram a medmij:ImplementationGuideline,
+        medmij:Object ;
+    medmij:code "(core.authoz.*)" ;
+    medmij:elementName "Happy flow Autoriseren (sequence-diagram)" ;
+    medmij:layer "Applicatie" ;
+    medmij:mappingNote "Beschrijft de stappen 1-11 van de autorisatieflow zonder uitzonderingen." .
+
+obj:hostname-dvp-server-in-ocl-opgenomen a medmij:Object,
+        medmij:Requirement ;
+    medmij:code "core.rollen.300" ;
+    medmij:elementName "Hostname DVP Server in OCL opgenomen" ;
+    medmij:layer "Technologie" ;
+    medmij:mappingNote "Registratie-eis: hostnaam moet overeenkomen met OAuth redirect_uri." ;
+    medmij:specifiesArrangement obj:dvp-server-gebruikt-n-frontchannel-node-uit-ocl .
+
+obj:informeren-persoon-bij-verwijderen-gegevens a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText """
+In het kader van de functie Verwijderen gegevens zal Persoon te allen tijde worden geïnformeerd:
+
+- Welke verzamelde gegevens precies verwijderd worden.
+- Dat verwijderen alleen in de PGO plaats vindt (en niet in enig bron systeem).
+- Dat verwijderde gegevens in een later stadium mogelijk niet meer opgevraagd kunnen worden uit de bron systemen (bijv. bij het verlopen van de beschikbaarheidstermijn).
+
+De gepresenteerde informatie ondersteunt de gebruiksvriendelijkheid door gebruik te maken van taalniveau B1. Met de gepresenteerde informatie is het voor de Persoon duidelijk op welk deel van de inhoud van zijn dossier de functie verwijderen gegevens wordt toegepast, en wat hiervan de mogelijke consequenties zijn.
+""" ;
+    medmij:code "core.dossier.106" ;
+    medmij:elementName "Informeren Persoon bij Verwijderen gegevens" ;
+    medmij:layer "Business" ;
+    medmij:mappingNote "Persoon wordt geïnformeerd over wat verwijderd wordt en consequenties (taalniveau B1)." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
+
+obj:logging-van-autorisatieflows-bewaartermijn a medmij:Object,
+        medmij:Requirement ;
+    medmij:code "core.logging.101" ;
+    medmij:elementName "Logging van autorisatieflows (bewaartermijn)" ;
+    medmij:layer "Applicatie" ;
+    medmij:mappingNote "DVA en DVP moeten autorisatieverkeer loggen; minimale bewaartermijn vastgesteld." .
+
+obj:maximaal-n-keer-per-24-uur-automatisch-verzamelen a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "De Dienstverlener persoon mag slechts één keer per 24 uur geautomatiseerd gegevens verzamelen bij een Dienstverlener aanbieder." ;
+    medmij:code "core.gegevensuitwisseling.102" ;
+    medmij:elementName "Maximaal één keer per 24 uur automatisch verzamelen" ;
+    medmij:layer "Business" ;
+    medmij:mappingNote "DVP verzamelt geautomatiseerd maximaal één keer per dag per DVA." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
+
+obj:medmij-beheer-beheert-en-publiceert-aanbiederslijst a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "MedMij Beheer beheert en publiceert een Aanbiederslijst, namens de deelnemende Dienstverlener aanbieder. De gepubliceerde Aanbiederslijst bevat steeds en slechts alle actuele entries, en beschrijft van elke Aanbieder: welke Gegevensdiensten deze momenteel aanbiedt, en welke technische adressen daarvoor moeten worden aangesproken bij de Dienstverlener aanbieder, gegeven een zekere Interfaceversie." ;
+    medmij:code "core.alst.100" ;
+    medmij:elementName "MedMij Beheer beheert en publiceert Aanbiederslijst" ;
+    medmij:governedBy obj:opvragen-aanbiederslijst ;
+    medmij:layer "Business" ;
+    medmij:mappingNote "Aanbiederslijst bevat alle actuele Aanbieders met Gegevensdiensten en endpoints per Interfaceversie." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> ;
+    medmij:toelichting "Deze afspraak wijst MedMij Beheer de verantwoordelijkheid toe om ten behoeve van alle Dienstverleners persoon een lijst te verspreiden van Aanbieders en de door hen aangeboden Gegevensdiensten. Zonder deze functie zou het stelsel niet functioneren." .
+
+obj:medmij-beheer-beheert-en-publiceert-gnl a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "MedMij Beheer beheert en publiceert de Gegevensdienstnamenlijst. Deze beschrijft welke gebruikersvriendelijke namen horen bij welke Gegevensdiensten. De Gegevensdienstnamenlijst voldoet aan wat over haar is bepaald in de Informatiemodellen." ;
+    medmij:code "core.gnl.100" ;
+    medmij:elementName "MedMij Beheer beheert en publiceert GNL" ;
+    medmij:governedBy obj:opvragen-gegevensdienstnamenlijst ;
+    medmij:layer "Business" ;
+    medmij:mappingNote "GNL beschrijft gebruiksvriendelijke namen per Gegevensdienst; voldoet aan Informatiemodellen." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
+
+obj:medmij-beheer-beheert-en-publiceert-oauth-client-list a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "MedMij Beheer beheert en publiceert een actuele OAuth Client List, namens de deelnemende Dienstverleners persoon. De gepubliceerde OAuth Client List bevat steeds en slechts alle actuele entries, en beschrijft van elke OAuth Client: wat de gebruikersvriendelijke namen zijn die voor de Dienstverleners persoon worden gebruikt in de Toestemmingsverklaring en de Bevestigingsverklaring." ;
+    medmij:code "core.ocl.100" ;
+    medmij:elementName "MedMij Beheer beheert en publiceert OAuth Client List" ;
+    medmij:governedBy obj:opvragen-oauth-client-list ;
+    medmij:layer "Business" ;
+    medmij:mappingNote "OCL bevat gebruiksvriendelijke namen en erkende diensten per DVP-client (OAuth Client)." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> ;
+    medmij:toelichting "De OAuth Client List bevat dus geen namen voor Dienstverleners aanbieder. Dat is niet nodig, omdat deze niet voorkomen in de Toestemmingsverklaring." .
+
+obj:medmij-beheer-beheert-en-publiceert-whitelist a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "MedMij Beheer beheert en publiceert een actuele Whitelist, namens de deelnemende Dienstverleners aanbieder en Dienstverleners persoon. De Whitelist beschrijft welke Nodes in MedMij-verkeer mogen deelnemen. De Whitelist voldoet aan wat over haar is bepaald in de Informatiemodellen." ;
+    medmij:code "core.whl.100" ;
+    medmij:elementName "MedMij Beheer beheert en publiceert Whitelist" ;
+    medmij:governedBy obj:opvragen-whitelist ;
+    medmij:layer "Business" ;
+    medmij:mappingNote "Whitelist beschrijft welke Nodes mogen deelnemen aan MedMij-verkeer; voldoet aan Informatiemodellen." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
+
+obj:medmij-beheer-biedt-functie-opvragen-aanbiederslijst a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "MedMij Beheer biedt aan Dienstverleners persoon een functie (Opvragen Aanbiederslijst) om de actuele versie van die Aanbiederslijst op te vragen. Betrokken rollen gebruiken hiertoe het betreffende stroomdiagram." ;
+    medmij:code "core.alst.102" ;
+    medmij:elementName "MedMij Beheer biedt functie Opvragen Aanbiederslijst" ;
+    medmij:governedBy obj:opvragen-aanbiederslijst ;
+    medmij:layer "Business" ;
+    medmij:mappingNote "DVP's kunnen actuele Aanbiederslijst opvragen via stroomdiagram." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
+
+obj:medmij-beheer-biedt-functie-opvragen-aanbiedersregister a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "MedMij Beheer biedt aan Deelnemers de functie Opvragen Aanbiedersregister om de actuele versie van het Aanbiedersregister op te vragen." ;
+    medmij:code "core.reg.105" ;
+    medmij:elementName "MedMij Beheer biedt functie Opvragen Aanbiedersregister" ;
+    medmij:layer "Business" ;
+    medmij:mappingNote "Deelnemers vragen actuele versie Aanbiedersregister op." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
+
+obj:medmij-beheer-biedt-functie-opvragen-gnl-aan-deelnemers a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "MedMij Beheer biedt aan Deelnemers de functie Opvragen Gegevensdienstnamenlijst om de actuele versie van die Gegevensdienstnamenlijst op te vragen. Betrokken rollen gebruiken hiertoe het betreffende stroomdiagram." ;
+    medmij:code "core.gnl.101" ;
+    medmij:elementName "MedMij Beheer biedt functie Opvragen GNL aan Deelnemers" ;
+    medmij:governedBy obj:opvragen-gegevensdienstnamenlijst ;
+    medmij:layer "Business" ;
+    medmij:mappingNote "Deelnemers kunnen via stroomdiagram actuele versie GNL opvragen." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
+
+obj:medmij-beheer-biedt-functie-opvragen-ocl-aan-deelnemers a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "MedMij Beheer biedt aan Deelnemers de functie Opvragen OAuth Client List om de actuele versie van die OAuth Client List op te vragen. Betrokken rollen gebruiken hiertoe het betreffende stroomdiagram." ;
+    medmij:code "core.ocl.102" ;
+    medmij:elementName "MedMij Beheer biedt functie Opvragen OCL aan Deelnemers" ;
+    medmij:governedBy obj:opvragen-oauth-client-list ;
+    medmij:layer "Business" ;
+    medmij:mappingNote "Deelnemers vragen actuele OCL op via stroomdiagram." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
+
+obj:medmij-beheer-biedt-functie-opvragen-whitelist-aan-deelnemers a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "MedMij Beheer biedt aan Deelnemers de functie Opvragen Whitelist om de actuele versie van die Whitelist op te vragen. Betrokken rollen gebruiken hiertoe het betreffende stroomdiagram." ;
+    medmij:code "core.whl.101" ;
+    medmij:elementName "MedMij Beheer biedt functie Opvragen Whitelist aan Deelnemers" ;
+    medmij:governedBy obj:opvragen-whitelist ;
+    medmij:layer "Business" ;
+    medmij:mappingNote "Deelnemers vragen actuele Whitelist op via stroomdiagram." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
+
+obj:medmij-beheer-neemt-dva-op-in-aanbiederslijst-na-toetsing a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "MedMij Beheer zal alleen in de Aanbiederslijst opnemen dat een zekere Gegevensdienst door een zekere Aanbieder via een Dienstverlener aanbieder wordt aangeboden, indien zij (Stichting MedMij) heeft vastgesteld dat de Dienstverlener aanbieder voldoet aan de specifiek op die Gegevensdienst toepasselijke eisen en de normen die staan beschreven in de DAP en aanverwante documenten." ;
+    medmij:code "core.gegevensdiensten.102" ;
+    medmij:elementName "MedMij Beheer neemt DVA op in Aanbiederslijst na toetsing" ;
+    medmij:layer "Business" ;
+    medmij:mappingNote "Opname alleen als DVA voldoet aan DAP-eisen voor de betreffende Gegevensdienst." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> ;
+    medmij:toelichting "De Dienstverlener aanbieder heeft minimaal één Aanbieder nodig om zich te kwalificeren in het MedMij Afsprakenstelsel voor een informatiestandaard." .
+
+obj:medmij-beheer-onderhoudt-lijstenarchief a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "MedMij Beheer onderhoudt een archief van alle ooit verspreide versies van de Aanbiederslijst, de OAuth Client List, de Whitelist en de Gegevensdienstnamenlijst. De bewaartermijn, gerekend vanaf het einde van de geldigheid van de betreffende versie, is niet korter dan die van de logbestanden als bedoeld in verantwoordelijkheid core.logging.101." ;
+    medmij:code "core.algemeen.100" ;
+    medmij:elementName "MedMij Beheer onderhoudt lijstenarchief" ;
+    medmij:layer "Business" ;
+    medmij:mappingNote "Bewaartermijn alle verspreide lijsten ≥ bewaartermijn logbestanden (core.logging.101)." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
+
+obj:medmij-beheer-ontsluit-medmij-registratie a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "MedMij Beheer ontsluit ten behoeve van alle betrokkenen een geautomatiseerde rol, hier genoemd: MedMij Registratie." ;
+    medmij:code "core.rollen.204" ;
+    medmij:elementName "MedMij Beheer ontsluit MedMij Registratie" ;
+    medmij:layer "Applicatie" ;
+    medmij:mappingNote "MedMij Beheer ontsluit de centrale geautomatiseerde rol MedMij Registratie (Stelselnode)." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
+
+obj:medmij-beheer-past-uitwisselingsstatus-aan a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "MedMij Beheer kan als enige partij de uitwisselingsstatus van een aanbieder of de bij de Aanbieder behorende gegevensdiensten aanpassen. MedMij Beheer baseert de keuze tot wijziging op de normen die in de DAP of specifieke bijlagen beschreven staan." ;
+    medmij:code "core.req.104" ;
+    medmij:elementName "MedMij Beheer past uitwisselingsstatus aan" ;
+    medmij:layer "Business" ;
+    medmij:mappingNote "Enige partij die uitwisselingsstatus kan aanpassen; op basis van DAP-normen." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
+
+obj:medmij-beheer-publiceert-unieke-aanbiedersnamen a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "MedMij Beheer beheert en publiceert, in de Aanbiederslijst, unieke en gebruikersvriendelijke namen van Aanbieders, van het formaat <aanbieder>@medmij. Daarop is naamgevingsbeleid van toepassing." ;
+    medmij:code "core.alst.101" ;
+    medmij:elementName "MedMij Beheer publiceert unieke Aanbiedersnamen" ;
+    medmij:governedBy obj:opvragen-aanbiederslijst ;
+    medmij:layer "Business" ;
+    medmij:mappingNote "Aanbiedersnamen in formaat <aanbieder>@medmij; naamgevingsbeleid van toepassing." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> ;
+    medmij:toelichting "Aanbieders kunnen in hun directe of indirecte contact met Personen deze naam meegeven als hun 'MedMij-naam'. MedMij Beheer zorgt voor uniciteit en heeft het laatste woord bij het vaststellen ervan." .
+
+obj:medmij-registratie-dvp-server-en-auth-server-implementeren-opvragen-gnl a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "MedMij Registratie, DVP Server en Authorization Server implementeren de functie Opvragen Gegevensdienstnamenlijst, door middel van het bepaalde inzake het Gegevensdienstnamenlijstinterface op Interfaces lijsten. Zij gebruiken hiervoor het betreffende stroomdiagram." ;
+    medmij:code "core.gnl.200" ;
+    medmij:elementName "MedMij Registratie, DVP Server en Auth.Server implementeren Opvragen GNL" ;
+    medmij:governedBy obj:opvragen-gegevensdienstnamenlijst ;
+    medmij:layer "Applicatie" ;
+    medmij:mappingNote "Implementatie via GNL-interface op Interfaces lijsten; stroomdiagram verplicht." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
+
+obj:medmij-registratie-en-auth-server-implementeren-opvragen-ocl a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "MedMij Registratie en Authorization Server implementeren de functie Opvragen OAuth Client List, door middel van het bepaalde inzake het interface voor OAuth Client List op Interfaces lijsten. Zij gebruiken hiervoor het betreffende stroomdiagram." ;
+    medmij:code "core.ocl.200" ;
+    medmij:elementName "MedMij Registratie en Auth.Server implementeren Opvragen OCL" ;
+    medmij:governedBy obj:opvragen-oauth-client-list ;
+    medmij:layer "Applicatie" ;
+    medmij:mappingNote "Implementatie via OCL-interface op Interfaces lijsten; stroomdiagram verplicht." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
+
+obj:medmij-registratie-en-dvp-server-implementeren-opvragen-aanbiederslijst a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "MedMij Registratie en elke DVP Server implementeren de functie Opvragen Aanbiederslijst, door middel van het bepaalde inzake het Aanbiederslijstinterface op Interfaces lijsten. Zij gebruiken hiertoe het betreffende stroomdiagram." ;
+    medmij:code "core.alst.200" ;
+    medmij:elementName "MedMij Registratie en DVP Server implementeren Opvragen Aanbiederslijst" ;
+    medmij:governedBy obj:opvragen-aanbiederslijst ;
+    medmij:layer "Applicatie" ;
+    medmij:mappingNote "Implementatie via Aanbiederslijstinterface; stroomdiagram verplicht." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
+
+obj:medmij-registratie-en-dvp-server-implementeren-opvragen-register a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "MedMij Registratie en DVP Server implementeren de functie Opvragen Aanbiedersregister, door middel van het bepaalde inzake het Aanbiedersregisterinterface op Interfaces lijsten en register." ;
+    medmij:code "core.reg.200" ;
+    medmij:elementName "MedMij Registratie en DVP Server implementeren Opvragen Register" ;
+    medmij:layer "Applicatie" ;
+    medmij:mappingNote "Implementatie via Aanbiedersregisterinterface op Interfaces lijsten en register." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
+
+obj:medmij-registratie-heeft-stelselnode-medmij-nl-als-hostname a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "MedMij Registratie heeft stelselnode.medmij.nl als hostname." ;
+    medmij:code "core.whl.303" ;
+    medmij:elementName "MedMij Registratie heeft stelselnode.medmij.nl als hostname" ;
+    medmij:governedBy obj:opvragen-whitelist ;
+    medmij:layer "Technologie" ;
+    medmij:mappingNote "Vaste hostname zodat Backchannel Nodes in foutsituaties Whitelist kunnen ophalen." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> ;
+    medmij:toelichting "Door op deze manier de MedMij Stelselnode te autoriseren voor MedMij-verkeer wordt ervoor gezorgd dat ook in foutsituaties of bootstrap-situaties een Backchannel Node de MedMij Stelselnode kan aanspreken om een Whitelist op te halen." .
+
+obj:medmij-stelselnode-biedt-opvragen-whitelist-aan-nodes a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "De MedMij Stelselnode biedt aan Nodes de functie Opvragen Whitelist om de actuele versie van de Whitelist op te vragen. Betrokken rollen gebruiken hiervoor het betreffende stroomdiagram." ;
+    medmij:code "core.whl.300" ;
+    medmij:elementName "MedMij Stelselnode biedt Opvragen Whitelist aan Nodes" ;
+    medmij:governedBy obj:opvragen-whitelist ;
+    medmij:layer "Technologie" ;
+    medmij:mappingNote "Stelselnode biedt Nodes de mogelijkheid om Whitelist op te vragen." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
+
+obj:negatieve-whitelist-controle-stroom-afgebroken-geen-melding a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "Indien een Whitelist-controle, in het kader van verantwoordelijkheid core.whl.307 en core.whl.308, niet kan worden uitgevoerd, of een negatief resultaat oplevert, breekt dit de voortgang af van de uitvoering van de functie en stellen de betrokken Applicatie-rollen elkaar hiervan niet op de hoogte." ;
+    medmij:code "core.whl.309" ;
+    medmij:elementName "Negatieve Whitelist-controle: stroom afgebroken, geen melding" ;
+    medmij:governedBy obj:opvragen-whitelist ;
+    medmij:layer "Technologie" ;
+    medmij:mappingNote "Bij niet-slagen Whitelist-controle wordt voortgang gestopt; tegenpartij niet geïnformeerd." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> ;
+    medmij:toelichting "Omdat het niet slagen van de Whitelist-controle duidt op een niet te vertrouwen tegenpartij, wordt deze daarvan niet op de hoogte gesteld." .
+
+obj:nodes-halen-whitelist-minstens-elke-15-min-op a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "Nodes betrekken minstens elke vijftien minuten (900 seconden) de meest recente Whitelist van MedMij Registratie." ;
+    medmij:code "core.whl.302" ;
+    medmij:elementName "Nodes halen Whitelist minstens elke 15 min op" ;
+    medmij:governedBy obj:opvragen-whitelist ;
+    medmij:layer "Technologie" ;
+    medmij:mappingNote "Maximaal 900 seconden oud; meest recente versie van MedMij Registratie." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
+
+obj:nodes-valideren-whitelist-hostnames-zijn-fqdn-conform-rfc3696 a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "Nodes valideren elke nieuw verkregen Whitelist tegen het XML-schema van de Whitelist. Alle hostnames op de Whitelist zijn fully-qualified domain names, conform RFC3696, sectie 2." ;
+    medmij:code "core.whl.304" ;
+    medmij:elementName "Nodes valideren Whitelist; hostnames zijn FQDN conform RFC3696" ;
+    medmij:governedBy obj:opvragen-whitelist ;
+    medmij:layer "Technologie" ;
+    medmij:mappingNote "Elke nieuw verkregen Whitelist gevalideerd; alle hostnames zijn fully-qualified domain names." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
+
+obj:notificatie-endpoint-dvp-abonneren a medmij:DataResource,
+        medmij:Object ;
+    medmij:code "(ext.abonneren.*)" ;
+    medmij:elementName "Notificatie-endpoint (DVP, Abonneren)" ;
+    medmij:layer "Technologie" ;
+    medmij:mappingNote "Het adres waarop de DVP Server pushberichten ontvangt van DVA (extensie Abonneren)." .
+
+obj:oauth-client-list-voldoet-aan-informatiemodellen a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "De OAuth Client List voldoet aan wat over haar is bepaald in de Informatiemodellen." ;
+    medmij:code "core.ocl.101" ;
+    medmij:elementName "OAuth Client List voldoet aan Informatiemodellen" ;
+    medmij:governedBy obj:opvragen-oauth-client-list ;
+    medmij:layer "Business" ;
+    medmij:mappingNote "Format en inhoud OCL conform vastgesteld informatiemodel." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
+
+obj:ocl-bevat-per-dvp-server-alleen-de-frontchannel-node a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "De OAuth Client List bevat voor elke DVP Server alleen die Node waarmee de betreffende DVP Server het frontchannelverkeer afhandelt." ;
+    medmij:code "core.ocl.300" ;
+    medmij:elementName "OCL bevat per DVP Server alleen de Frontchannel Node" ;
+    medmij:governedBy obj:opvragen-oauth-client-list ;
+    medmij:layer "Technologie" ;
+    medmij:mappingNote "Alleen de Node voor frontchannelverkeer opgenomen; gebruikt voor autorization-interface validatie en DVP-naam in Toestemmingsverklaring." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> ;
+    medmij:toelichting """
+Conform het bepaalde onder core.rollen.300, mag een DVP Server meerdere Nodes gebruiken, maar mag de DVP Server maar één Node gebruiken voor al haar frontchannelverkeer, namelijk op het authorization interface. De inhoud van de OAuth Client List wordt alleen gebruikt op dat authorization interface, voor twee doelen:
+
+- het kennisnemen van de Gegevensdiensten waarop de DVP Server is erkend, zodat de Authorization Server een authorization request kan weigeren wanneer de DVP Server niet is erkend op de Gegevensdienst waarvoor hij autorisatie vraagt;
+- het kennisnemen van de naam van de Dienstverlener persoon die moet verschijnen in de Toestemmingsverklaring en de Bevestigingsverklaring.
+
+Daarom hoeft, voor een DVP Server, in de OAuth Client List alleen die ene Node te worden opgenomen die deze DVP Server voor haar frontchannelverkeer gebruikt.
+""" .
+
+obj:per-node-auth-server-of-resource-server-of-combinatie a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "Op één Node functioneert hetzij één Authorization Server, hetzij één Resource Server, hetzij een combinatie van voorgaande rollen." ;
+    medmij:code "core.rollen.301" ;
+    medmij:elementName "Per Node: Auth.Server of Resource Server of combinatie" ;
+    medmij:layer "Technologie" ;
+    medmij:mappingNote "Een Node functioneert als Authorization Server, Resource Server of combinatie van beiden." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
+
+obj:persoon-gebruikt-user-agent a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "Persoon gebruikt één geautomatiseerde rol User Agent voor toegang tot de functionaliteit van DVP Server en Authorization Server. User Agent presenteert de functionaliteit aan Persoon, spreekt DVP Server aan en verwijst de Persoon naar de Authorization Server." ;
+    medmij:code "core.rollen.203" ;
+    medmij:elementName "Persoon gebruikt User Agent" ;
+    medmij:layer "Applicatie" ;
+    medmij:mappingNote "Persoon gebruikt één User Agent voor toegang tot DVP Server en Authorization Server." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
+
+obj:persoon-kan-medmij-inhoud-traceren-in-dossier a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText """
+In het kader van de functie Raadplegen dossier zal Persoon te allen tijde moeten kunnen nagaan:
+
+- welke inhoud van het Dossier wel, en welke niet, via MedMij-verkeer van Dienstverlener aanbieder is betrokken van welke Aanbieder, en sindsdien niet is veranderd;
+- welke inhoud van het Dossier wel, en welke niet, via MedMij-verkeer bij Dienstverlener aanbieder is geplaatst ten behoeve van welke Aanbieder.
+""" ;
+    medmij:code "core.dossier.104" ;
+    medmij:elementName "Persoon kan MedMij-inhoud traceren in Dossier" ;
+    medmij:layer "Business" ;
+    medmij:mappingNote "Persoon kan altijd nagaan welke inhoud via MedMij-verkeer verzameld of geplaatst is." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> ;
+    medmij:toelichting "Hiermee is het voor de Persoon duidelijk op welk deel van de inhoud van zijn dossier hij de aan het MedMij Afsprakenstelsel verbonden vertrouwen kan verbinden. Het is immers goed mogelijk dat een PGO alleen op bepaalde onderdelen deelneemt, en dus voldoet, aan het MedMij Afsprakenstelsel." .
+
+obj:persoon-moet-actief-account-hebben-bij-dvp a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "Voor het inrichten van een MedMij dossier en voor het gebruikmaken van de verschillende MedMij functies moet de Persoon een actief account hebben bij de Dienstverlener persoon." ;
+    medmij:code "core.account.100" ;
+    medmij:elementName "Persoon moet een actief account hebben bij DVP" ;
+    medmij:layer "Business" ;
+    medmij:mappingNote "Vereist voor inrichten Dossier en gebruik MedMij-functies." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
+
+obj:pkio-certificaat-op-node-backchannel a medmij:Object,
+        medmij:Requirement ;
+    medmij:code "(core.netwerk.*)" ;
+    medmij:elementName "PKIO-certificaat op Node (backchannel)" ;
+    medmij:layer "Technologie" ;
+    medmij:mappingNote "Wederzijdse TLS-authenticatie met overheids-PKI-certificaat." .
+
+obj:qual-arrangement a medmij:Object,
+        medmij:QualificationRule ;
+    medmij:code "—" ;
+    medmij:elementName "Kwalificatieregel Arrangement" ;
+    medmij:forClass medmij:Arrangement ;
+    medmij:layer "—" ;
+    medmij:mappingNote "Versie volgt afsprakenstelselversie; geen afzonderlijke kwalificatie." ;
+    medmij:qualificationLevel "—" ;
+    medmij:versioned true .
+
+obj:qual-component a medmij:Object,
+        medmij:QualificationRule ;
+    medmij:code "—" ;
+    medmij:elementName "Kwalificatieregel Component" ;
+    medmij:forClass medmij:Component ;
+    medmij:layer "—" ;
+    medmij:mappingNote "Een Node implementeert een Component; system-kwalificatie." ;
+    medmij:qualificationLevel "system" ;
+    medmij:versioned true .
+
+obj:qual-dataproduct a medmij:Object,
+        medmij:QualificationRule ;
+    medmij:code "—" ;
+    medmij:elementName "Kwalificatieregel DataProduct" ;
+    medmij:forClass medmij:DataProduct ;
+    medmij:layer "—" ;
+    medmij:mappingNote "Versie van de lijst (bijv. ZAL 4.13); beheerd door MedMij Beheer." ;
+    medmij:qualificationLevel "—" ;
+    medmij:versioned true .
+
+obj:qual-dataresource a medmij:Object,
+        medmij:QualificationRule ;
+    medmij:code "—" ;
+    medmij:elementName "Kwalificatieregel DataResource" ;
+    medmij:forClass medmij:DataResource ;
+    medmij:layer "—" ;
+    medmij:mappingNote "Dynamisch; opgenomen als NodeCapability of NodeMetadata." ;
+    medmij:qualificationLevel "—" ;
+    medmij:versioned false .
+
+obj:qual-dataset a medmij:Object,
+        medmij:QualificationRule ;
+    medmij:code "—" ;
+    medmij:elementName "Kwalificatieregel DataSet" ;
+    medmij:forClass medmij:DataSet ;
+    medmij:layer "—" ;
+    medmij:mappingNote "Versie van informatiemodel/FHIR-profiel; onderdeel van Service." ;
+    medmij:qualificationLevel "—" ;
+    medmij:versioned true .
+
+obj:qual-framework a medmij:Object,
+        medmij:QualificationRule ;
+    medmij:code "—" ;
+    medmij:elementName "Kwalificatieregel Framework" ;
+    medmij:forClass medmij:Framework ;
+    medmij:layer "—" ;
+    medmij:mappingNote "Structuurobject; geen kwalificatie." ;
+    medmij:qualificationLevel "—" ;
+    medmij:versioned false .
+
+obj:qual-implementationguideline a medmij:Object,
+        medmij:QualificationRule ;
+    medmij:code "—" ;
+    medmij:elementName "Kwalificatieregel ImplementationGuideline" ;
+    medmij:forClass medmij:ImplementationGuideline ;
+    medmij:layer "—" ;
+    medmij:mappingNote "Informatief; geen kwalificatie." ;
+    medmij:qualificationLevel "—" ;
+    medmij:versioned true .
+
+obj:qual-module a medmij:Object,
+        medmij:QualificationRule ;
+    medmij:code "—" ;
+    medmij:elementName "Kwalificatieregel Module" ;
+    medmij:forClass medmij:Module ;
+    medmij:layer "—" ;
+    medmij:mappingNote "Onderdeel van Service of Framework; geen zelfstandige kwalificatie." ;
+    medmij:qualificationLevel "—" ;
+    medmij:versioned true .
+
+obj:qual-requirement a medmij:Object,
+        medmij:QualificationRule ;
+    medmij:code "—" ;
+    medmij:elementName "Kwalificatieregel Requirement" ;
+    medmij:forClass medmij:Requirement ;
+    medmij:layer "—" ;
+    medmij:mappingNote "Systeem- of deelnemer-kwalificatie afhankelijk van aard van eis." ;
+    medmij:qualificationLevel "system / participant" ;
+    medmij:versioned true .
+
+obj:qual-service a medmij:Object,
+        medmij:QualificationRule ;
+    medmij:code "—" ;
+    medmij:elementName "Kwalificatieregel Service" ;
+    medmij:forClass medmij:Service ;
+    medmij:layer "—" ;
+    medmij:mappingNote "DVA kwalificeert per service per versie; DVP ook." ;
+    medmij:qualificationLevel "participant" ;
+    medmij:versioned true .
+
+obj:qual-specification a medmij:Object,
+        medmij:QualificationRule ;
+    medmij:code "—" ;
+    medmij:elementName "Kwalificatieregel Specification" ;
+    medmij:forClass medmij:Specification ;
+    medmij:layer "—" ;
+    medmij:mappingNote "Systeem moet conformiteit aantonen; vastgelegd in SystemQualificationLog." ;
+    medmij:qualificationLevel "system" ;
+    medmij:versioned true .
+
+obj:register-bevat-namen-identificerende-gegevens-en-uitwisselingsstatus a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "Het Aanbiedersregister bevat de gebruiksvriendelijke namen van aangesloten aanbieders, de bijbehorende identificerende gegevens, de bijbehorende gegevensdiensten en de uitwisselingsstatus. Het Aanbiedersregister bevat alleen de gegevens van aanbieders die voldoen aan de eisen en normen die in de DAP beschreven staan." ;
+    medmij:code "core.reg.102" ;
+    medmij:elementName "Register bevat namen, identificerende gegevens en uitwisselingsstatus" ;
+    medmij:layer "Business" ;
+    medmij:mappingNote "Alleen Aanbieders die voldoen aan DAP-eisen en -normen zijn opgenomen." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
+
+obj:register-gebaseerd-op-json-lijst a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "Het Aanbiedersregister is gebaseerd op de inhoud van technische lijst(en) die in JSON-formaat wordt aangeboden. MedMij Beheer levert uiterlijk 31 oktober 2023 de eerste versie van de lijst waarop het Aanbiedersregister gebaseerd is." ;
+    medmij:code "core.reg.201" ;
+    medmij:elementName "Register gebaseerd op JSON-lijst" ;
+    medmij:layer "Applicatie" ;
+    medmij:mappingNote "Technische lijst in JSON-formaat; eerste versie uiterlijk 31 oktober 2023." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
+
+obj:rollenmodel-diagram-business-applicatie-technologie a medmij:ImplementationGuideline,
+        medmij:Object ;
+    medmij:code "(rollen-core)" ;
+    medmij:elementName "Rollenmodel-diagram (Business/Applicatie/Technologie)" ;
+    medmij:layer "Business" ;
+    medmij:mappingNote "Visuele weergave van rolrelaties over de drie architectuurlagen." .
+
+obj:stelselnode-aandeel-voor-99-9-beschikbaar a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "Het aandeel van de MedMij Stelselnode in de functie Opvragen Whitelist is voor minstens 99,9% van de tijd beschikbaar. MedMij Registratie laat, na het niet beschikbaar raken van het aandeel van MedMij Stelselnode in de usecase, maximaal acht uren (480 minuten) verstrijken voordat het weer beschikbaar is." ;
+    medmij:code "core.whl.301" ;
+    medmij:elementName "Stelselnode-aandeel voor ≥99,9% beschikbaar" ;
+    medmij:governedBy obj:opvragen-whitelist ;
+    medmij:layer "Technologie" ;
+    medmij:mappingNote "Na onbeschikbaarheid maximaal 480 minuten herstel; MedMij Registratie verantwoordelijk." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
+
+obj:stichting-medmij-kan-registraties-verwijderen-bij-niet-functioneren a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "In aansluiting op verantwoordelijkheid core.gegevensdiensten.102 heeft Stichting MedMij het recht registraties van Aanbieder-gegevensdienst-combinaties te verwijderen als blijkt dat uitwisseling voor deze combinatie niet mogelijk is, of dat voor deze combinatie niet wordt voldaan aan de normen die staan beschreven in het Ketennormenbeleid." ;
+    medmij:code "core.gegevensdiensten.105" ;
+    medmij:elementName "Stichting MedMij kan registraties verwijderen bij niet-functioneren" ;
+    medmij:layer "Business" ;
+    medmij:mappingNote "Recht op verwijdering als uitwisseling niet mogelijk is of ketennormen worden geschonden." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
+
+obj:stichting-medmij-publiceert-aanbiedersregister-publiek a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "Stichting MedMij publiceert het Aanbiedersregister op een publiek toegankelijke locatie. MedMij Beheer publiceert uiterlijk 31 oktober 2023 de eerste versie." ;
+    medmij:code "core.reg.100" ;
+    medmij:elementName "Stichting MedMij publiceert Aanbiedersregister publiek" ;
+    medmij:layer "Business" ;
+    medmij:mappingNote "Eerste versie gepubliceerd uiterlijk 31 oktober 2023." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
+
+obj:tls-1-2-of-hoger-op-alle-medmij-verkeer a medmij:Object,
+        medmij:Requirement ;
+    medmij:code "(core.netwerk.*)" ;
+    medmij:elementName "TLS 1.2 of hoger op alle MedMij-verkeer" ;
+    medmij:layer "Technologie" ;
+    medmij:mappingNote "Alle backchannel- en frontchannel-verkeer versleuteld via TLS." .
+
+obj:toelichting-bij-vroege-vs-late-beschikbaarheidstoets a medmij:ImplementationGuideline,
+        medmij:Object ;
+    medmij:code "(core.verzamelen.*)" ;
+    medmij:elementName "Toelichting bij vroege vs. late beschikbaarheidstoets" ;
+    medmij:layer "Applicatie" ;
+    medmij:mappingNote "Aanbeveling om beschikbaarheidstoets bij token-interface te plaatsen i.v.m. performance." .
+
+obj:toelichting-oauth-grant-type-keuze a medmij:ImplementationGuideline,
+        medmij:Object ;
+    medmij:code "core.rollen.206" ;
+    medmij:elementName "Toelichting OAuth grant type keuze" ;
+    medmij:layer "Applicatie" ;
+    medmij:mappingNote "Onderbouwing van keuze voor Authorization Code i.p.v. andere grant types." .
+
+obj:toelichting-rolbezetting-black-box-principe a medmij:ImplementationGuideline,
+        medmij:Object ;
+    medmij:code "core.rollen.201" ;
+    medmij:elementName "Toelichting rolbezetting (black box-principe)" ;
+    medmij:layer "Business" ;
+    medmij:mappingNote "Uitleg dat xIS-architectuur achter de Node een black box is voor het afsprakenstelsel." .
+
+obj:uitzonderingstabel-authenticeren-authn-1-2 a medmij:ImplementationGuideline,
+        medmij:Object ;
+    medmij:code "(core.authn.*)" ;
+    medmij:elementName "Uitzonderingstabel Authenticeren (authn 1-2)" ;
+    medmij:layer "Applicatie" ;
+    medmij:mappingNote "Beschrijft twee afwijkende situaties bij authenticatie en de bijbehorende acties." .
+
+obj:uitzonderingstabel-autoriseren-authoz-1-3 a medmij:ImplementationGuideline,
+        medmij:Object ;
+    medmij:code "(core.authoz.*)" ;
+    medmij:elementName "Uitzonderingstabel Autoriseren (authoz 1-3)" ;
+    medmij:layer "Applicatie" ;
+    medmij:mappingNote "Beschrijft drie afwijkende situaties bij autorisatie en de bijbehorende acties." .
+
+obj:whitelist-controle-logisch-gescheiden-van-verwerking a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "Voor zover de Dienstverlener aanbieder ervoor kiest de controle tegen de Whitelist na afloop van de TLS-handshake uit te voeren, is deze controle logisch gescheiden van de bedoelde eerstvolgende stap. De vereiste volgordelijkheid kan worden aangetoond door middel van code-inspecties, penetratietesten en inspecties van logs." ;
+    medmij:code "core.whl.308" ;
+    medmij:elementName "Whitelist-controle logisch gescheiden van verwerking" ;
+    medmij:governedBy obj:opvragen-whitelist ;
+    medmij:layer "Technologie" ;
+    medmij:mappingNote "Controle na TLS-handshake is toegestaan maar moet logisch gescheiden zijn; aantoonbaar via code-inspectie." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> ;
+    medmij:toelichting "In geval van uitgaand verkeer kan de voorziene TLS-client de controle tegen de Whitelist al uitvoeren voordat hij de TLS-handshake initieert. In geval van inkomend verkeer echter, kan de TLS-server de zich aandienende TLS-client pas identificeren gedurende of na de TLS-handshake, aan de hand van het certificaat dat hij moet ontvangen. Door toe te staan dat niet alleen de Common Name maar ook een Subject Alternative Name de voor MedMij geautoriseerde hostname mag bevatten, biedt het MedMij Afsprakenstelsel aan deelnemers de mogelijkheid tot hergebruik van certificaten voor meerdere MedMij-nodes. Omdat er meerdere manieren zijn om dit na afloop van de TLS-handshake te implementeren, vereist het MedMij Afsprakenstelsel hiervoor geen vaste architectuurvariant (zoals met een reverse proxy), maar stelt het de vereiste van volgordelijkheid, naast een logische scheiding. Deze moeten kunnen worden aangetoond door middel van code-inspectie, penetratietesten en inspecties van logs." .
+
+obj:whitelist-controle-v-r-tls-handshake-client-of-v-r-verwerking-server a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText """
+De Node die de TLS-client zou worden, voert de in verantwoordelijkheid core.whl.306 bedoelde controle tegen de Whitelist uit, voorafgaand aan de start van de TLS-handshake. Indien die controle niet kan worden uitgevoerd of een negatief resultaat oplevert, wordt de TLS-handshake niet gestart.
+De Node die de TLS-server is, voert de in verantwoordelijkheid core.whl.306 bedoelde controle tegen de Whitelist geheel uit voordat enige volgende stap wordt gezet door de OAuth Authorization Server of OAuth Resource Server, volgens de specificaties van de functies Verzamelen en Delen. Deze vereiste wordt volgordelijkheid genoemd. Indien de controle tegen de Whitelist niet kan worden uitgevoerd, of een negatief resultaat oplevert, wordt de procesgang onmiddellijk afgebroken. De controle slaagt dan en slechts dan als op de Whitelist ten minste een van de volgende namen uit het door de TLS-client aangeboden certificaat voorkomen: de Common Name of een van de eventuele Subject Alternative Names.
+""" ;
+    medmij:code "core.whl.307" ;
+    medmij:elementName "Whitelist-controle vóór TLS-handshake (client) of vóór verwerking (server)" ;
+    medmij:governedBy obj:opvragen-whitelist ;
+    medmij:layer "Technologie" ;
+    medmij:mappingNote "TLS-client controleert vooraf; TLS-server controleert volledig vóór eerstvolgende stap (volgordelijkheid)." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
+
+obj:whitelist-verkeer-beveiligd-met-versleuteling-server-auth a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "Ten behoeve van de technische beveiliging van het gegevensverkeer, dat zich voltrekt in het kader van de functie Opvragen Whitelist, maken betrokken rollen gebruik van Versleuteling, Server Authentication en Server Authorization." ;
+    medmij:code "core.whl.305" ;
+    medmij:elementName "Whitelist-verkeer beveiligd met Versleuteling + Server Auth" ;
+    medmij:governedBy obj:opvragen-whitelist ;
+    medmij:layer "Technologie" ;
+    medmij:mappingNote "Opvragen Whitelist gebruikt Versleuteling, Server Authentication en Server Authorization." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
+
+medmij:governedBy a rdf:Property ;
+    rdfs:comment "Verbindt een Arrangement met het Module waaronder het valt (op basis van codeprefix)."@nl .
+
+medmij:hasRequirement a rdf:Property ;
+    rdfs:comment "Verbindt een Module of Service met een Eis die erop van toepassing is."@nl .
+
+medmij:hasSpecification a rdf:Property ;
+    rdfs:comment "Verbindt een Module of Service met een Specificatie die erop van toepassing is."@nl .
+
+medmij:specifiesArrangement a rdf:Property ;
+    rdfs:comment "Verbindt een Eis of Specificatie met de Afspraak die zij nader uitwerkt (zelfde code)."@nl .
+
+obj:aanbiedersregister-reg a medmij:DataProduct,
+        medmij:Object ;
+    medmij:code "(core.functies.*)" ;
+    medmij:elementName "Aanbiedersregister (REG)" ;
+    medmij:layer "Business" ;
+    medmij:mappingNote "Publiek raadpleegbaar register van Aanbieders en hun gegevensdiensten; voor mensen leesbaar." .
+
+obj:authorization-endpoint-per-aanbiedergegevensdienst a medmij:DataResource,
+        medmij:Object ;
+    medmij:code "(core.authoz.*)" ;
+    medmij:elementName "Authorization endpoint (per AanbiederGegevensdienst)" ;
+    medmij:layer "Technologie" ;
+    medmij:mappingNote "Het adres waarop de DVP Server een authorization request initieert." .
+
+obj:autoriseren-met-langdurige-toestemming a medmij:Module,
+        medmij:Object ;
+    medmij:code "(core.authoz.*)" ;
+    medmij:elementName "Autoriseren (met langdurige toestemming)" ;
+    medmij:hasRequirement obj:refresh-token-geldigheid-max-6-maanden,
+        obj:toestemmingslog-bij-dva-bijhouden ;
+    medmij:hasSpecification obj:pkce-rfc-7636 ;
+    medmij:layer "Business/Applicatie" ;
+    medmij:mappingNote "Refresh-token flow; alleen van toepassing voor Verzamelen." .
+
+obj:beheren-toestemmingen a medmij:Module,
+        medmij:Object,
+        medmij:Service ;
+    medmij:code "(core.toestemming.*)",
+        "—" ;
+    medmij:elementName "Beheren Toestemmingen" ;
+    medmij:layer "Business",
+        "Business/Applicatie" ;
+    medmij:mappingNote "DVA biedt Persoon via DVP de functie om langdurige toestemmingen te beheren.",
+        "Persoon beheert (in)trekt langdurige toestemmingen via DVP bij DVA." .
+
+obj:beschikbaarheidstoets-verplicht-late-variant a medmij:Object,
+        medmij:Requirement ;
+    medmij:code "(core.verzamelen.*)" ;
+    medmij:elementName "Beschikbaarheidstoets verplicht (late variant)" ;
+    medmij:layer "Applicatie" ;
+    medmij:mappingNote "Minimaal op token-interface uitvoeren om dataminimalisatie te borgen." .
+
+obj:bevestigingsverklaring a medmij:DataSet,
+        medmij:Object ;
+    medmij:code "(core.authoz.*)" ;
+    medmij:elementName "Bevestigingsverklaring" ;
+    medmij:layer "Business" ;
+    medmij:mappingNote "Gegevensset bij de functie Delen; DVA bevestigt ontvangst." .
+
+obj:digid-als-authenticatiemiddel-niveau-substantieel a medmij:Object,
+        medmij:Requirement ;
+    medmij:code "(core.authn.*)" ;
+    medmij:elementName "DigiD als authenticatiemiddel (niveau Substantieel)" ;
+    medmij:layer "Applicatie" ;
+    medmij:mappingNote "DVA is verplicht DigiD te gebruiken; andere middelen vereisen afzonderlijke toelating." .
+
+obj:dvp-server-gebruikt-n-frontchannel-node-uit-ocl a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText """
+In het MedMij-netwerk functioneert:
+
+- iedere rol uit de applicatie-laag op één of meer Frontchannel en/of Backchannel Nodes;
+- elke DVP Server voor al diens frontchannel-verkeer op één Frontchannel Node, met een hostname die voor die DVP Server voorkomt op de OAuth Client List;
+- MedMij Registratie op precies één node, de Stelselnode. Zonder de MedMij Stelselnode is er geen MedMij-netwerk.
+""" ;
+    medmij:code "core.rollen.300" ;
+    medmij:elementName "DVP Server gebruikt één Frontchannel Node uit OCL" ;
+    medmij:layer "Technologie" ;
+    medmij:mappingNote "Elke DVP Server gebruikt precies één Frontchannel Node met hostname uit OAuth Client List." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> ;
+    medmij:toelichting """
+Het is toegestaan om een Authorization Server en een Resource Server te verdelen over verschillende Nodes, maar ook te combineren op dezelfde. De afsprakenset staat het zelfs toe dat Authorization Server en Resource Server elk apart op meerdere Nodes worden geprojecteerd. Het kan dan voorkomen dat, bij de betreffende AanbiederGegevensdiensten in de Aanbiederslijst, hostnames in de endpointadressen staan die verschillen tussen het authorization endpoint, het token endpoint en het resource endpoint, zelfs bij eenzelfde Interfaceversie. Een belangrijke eis blijft evenwel dat al deze hostnames bij Nodes van eenzelfde Dienstverlener aanbieder horen.
+In het Aanbiedersdomein treden alleen de Nodes op in het MedMij-netwerk. Dat wil zeggen dat achterliggende xIS'en niet over het MedMij-netwerk communiceren met de Node. Dat verkeer is verborgen achter de Node.
+""" .
+
+obj:fhir-r4-hl7 a medmij:Object,
+        medmij:Specification ;
+    medmij:code "(informatiemodel.*)" ;
+    medmij:elementName "FHIR R4 (HL7)" ;
+    medmij:layer "Applicatie" ;
+    medmij:mappingNote "Standaard voor gestructureerde gezondheidsgegevensuitwisseling." .
+
+obj:gegevensdienstnamenlijst-gnl a medmij:DataProduct,
+        medmij:Object ;
+    medmij:code "(core.gnl.*)" ;
+    medmij:elementName "Gegevensdienstnamenlijst (GNL)" ;
+    medmij:layer "Applicatie" ;
+    medmij:mappingNote "Bevat gebruiksvriendelijke namen van gegevensdiensten; opgehaald door DVP en DVA." .
+
+obj:medmij-domeinen a medmij:Framework,
+        medmij:Object ;
+    medmij:code "—" ;
+    medmij:elementName "MedMij Domeinen" ;
+    medmij:layer "Business" ;
+    medmij:mappingNote "Domeinspecifieke aanvullingen (bijv. Zorg) die cross-cutting van toepassing zijn." .
+
+obj:medmij-extensies a medmij:Framework,
+        medmij:Object ;
+    medmij:code "—" ;
+    medmij:elementName "MedMij Extensies" ;
+    medmij:layer "Business" ;
+    medmij:mappingNote "Optioneel uitbreidbaar deel bovenop de Core (bijv. Abonneren, Vertegenwoordiging)." .
+
+obj:medmij-interfaceversie-zal-formaat a medmij:Object,
+        medmij:Specification ;
+    medmij:code "(core.zal.*)" ;
+    medmij:elementName "MedMij Interfaceversie (ZAL-formaat)" ;
+    medmij:layer "Applicatie" ;
+    medmij:mappingNote "Interne specificatie van het formaat van endpoints in de Aanbiederslijst." .
+
+obj:medmij-registratie a medmij:Component,
+        medmij:Object ;
+    medmij:code "core.rollen.204" ;
+    medmij:elementName "MedMij Registratie" ;
+    medmij:layer "Applicatie" ;
+    medmij:mappingNote "Centrale administratie en publicatie van lijsten en register; beheert de Stelselnode." .
+
+obj:oauth-2-0-authorization-code-als-grant-type a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText """
+Een aanpassing - Ten behoeve van het autoriseren van DVP Server voor toegang tot Resource Server, in het kader van de functies Verzamelen en Delen, zullen de betrokken User Agent, DVP Server, Authorization Server en Resource Server gebruik maken van OAuth 2.0, waarbij als grant type gebruik wordt gemaakt van Authorization Code en waarbij:
+
+- de rol van OAuth Resource Owner wordt verzorgd door de Persoon;
+- de rol van OAuth Client wordt verzorgd door de DVP Server;
+- de rol van OAuth Resource Server wordt verzorgd door de Resource Server;
+- de rol van OAuth Authorization Server wordt verzorgd door de Authorization Server.
+""" ;
+    medmij:code "core.rollen.206" ;
+    medmij:elementName "OAuth 2.0 Authorization Code als grant type" ;
+    medmij:layer "Applicatie" ;
+    medmij:mappingNote "User Agent, DVP Server, Authorization Server en Resource Server gebruiken OAuth 2.0 Authorization Code." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> ;
+    medmij:toelichting "De keuze, in OAuth, voor de grant type Authorization Code past bij de typische software-architectuur die in MedMij in het Persoonsdomein wordt aangetroffen: toegang tot een PGO-dienst via componenten die niet onder controle van de OAuth Client vallen en als betrekkelijk onveilig moeten worden gezien." .
+
+obj:oauth-client-list-ocl a medmij:DataProduct,
+        medmij:Object ;
+    medmij:code "(core.ocl.*)" ;
+    medmij:elementName "OAuth Client List (OCL)" ;
+    medmij:layer "Applicatie" ;
+    medmij:mappingNote "Bevat DVP-clientnamen, toegestane diensten en notificatieadressen; opgehaald door DVA." .
+
+obj:ontvankelijkheidstoets-verplicht-voor-delen a medmij:Object,
+        medmij:Requirement ;
+    medmij:code "(core.delen.*)" ;
+    medmij:elementName "Ontvankelijkheidstoets verplicht voor Delen" ;
+    medmij:layer "Applicatie" ;
+    medmij:mappingNote "Uitvoeren vóór resource-aanroep om dataminimalisatie te borgen." .
+
+obj:pkio-pki-overheid-certificatenbeleid a medmij:Object,
+        medmij:Specification ;
+    medmij:code "(core.netwerk.*)" ;
+    medmij:elementName "PKIO (PKI Overheid) Certificatenbeleid" ;
+    medmij:layer "Technologie" ;
+    medmij:mappingNote "Certificaatbeleid voor overheids-PKI; geldt voor Nodes in MedMij-netwerk." .
+
+obj:resource-endpoint-per-aanbiedergegevensdienst a medmij:DataResource,
+        medmij:Object ;
+    medmij:code "(core.verzamelen/delen.*)" ;
+    medmij:elementName "Resource endpoint (per AanbiederGegevensdienst)" ;
+    medmij:layer "Technologie" ;
+    medmij:mappingNote "Het adres van de Resource Server voor het feitelijk ophalen of versturen van gezondheidsgegevens." .
+
+obj:stelselnode-endpoints-zal-ocl-gnl-whl a medmij:DataResource,
+        medmij:Object ;
+    medmij:code "(core.zal/ocl/gnl/whl.*)" ;
+    medmij:elementName "Stelselnode-endpoints (ZAL, OCL, GNL, WHL)" ;
+    medmij:layer "Technologie" ;
+    medmij:mappingNote "De endpoints van MedMij Registratie waarop de lijsten worden gepubliceerd." .
+
+obj:tls-1-2-1-3-rfc-5246-8446 a medmij:Object,
+        medmij:Specification ;
+    medmij:code "(core.netwerk.*)" ;
+    medmij:elementName "TLS 1.2 / 1.3 (RFC 5246 / 8446)" ;
+    medmij:layer "Technologie" ;
+    medmij:mappingNote "Transportbeveiliging; minimaal versie 1.2 verplicht." .
+
+obj:toestemmingsverklaring a medmij:DataSet,
+        medmij:Object ;
+    medmij:code "(core.authoz.*)" ;
+    medmij:elementName "Toestemmingsverklaring" ;
+    medmij:layer "Business" ;
+    medmij:mappingNote "Gegevensset van de afgegeven toestemming (Persoon, DVA, gegevensdienst, tijdstip)." .
+
+obj:token-endpoint-per-aanbiedergegevensdienst a medmij:DataResource,
+        medmij:Object ;
+    medmij:code "(core.authoz.*)" ;
+    medmij:elementName "Token endpoint (per AanbiederGegevensdienst)" ;
+    medmij:layer "Technologie" ;
+    medmij:mappingNote "Het adres waarop de DVP Server een access-token (en refresh-token) ophaalt." .
+
+obj:user-agent a medmij:Component,
+        medmij:Object ;
+    medmij:code "core.rollen.203" ;
+    medmij:elementName "User Agent" ;
+    medmij:layer "Applicatie" ;
+    medmij:mappingNote "Front-end van DVP; communiceert met Authorization Server via browser-redirect." .
+
+obj:digid-koppelvlakspecificatie a medmij:Object,
+        medmij:Specification ;
+    medmij:code "(core.authn.*)" ;
+    medmij:elementName "DigiD Koppelvlakspecificatie" ;
+    medmij:layer "Applicatie" ;
+    medmij:mappingNote "Specificatie van de koppeling met het DigiD-stelsel." .
+
+obj:dvp-server a medmij:Component,
+        medmij:Object ;
+    medmij:code "core.rollen.200 / 203" ;
+    medmij:elementName "DVP Server" ;
+    medmij:layer "Applicatie" ;
+    medmij:mappingNote "Verzamelt en deelt gezondheidsgegevens namens Persoon; fungeert als OAuth Client." .
+
+obj:fhir-profiel-per-gegevensdienst a medmij:DataSet,
+        medmij:Object ;
+    medmij:code "(informatiemodel.*)" ;
+    medmij:elementName "FHIR-profiel per gegevensdienst" ;
+    medmij:layer "Applicatie" ;
+    medmij:mappingNote "Concrete FHIR-profilering van de gegevensset; opgenomen als ObjectVersion met standardFamily=FHIR R4." .
+
+obj:refresh-token-geldigheid-max-6-maanden a medmij:Object,
+        medmij:Requirement ;
+    medmij:code "(core.authoz.*)" ;
+    medmij:elementName "Refresh-token geldigheid max. 6 maanden" ;
+    medmij:layer "Applicatie" ;
+    medmij:mappingNote "Bij langdurige toestemming; nieuw refresh-token bij elke inruil." .
+
+obj:resource-server a medmij:Component,
+        medmij:Object ;
+    medmij:code "core.rollen.202 / 205" ;
+    medmij:elementName "Resource Server" ;
+    medmij:layer "Applicatie" ;
+    medmij:mappingNote "Biedt gezondheidsgegevens aan of ontvangt ze; valideert access-token." .
+
+obj:toestemmingslog-bij-dva-bijhouden a medmij:Object,
+        medmij:Requirement ;
+    medmij:code "(core.authoz.*)" ;
+    medmij:elementName "Toestemmingslog bij DVA bijhouden" ;
+    medmij:layer "Applicatie" ;
+    medmij:mappingNote "DVA logt elke afgegeven toestemming inclusief Persoon-identiteit en gegevensdienst." .
+
+obj:whitelist-whl a medmij:DataProduct,
+        medmij:Object ;
+    medmij:code "(core.whl.*)" ;
+    medmij:elementName "Whitelist (WHL)" ;
+    medmij:layer "Technologie" ;
+    medmij:mappingNote "Bevat actieve Nodes in het MedMij-netwerk; opgehaald door DVP en DVA." .
+
+obj:authorization-server a medmij:Component,
+        medmij:Object ;
+    medmij:code "core.rollen.201 / 204" ;
+    medmij:elementName "Authorization Server" ;
+    medmij:layer "Applicatie" ;
+    medmij:mappingNote "Beheert toestemming en autorisatie namens DVA; tevens Authentication Client." .
+
+obj:medmij-afsprakenstelsel a medmij:Framework,
+        medmij:Object ;
+    medmij:code "—" ;
+    medmij:elementName "MedMij Afsprakenstelsel" ;
+    medmij:layer "Business" ;
+    medmij:mappingNote "Het totale stelsel; root-object van alle overige objecten." .
+
+obj:oauth-2-0-rfc-6749 a medmij:Object,
+        medmij:Specification ;
+    medmij:code "core.rollen.206" ;
+    medmij:elementName "OAuth 2.0 (RFC 6749)" ;
+    medmij:layer "Applicatie" ;
+    medmij:mappingNote "Autorisatieframework; grant type Authorization Code verplicht." ;
+    medmij:specifiesArrangement obj:oauth-2-0-authorization-code-als-grant-type .
+
+obj:openid-connect-oidc a medmij:Object,
+        medmij:Specification ;
+    medmij:code "(core.authn.*)" ;
+    medmij:elementName "OpenID Connect (OIDC)" ;
+    medmij:layer "Applicatie" ;
+    medmij:mappingNote "Authenticatielaag bovenop OAuth 2.0; gebruikt voor BSN-ophaling via DigiD." .
+
+obj:pkce-rfc-7636 a medmij:Object,
+        medmij:Specification ;
+    medmij:code "(core.authoz.*)" ;
+    medmij:elementName "PKCE (RFC 7636)" ;
+    medmij:layer "Applicatie" ;
+    medmij:mappingNote "Proof Key for Code Exchange; verplicht voor publieke clients." .
+
+obj:aanbiederslijst-zal a medmij:DataProduct,
+        medmij:Object ;
+    medmij:code "(core.zal.*)" ;
+    medmij:elementName "Aanbiederslijst (ZAL)" ;
+    medmij:layer "Applicatie" ;
+    medmij:mappingNote "Bevat welke Aanbieders welke Gegevensdiensten op welke endpoints aanbieden; opgehaald door DVP." .
+
+obj:authenticeren a medmij:Module,
+        medmij:Object ;
+    medmij:code "(core.authn.*)" ;
+    medmij:elementName "Authenticeren" ;
+    medmij:hasRequirement obj:digid-als-authenticatiemiddel-niveau-substantieel ;
+    medmij:hasSpecification obj:digid-koppelvlakspecificatie,
+        obj:openid-connect-oidc ;
+    medmij:layer "Business/Applicatie" ;
+    medmij:mappingNote "Identiteitsvaststelling Persoon via externe Authentication Server (DigiD)." .
+
+obj:autoriseren-zonder-langdurige-toestemming a medmij:Module,
+        medmij:Object ;
+    medmij:code "(core.authoz.*)" ;
+    medmij:elementName "Autoriseren (zonder langdurige toestemming)" ;
+    medmij:hasRequirement obj:refresh-token-geldigheid-max-6-maanden,
+        obj:toestemmingslog-bij-dva-bijhouden ;
+    medmij:hasSpecification obj:pkce-rfc-7636 ;
+    medmij:layer "Business/Applicatie" ;
+    medmij:mappingNote "OAuth Authorization Code flow inclusief beschikbaarheids- en ontvankelijkheidstoets." .
+
+obj:opvragen-gegevensdienstnamenlijst a medmij:Module,
+        medmij:Object ;
+    medmij:code "(core.gnl.*)" ;
+    medmij:elementName "Opvragen Gegevensdienstnamenlijst" ;
+    medmij:layer "Applicatie" ;
+    medmij:mappingNote "DVP en DVA halen GNL op voor gebruiksvriendelijke weergave van diensten." .
+
+obj:delen a medmij:Object,
+        medmij:Service ;
+    medmij:code "—" ;
+    medmij:elementName "Delen" ;
+    medmij:hasRequirement obj:ontvankelijkheidstoets-verplicht-voor-delen ;
+    medmij:layer "Business" ;
+    medmij:mappingNote "DVP biedt Persoon de functie om gezondheidsgegevens met DVA te delen." .
+
+obj:opvragen-oauth-client-list a medmij:Module,
+        medmij:Object ;
+    medmij:code "(core.ocl.*)" ;
+    medmij:elementName "Opvragen OAuth Client List" ;
+    medmij:layer "Applicatie" ;
+    medmij:mappingNote "DVA haalt OCL op bij MedMij Registratie; valideert DVP-clients." .
+
+obj:opvragen-aanbiederslijst a medmij:Module,
+        medmij:Object ;
+    medmij:code "(core.zal.*)" ;
+    medmij:elementName "Opvragen Aanbiederslijst" ;
+    medmij:hasSpecification obj:medmij-interfaceversie-zal-formaat ;
+    medmij:layer "Applicatie" ;
+    medmij:mappingNote "DVP haalt ZAL op bij MedMij Registratie; bepaalt beschikbare endpoints." .
+
+obj:verzamelen a medmij:Object,
+        medmij:Service ;
+    medmij:code "core.dossier.100" ;
+    medmij:elementName "Verzamelen" ;
+    medmij:hasRequirement obj:beschikbaarheidstoets-verplicht-late-variant ;
+    medmij:layer "Business" ;
+    medmij:mappingNote "DVP biedt Persoon de functie om gezondheidsgegevens bij DVA op te halen." .
+
+obj:opvragen-whitelist a medmij:Module,
+        medmij:Object ;
+    medmij:code "(core.whl.*)" ;
+    medmij:elementName "Opvragen Whitelist" ;
+    medmij:layer "Applicatie" ;
+    medmij:mappingNote "DVP en DVA halen WHL op; valideren of Nodes actief mogen zijn." .
+
+obj:medmij-core a medmij:Framework,
+        medmij:Object ;
+    medmij:code "—" ;
+    medmij:elementName "MedMij Core" ;
+    medmij:layer "Business" ;
+    medmij:mappingNote "Verplicht fundament voor alle deelnemers; omvat de kernfuncties." .
+

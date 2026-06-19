@@ -1,0 +1,10 @@
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj: <https://register.medmij.nl/objects/> .
+
+obj:uitzonderingstabel-autoriseren-authoz-1-3 a medmij:ImplementationGuideline,
+        medmij:Object ;
+    medmij:code "(core.authoz.*)" ;
+    medmij:elementName "Uitzonderingstabel Autoriseren (authoz 1-3)" ;
+    medmij:layer "Applicatie" ;
+    medmij:mappingNote "Beschrijft drie afwijkende situaties bij autorisatie en de bijbehorende acties." .
+

@@ -1,0 +1,12 @@
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj: <https://register.medmij.nl/objects/> .
+
+obj:account-wordt-actief-bij-hergebruik-persoon a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "De dienstverlener persoon geeft een inactief account de status 'actief' zodra de Persoon weer gebruikmaakt van het account." ;
+    medmij:code "core.account.102" ;
+    medmij:elementName "Account wordt actief bij hergebruik Persoon" ;
+    medmij:layer "Business" ;
+    medmij:mappingNote "DVP herstelt status 'actief' zodra Persoon account weer gebruikt." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
+

@@ -1,0 +1,12 @@
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj: <https://register.medmij.nl/objects/> .
+
+obj:medmij-beheer-biedt-functie-opvragen-ocl-aan-deelnemers a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "MedMij Beheer biedt aan Deelnemers de functie Opvragen OAuth Client List om de actuele versie van die OAuth Client List op te vragen. Betrokken rollen gebruiken hiertoe het betreffende stroomdiagram." ;
+    medmij:code "core.ocl.102" ;
+    medmij:elementName "MedMij Beheer biedt functie Opvragen OCL aan Deelnemers" ;
+    medmij:layer "Business" ;
+    medmij:mappingNote "Deelnemers vragen actuele OCL op via stroomdiagram." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
+

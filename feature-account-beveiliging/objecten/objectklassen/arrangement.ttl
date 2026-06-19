@@ -1,0 +1,14 @@
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj: <https://register.medmij.nl/objects/> .
+
+obj:class-arrangement a medmij:Object,
+        medmij:ObjectClass ;
+    medmij:classCode "Arrangement" ;
+    medmij:code "—" ;
+    medmij:definition "Een verantwoordelijkheid of verplichting die deelnemers in onderlinge overeenstemming nakomen; de 'artikelen' van het stelsel." ;
+    medmij:dutchName "Afspraak" ;
+    medmij:elementName "Afspraak" ;
+    medmij:examples "core.rollen.101, core.dossier.100, core.authn.203" ;
+    medmij:layer "—" ;
+    medmij:mappingNote "Verantwoordelijkheid of verplichting die deelnemers in onderlinge overeenstemming nakomen." .
+

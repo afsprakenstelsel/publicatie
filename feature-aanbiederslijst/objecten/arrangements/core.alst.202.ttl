@@ -1,0 +1,12 @@
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj: <https://register.medmij.nl/objects/> .
+
+obj:dvp-server-valideert-aanbiederslijst-tegen-xml-schema a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "DVP Server valideert elke nieuw verkregen Aanbiederslijst tegen het XML-schema van de Aanbiederslijst." ;
+    medmij:code "core.alst.202" ;
+    medmij:elementName "DVP Server valideert Aanbiederslijst tegen XML-schema" ;
+    medmij:layer "Applicatie" ;
+    medmij:mappingNote "Elke nieuw verkregen Aanbiederslijst gevalideerd tegen gepubliceerd XML-schema." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
+

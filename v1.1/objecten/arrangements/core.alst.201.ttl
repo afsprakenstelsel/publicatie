@@ -1,0 +1,12 @@
+@prefix medmij: <https://register.medmij.nl/ontology/> .
+@prefix obj: <https://register.medmij.nl/objects/> .
+
+obj:dvp-server-haalt-aanbiederslijst-minstens-elke-15-min-op a medmij:Arrangement,
+        medmij:Object ;
+    medmij:arrangementText "DVP Server betrekt minstens elke vijftien minuten (900 seconden) de meest recente Aanbiederslijst van MedMij Registratie." ;
+    medmij:code "core.alst.201" ;
+    medmij:elementName "DVP Server haalt Aanbiederslijst minstens elke 15 min op" ;
+    medmij:layer "Applicatie" ;
+    medmij:mappingNote "Maximaal 900 seconden oud; meest recente versie van MedMij Registratie." ;
+    medmij:sourceUrl <https://afsprakenstelsel.medmij.nl/asverplicht/mmverplicht/verantwoordelijkheden-core> .
+
