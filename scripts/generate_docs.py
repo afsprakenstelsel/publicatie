@@ -2,7 +2,9 @@
 """Genereer MkDocs markdown-pagina's en RDF-bestanden vanuit TTL-objectbestanden."""
 
 import argparse
+import difflib
 import json
+import re
 import shutil
 import subprocess
 from pathlib import Path
@@ -91,8 +93,32 @@ def render_md(text: str) -> str:
 
 # ── cel-renderers ─────────────────────────────────────────────────────────────
 
-def text_cell(arrangement_text: str, toelichting: str) -> str:
-    parts = [render_md(arrangement_text)]
+def diff_text(old: str, new: str) -> str:
+    """Word-level diff als inline HTML met <ins>/<del> tags."""
+    old_tokens = re.findall(r'\S+|\s+', old)
+    new_tokens = re.findall(r'\S+|\s+', new)
+    matcher = difflib.SequenceMatcher(None, old_tokens, new_tokens, autojunk=False)
+    parts = []
+    for op, i1, i2, j1, j2 in matcher.get_opcodes():
+        old_chunk = ''.join(old_tokens[i1:i2])
+        new_chunk = ''.join(new_tokens[j1:j2])
+        if op == 'equal':
+            parts.append(old_chunk)
+        elif op == 'insert':
+            parts.append(f'<ins>{new_chunk}</ins>')
+        elif op == 'delete':
+            parts.append(f'<del>{old_chunk}</del>')
+        elif op == 'replace':
+            parts.append(f'<del>{old_chunk}</del><ins>{new_chunk}</ins>')
+    return ''.join(parts)
+
+
+def text_cell(arrangement_text: str, toelichting: str, old_text: str = "") -> str:
+    if old_text and old_text != arrangement_text:
+        rendered = render_md(diff_text(old_text, arrangement_text))
+    else:
+        rendered = render_md(arrangement_text)
+    parts = [rendered]
     if toelichting:
         parts.append(
             f"<details><summary>{_INFO_SVG}Toelichting</summary>"
@@ -139,19 +165,14 @@ def change_badge_html(change_type: str) -> str:
 
 # ── data laden ────────────────────────────────────────────────────────────────
 
-def parse_object(ttl_file: Path) -> dict | None:
-    g = rdflib.Graph()
-    g.parse(str(ttl_file), format="turtle")
-
-    def val(pred):
-        v = g.value(subj, pred)
-        return str(v).strip() if v else ""
-
+def _parse_graph(g: rdflib.Graph) -> dict | None:
     subjects = list(g.subjects(RDF.type, MEDMIJ.Object))
     if not subjects:
         return None
-
     subj = subjects[0]
+    def val(pred):
+        v = g.value(subj, pred)
+        return str(v).strip() if v else ""
     return {
         "uri":             str(subj),
         "code":            val(MEDMIJ.code),
@@ -161,6 +182,18 @@ def parse_object(ttl_file: Path) -> dict | None:
         "arrangementText": val(MEDMIJ.arrangementText),
         "toelichting":     val(MEDMIJ.toelichting),
     }
+
+
+def parse_object(ttl_file: Path) -> dict | None:
+    g = rdflib.Graph()
+    g.parse(str(ttl_file), format="turtle")
+    return _parse_graph(g)
+
+
+def parse_ttl_string(content: str) -> dict | None:
+    g = rdflib.Graph()
+    g.parse(data=content, format="turtle")
+    return _parse_graph(g)
 
 
 def build_context() -> tuple[dict[str, dict], dict[str, list]]:
@@ -207,10 +240,10 @@ def load_releases() -> dict:
     return json.loads(RELEASES_FILE.read_text(encoding="utf-8"))
 
 
-def compute_changes(parent_ref: str) -> dict[str, str]:
+def compute_changes(parent_ref: str) -> tuple[dict[str, str], dict[str, str]]:
     """
     Vergelijk huidige objecten met parent_ref via git diff.
-    Geeft {code: 'new'|'modified'} terug.
+    Geeft ({code: 'new'|'modified'}, {code: oude_arrangementText}) terug.
     """
     try:
         result = subprocess.run(
@@ -219,9 +252,10 @@ def compute_changes(parent_ref: str) -> dict[str, str]:
         )
     except subprocess.CalledProcessError:
         print(f"Waarschuwing: git diff mislukt voor ref '{parent_ref}'.")
-        return {}
+        return {}, {}
 
     changes: dict[str, str] = {}
+    text_diffs: dict[str, str] = {}
     for line in result.stdout.strip().splitlines():
         if not line:
             continue
@@ -233,9 +267,23 @@ def compute_changes(parent_ref: str) -> dict[str, str]:
         obj = parse_object(Path(filepath))
         if not obj or not obj["code"]:
             continue
-        changes[obj["code"]] = "new" if status == "A" else "modified"
+        code = obj["code"]
+        changes[code] = "new" if status == "A" else "modified"
 
-    return changes
+        # Haal oude arrangementText op voor gewijzigde objecten met tekst
+        if status == "M" and obj["arrangementText"]:
+            old = subprocess.run(
+                ["git", "show", f"{parent_ref}:{filepath}"],
+                capture_output=True, text=True,
+            )
+            if old.returncode == 0:
+                old_obj = parse_ttl_string(old.stdout)
+                if old_obj and old_obj.get("arrangementText"):
+                    old_text = old_obj["arrangementText"]
+                    if old_text != obj["arrangementText"]:
+                        text_diffs[code] = old_text
+
+    return changes, text_diffs
 
 
 def write_version_meta(version_cfg: dict, releases: dict, changes: dict[str, str]) -> None:
@@ -274,6 +322,7 @@ def generate_page(
     obj_info: dict,
     outgoing: dict,
     changes: dict[str, str],
+    text_diffs: dict[str, str],
 ) -> None:
     title = DIR_TITLES.get(dir_path.name, dir_path.name.replace("-", " ").title())
     rows = []
@@ -297,7 +346,7 @@ def generate_page(
             css += " row-changed"
 
         if row["arrangementText"]:
-            tekst = text_cell(row["arrangementText"], row["toelichting"])
+            tekst = text_cell(row["arrangementText"], row["toelichting"], text_diffs.get(row["code"], ""))
         else:
             tekst = object_cell(row["elementName"], row["mappingNote"])
 
@@ -396,10 +445,11 @@ def main():
 
     # Bereken wijzigingen t.o.v. parent
     changes: dict[str, str] = {}
+    text_diffs: dict[str, str] = {}
     if parent_ref:
         print(f"Vergelijk met '{parent_ref}'...")
-        changes = compute_changes(parent_ref)
-        print(f"  {len(changes)} gewijzigde objecten gevonden.")
+        changes, text_diffs = compute_changes(parent_ref)
+        print(f"  {len(changes)} gewijzigde objecten gevonden ({len(text_diffs)} met tekstdiff).")
 
     # Schrijf version-meta.js voor het template
     write_version_meta(version_cfg, releases, changes)
@@ -410,7 +460,7 @@ def main():
 
     for subdir in sorted(OBJECTEN_DIR.iterdir()):
         if subdir.is_dir() and not subdir.name.startswith("."):
-            generate_page(subdir, obj_info, outgoing, changes)
+            generate_page(subdir, obj_info, outgoing, changes, text_diffs)
 
     publish_rdf()
 
